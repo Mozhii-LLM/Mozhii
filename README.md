@@ -1,2 +1,0 @@
-# Mozhii
-Mozhii Landing page
