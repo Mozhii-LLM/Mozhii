@@ -59,6 +59,7 @@ export default function HomePage() {
                   </h1>
                   <p className="mt-4 text-neutral-300 max-w-lg mx-auto lg:mx-0">{t.hero.description}</p>
 
+
                   <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
                     <Button size="lg" className="bg-white text-black hover:bg-gray-100">
                       {t.hero.joinWaitlist}
