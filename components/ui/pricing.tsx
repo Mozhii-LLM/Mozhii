@@ -27,12 +27,16 @@ interface PricingProps {
   plans: PricingPlan[]
   title?: string
   description?: string
+  annualBillingText?: string
+  saveText?: string
 }
 
 export function Pricing({
   plans,
   title = "Simple, Transparent Pricing",
   description = "Choose the plan that works for you\nAll plans include access to our platform, lead generation tools, and dedicated support.",
+  annualBillingText = "Annual billing",
+  saveText = "(Save 20%)",
 }: PricingProps) {
   const [isMonthly, setIsMonthly] = useState(true)
   const isDesktop = useMediaQuery("(min-width: 768px)")
@@ -76,7 +80,7 @@ export function Pricing({
           </Label>
         </label>
         <span className="ml-2 font-semibold text-white">
-          Annual billing <span className="text-blue-400">(Save 20%)</span>
+          {annualBillingText} <span className="text-blue-400">{saveText}</span>
         </span>
       </div>
 
@@ -125,9 +129,21 @@ export function Pricing({
             <div className="flex-1 flex flex-col">
               <p className="text-base font-semibold text-gray-300">{plan.name}</p>
               <div className="mt-6 flex items-center justify-center gap-x-2">
-                <span className="text-5xl font-bold tracking-tight text-white transition-all duration-500 ease-out">
-                  ${isMonthly ? plan.price : plan.yearlyPrice}
-                </span>
+                {(() => {
+                  const price = isMonthly ? plan.price : plan.yearlyPrice
+                  const isNumeric = /^\d/.test(price)
+                  return (
+                    <span
+                      className={cn(
+                        "font-bold tracking-tight text-white transition-all duration-500 ease-out",
+                        isNumeric ? "text-5xl" : "text-2xl",
+                      )}
+                    >
+                      {isNumeric && "$"}
+                      {price}
+                    </span>
+                  )
+                })()}
                 {plan.period !== "Next 3 months" && (
                   <span className="text-sm font-semibold leading-6 tracking-wide text-gray-300">/ {plan.period}</span>
                 )}

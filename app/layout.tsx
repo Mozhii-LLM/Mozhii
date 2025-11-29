@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
+import { LanguageProvider } from '@/lib/language-context'
+import { LanguageSwitcher } from '@/components/language-switcher'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -31,7 +33,10 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/assets/3d/logo.png" />
       </head>
       <body className={`font-sans antialiased ${GeistSans.variable} ${GeistMono.variable}`}>
-        {children}
+        <LanguageProvider>
+          <LanguageSwitcher />
+          {children}
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>
