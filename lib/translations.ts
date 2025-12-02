@@ -67,7 +67,7 @@ export const translations = {
       annualBilling: "Annual billing",
       save20: "(Save 20%)",
       p1: {
-        name: "Mozhi lite",
+        name: "Mozhii lite",
         price: "Free",
         desc: "Perfect for small businesses starting their AI journey",
         btn: "Start Free Trial",
