@@ -108,62 +108,30 @@ export default function HomePage() {
               <p className="text-xl text-gray-300 max-w-2xl mx-auto">{t.features.subtitle}</p>
             </div>
 
-            <BentoGrid className="lg:grid-rows-3">
-              <BentoCard
-                name={t.features.cards.content.title}
-                className="lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3"
-                background={
-                  <div className="absolute inset-0 bg-black/80 backdrop-blur-sm border border-white/10" />
-                }
-                Icon={Bot}
-                description={t.features.cards.content.desc}
-                href="#"
-                cta={t.features.cards.content.cta}
-              />
-              <BentoCard
-                name={t.features.cards.multilingual.title}
-                className="lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3"
-                background={
-                  <div className="absolute inset-0 bg-black/80 backdrop-blur-sm border border-white/10" />
-                }
-                Icon={Workflow}
-                description={t.features.cards.multilingual.desc}
-                href="#"
-                cta={t.features.cards.multilingual.cta}
-              />
-              <BentoCard
-                name={t.features.cards.voice.title}
-                className="lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4"
-                background={
-                  <div className="absolute inset-0 bg-black/80 backdrop-blur-sm border border-white/10" />
-                }
-                Icon={Cog}
-                description={t.features.cards.voice.desc}
-                href="#"
-                cta={t.features.cards.voice.cta}
-              />
-              <BentoCard
-                name={t.features.cards.ethical.title}
-                className="lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2"
-                background={
-                  <div className="absolute inset-0 bg-black/80 backdrop-blur-sm border border-white/10" />
-                }
-                Icon={Brain}
-                description={t.features.cards.ethical.desc}
-                href="#"
-                cta={t.features.cards.ethical.cta}
-              />
-              <BentoCard
-                name={t.features.cards.code.title}
-                className="lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4"
-                background={
-                  <div className="absolute inset-0 bg-black/80 backdrop-blur-sm border border-white/10" />
-                }
-                Icon={MessageSquare}
-                description={t.features.cards.code.desc}
-                href="#"
-                cta={t.features.cards.code.cta}
-              />
+            <BentoGrid>
+              {/* Render 9 equal-size, responsive feature cards (translations supported) */}
+              {[
+                { data: t.features.cards.content, Icon: Bot },
+                { data: t.features.cards.multilingual, Icon: Workflow },
+                { data: t.features.cards.voice, Icon: Cog },
+                { data: t.features.cards.ethical, Icon: Brain },
+                { data: t.features.cards.code, Icon: MessageSquare },
+                { data: t.features.cards.collaboration, Icon: TrendingUp },
+                { data: t.features.cards.analytics, Icon: BarChart3 },
+                { data: t.features.cards.privacy, Icon: Database },
+                { data: t.features.cards.offline, Icon: Clock },
+              ].map((card) => (
+                <BentoCard
+                  key={card.data.title}
+                  name={card.data.title}
+                  className=""
+                  background={<div className="absolute inset-0 bg-black/80 backdrop-blur-sm border border-white/10" />}
+                  Icon={card.Icon}
+                  description={card.data.desc}
+                  href="#"
+                  cta={card.data.cta}
+                />
+              ))}
             </BentoGrid>
           </div>
         </section>

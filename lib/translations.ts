@@ -45,6 +45,26 @@ export const translations = {
           desc: "Write or explain programming concepts in Tamil. Ideal for students learning to code in their native language.",
           cta: "Learn more",
         },
+        collaboration: {
+          title: "Collaboration & Team Assistance",
+          desc: "Use Mozhii to summarize meetings, assign tasks, draft tickets, and keep your team on the same page — now in Tamil and other supported languages.",
+          cta: "Learn more",
+        },
+        analytics: {
+          title: "Analytics & Insights",
+          desc: "Automatically analyze customer conversations and generate actionable reports in Tamil — faster decision-making and better product insights.",
+          cta: "Learn more",
+        },
+        privacy: {
+          title: "Privacy & Data Protection",
+          desc: "Enterprise-grade data handling designed with privacy-first defaults and configurable retention policies tailored for Sri Lankan customers.",
+          cta: "Learn more",
+        },
+        offline: {
+          title: "Low-Bandwidth / Offline Modes",
+          desc: "Optimized clients and fallbacks for low-connectivity scenarios so users can access essential features even with limited internet.",
+          cta: "Learn more",
+        },
       },
     },
     testimonials: {
@@ -183,6 +203,26 @@ export const translations = {
           desc: "நிரலாக்கக் கருத்துக்களை தமிழில் எழுதவும் அல்லது விளக்கவும். மாணவர்கள் தங்கள் தாய்மொழியில் குறியீட்டைக் கற்க இது சிறந்தது.",
           cta: "மேலும் அறிய",
         },
+        collaboration: {
+          title: "குழு ஒத்துழைப்பு & உதவி",
+          desc: "ஒத்துழைப்பு, கூட்ட முன்னேற்றங்களை சுருக்குதல், பணிகள் அமைத்தல் மற்றும் டிக்கெட்டுகளை உருவாக்குதல் போன்றவை தமிழிலும் மற்ற மொழிகளிலும் எளிமையாக இயங்கும்.",
+          cta: "மேலும் அறிய",
+        },
+        analytics: {
+          title: "பகுப்பாய்வு மற்றும் உள்ளுணர்வு",
+          desc: "வாடிக்கையாளர் உரையாடல்களை தானாகவே பகுப்பாய்வு செய்து தமிழில் செயல்திறனான அறிக்கைகள் உருவாக்குங்கள் — வேகமான முடிவெடுக்க உதவும்.",
+          cta: "மேலும் அறிய",
+        },
+        privacy: {
+          title: "தனியுரிமை மற்றும் தரவு பாதுகாப்பு",
+          desc: "தனியுரிமை-முதன்மை அம்சங்கள் மற்றும் உள்ளூர் தேவைகளுக்கு ஏற்ப தனிப்பயன் தரவு சேமிப்பு கொள்கைகளுடன் வடிவமைக்கப்பட்டுள்ளது.",
+          cta: "மேலும் அறிய",
+        },
+        offline: {
+          title: "குறைந்த-பேண்ட்/ஆஃப்லைன் மோடுகள்",
+          desc: "குறைந்த இணைப்பு சூழ்நிலைகளிற்கான சரிதிருத்தங்கள் மற்றும் பேக்-அப் முறைகள், இணைப்பின்மை இருந்தாலும் அடிப்படை அம்சங்கள் கிடைக்கச் செய்யும்.",
+          cta: "மேலும் அறிய",
+        },
       },
     },
     testimonials: {
@@ -319,6 +359,26 @@ export const translations = {
         code: {
           title: "කේත ලිවීම සහ දෝෂ නිරාකරණය",
           desc: "ක්‍රමලේඛන සංකල්ප දෙමළ භාෂාවෙන් ලියන්න හෝ පැහැදිලි කරන්න. සිසුන්ට ඔවුන්ගේ මව් භාෂාවෙන් කේතනය ඉගෙන ගැනීමට මෙය ඉතා සුදුසුය.",
+          cta: "තව දැනගන්න",
+        },
+        collaboration: {
+          title: "සාමූහික සහ කණ්ඩායම් සහාය",
+          desc: "සමූහ සාකච්ඡා සාරාංශ කිරීම, කාර්යබල බෙදා හදා ගැනීම සහ ටිකට් සකස් කිරීම වැනි කාර්යයන් දෙමළ සහ වෙනත් සහය දක්වන භාෂාවෙන් කළ හැක.",
+          cta: "තව දැනගන්න",
+        },
+        analytics: {
+          title: "විශ්ලේෂණ සහ අවබෝධතා",
+          desc: "ගනුදෙනුකරුවන්ගේ සංවාද ස්වයංක්‍රීයව විශ්ලේෂණය කර දෙමළ භාෂාවෙන් ක්‍රියාකාරී වාර්තා සකස් කරන්න — තීරණ ගැනීමට ඉක්මන් සහය.",
+          cta: "තව දැනගන්න",
+        },
+        privacy: {
+          title: "පෞද්ගලිකත්වය සහ දත්ත ආරක්‍ෂාව",
+          desc: "පෞද්ගලිකත්වය-ප්‍රමුඛ වන පෙරනිමිති සහ ශ්‍රී ලංකාවේ පාරිභෝගිකයන් සඳහා වෙනස් කළ හැකි දත්ත තැබීමේ ප්‍රතිපත්ති වලින් සැකසුම්.",
+          cta: "තව දැනගන්න",
+        },
+        offline: {
+          title: "අල්ප-බැන්ඩ්විඩ්/අෆ්ලයින් ක්‍රම",
+          desc: "අඩු සම්බන්ධතාවයකින් ක්‍රියාත්මක කිරීමට සරල සහ අවශ්‍යම විශේෂාංග ලබාදෙන පද්ධති සහ නැවත පිහිටුම්.",
           cta: "තව දැනගන්න",
         },
       },
