@@ -9,6 +9,7 @@ import { SparklesCore } from "@/components/ui/sparkles"
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid"
 import { Navbar } from "@/components/ui/navbar"
 import { Pricing } from "@/components/ui/pricing"
+import { WaitlistSection } from "@/components/waitlist-section"
 import { useLanguage } from "@/lib/language-context"
 import {
   CheckCircle,
@@ -310,6 +311,9 @@ export default function HomePage() {
           </div>
         </section>
       </main>
+
+      {/* Waitlist Section */}
+      <WaitlistSection />
 
       {/* Footer */}
       <footer id="contact" className="relative py-20 bg-transparent border-t border-white/10 overflow-hidden">

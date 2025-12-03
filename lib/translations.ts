@@ -135,6 +135,12 @@ export const translations = {
         ],
       },
     },
+    waitlist: {
+      heading: "Are you interested in testing our Beta version of Mozhii.ai?",
+      description: "Join our waiting list to be notified when we release our Beta version.",
+      placeholder: "Enter your email address",
+      button: "Join Waitlist",
+    },
     team: {
       title: "Our Team",
       subtitle: "Meet our Team — passionate builders working on Mozhii.AI",
@@ -293,6 +299,12 @@ export const translations = {
         ],
       },
     },
+    waitlist: {
+      heading: "Mozhii.ai இன் பீட்டா பதிப்பைச் சோதிக்க நீங்கள் ஆர்வமாக உள்ளீர்களா?",
+      description: "எங்கள் பீட்டா பதிப்பை வெளியிடும்போது அறிவிக்கப்பட எங்கள் காத்திருப்புப் பட்டியலில் சேரவும்.",
+      placeholder: "உங்கள் மின்னஞ்சல் முகவரியை உள்ளிடவும்",
+      button: "காத்திருப்புப் பட்டியலில் சேரவும்",
+    },
     team: {
       title: "எங்கள் குழு",
       subtitle: "எங்கள் குழுவை சந்திக்கவும் — Mozhii.AI இல் பணிபுரியும் ஆர்வமுள்ள உருவாக்குநர்கள்",
@@ -450,6 +462,12 @@ export const translations = {
           "කාර්තුමය AI උපායමාර්ග සමාලෝචන",
         ],
       },
+    },
+    waitlist: {
+      heading: "ඔබ Mozhii.ai හි Beta අනුවාදය පරීක්ෂා කිරීමට කැමතිද?",
+      description: "අපගේ Beta අනුවාදය නිකුත් කරන විට දැනුම් දීමට අපගේ පොරොත්තු ලේඛනයට එක්වන්න.",
+      placeholder: "ඔබගේ විද්‍යුත් තැපැල් ලිපිනය ඇතුළත් කරන්න",
+      button: "පොරොත්තු ලේඛනයට එක්වන්න",
     },
     team: {
       title: "අපගේ කණ්ඩායම",

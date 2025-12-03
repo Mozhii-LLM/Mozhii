@@ -4,6 +4,7 @@ import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from '@/lib/language-context'
 import { LanguageSwitcher } from '@/components/language-switcher'
+import { Toaster } from "@/components/ui/sonner"
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -36,6 +37,7 @@ export default function RootLayout({
         <LanguageProvider>
           <LanguageSwitcher />
           {children}
+          <Toaster />
         </LanguageProvider>
         <Analytics />
       </body>
