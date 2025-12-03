@@ -10,7 +10,6 @@ import { BentoGrid, BentoCard } from "@/components/ui/bento-grid"
 import { Navbar } from "@/components/ui/navbar"
 import { Pricing } from "@/components/ui/pricing"
 import { useLanguage } from "@/lib/language-context"
-import { Snowfall } from "@/components/ui/snowfall"
 import {
   CheckCircle,
   ArrowRight,
@@ -49,7 +48,6 @@ export default function HomePage() {
         Keep a subtle backdrop blur for readability. */}
             <Card className="w-full min-h-[80vh] lg:h-screen bg-transparent backdrop-blur-sm relative overflow-hidden border-none flex items-center">
               <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" />
-              <Snowfall id="hero-snowfall" className="absolute inset-0 z-0" />
 
               <div className="flex flex-col lg:flex-row h-full w-full items-center justify-center pt-20 lg:pt-0">
                 {/* Left content */}

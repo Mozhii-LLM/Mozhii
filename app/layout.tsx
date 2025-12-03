@@ -4,7 +4,6 @@ import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from '@/lib/language-context'
 import { LanguageSwitcher } from '@/components/language-switcher'
-import { Snowfall } from '@/components/ui/snowfall'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -35,7 +34,6 @@ export default function RootLayout({
       </head>
       <body className={`font-sans antialiased ${GeistSans.variable} ${GeistMono.variable}`}>
         <LanguageProvider>
-          <Snowfall />
           <LanguageSwitcher />
           {children}
         </LanguageProvider>
