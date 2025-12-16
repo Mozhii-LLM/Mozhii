@@ -27,7 +27,7 @@ import {
   Phone,
   MapPin,
   Linkedin,
-  Twitter,
+  Instagram,
   Facebook,
   Database,
   Binary,
@@ -336,20 +336,26 @@ export default function HomePage() {
 
               <div className="flex space-x-4">
                 <a
-                  href="#"
-                  className="p-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-300"
+                  href="https://www.linkedin.com/company/mozhii-ai/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3Bkzajbj5dSYeZfNQu6TUArw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-blue-500/10 backdrop-blur-sm border border-blue-500/30 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/60 transition-all duration-300"
                 >
                   <Linkedin className="h-5 w-5" />
                 </a>
                 <a
-                  href="#"
-                  className="p-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-300"
+                  href="https://www.instagram.com/mozhii.ai?igsh=NW55ajVoc3gwOHdt"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-blue-500/10 backdrop-blur-sm border border-blue-500/30 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/60 transition-all duration-300"
                 >
-                  <Twitter className="h-5 w-5" />
+                  <Instagram className="h-5 w-5" />
                 </a>
                 <a
-                  href="#"
-                  className="p-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-300"
+                  href="https://www.facebook.com/share/1ACfpDiSFA/?mibextid=wwXIfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-blue-500/10 backdrop-blur-sm border border-blue-500/30 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/60 transition-all duration-300"
                 >
                   <Facebook className="h-5 w-5" />
                 </a>
