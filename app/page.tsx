@@ -364,18 +364,27 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Services */}
+            {/* Team Members */}
             <div className="space-y-6">
               <h4 className="text-lg font-semibold text-white">{t.footer.team}</h4>
               <ul className="space-y-3">
-                {["Dinojan", "Vipooshan", "Vishalini", "Yashwin", "Ridursha", "Vishaal"].map((service) => (
-                  <li key={service}>
+                {[
+                  { name: "Dinojan", linkedin: "https://www.linkedin.com/in/thiyakarajah-dinojan-39664a354?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAFhfUaIBKgW4psb-RmXbqm1uO3zJvZEuq4A&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BZ1xnPFc8TZ66YB%2Bdm%2Fj9Fg%3D%3D" },
+                  { name: "Vipooshan", linkedin: "https://www.linkedin.com/in/balachandran-vipooshan?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAFVrVqcB5lgLNLQvLqWLlWdOx979WMMnaxY&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3B3LZM%2FEi5QvGx2kVjqGJCkA%3D%3D" },
+                  { name: "Vishalini", linkedin: "https://www.linkedin.com/in/vishalini-karunatharan-03b36a354?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAFhUja8BygzDsuQgcf4tLmS_lgfmakDjH5w&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BzljgTj57R3am4WTk6tFV9Q%3D%3D" },
+                  { name: "Yashwin", linkedin: "https://www.linkedin.com/in/yashwin01?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAEeX34wBTEaw9jhiX-fs7ktUgTMwrCORcKY&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BMSU0ISN7QKijACBRb%2FXRZQ%3D%3D" },
+                  { name: "Ridursha", linkedin: "https://www.linkedin.com/in/ridursha-thiyagaraja/" },
+                  { name: "Vishaal", linkedin: "https://www.linkedin.com/in/vishaal-thanapalan-733276333/" },
+                ].map((member) => (
+                  <li key={member.name}>
                     <a
-                      href="#services"
-                      className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group"
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group"
                     >
                       <ArrowRight className="h-3 w-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      {service}
+                      {member.name}
                     </a>
                   </li>
                 ))}
@@ -417,13 +426,6 @@ export default function HomePage() {
                   <a href="mailto:mozhii2025@gmail.com" className="hover:text-white transition-colors duration-300">
                     mozhii2025@gmail.com
                   </a>
-                </div>
-
-                <div className="flex items-center space-x-3 text-gray-300">
-                  <div className="p-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
-                    <Phone className="h-4 w-4" />
-                  </div>
-                  <a href="tel:+94772620357" className="hover:text-white transition-colors duration-300"></a>
                 </div>
 
                 <div className="flex items-center space-x-3 text-gray-300">
