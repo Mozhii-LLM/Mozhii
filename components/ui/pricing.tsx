@@ -5,8 +5,7 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import { cn } from "@/lib/utils"
-import { motion } from "framer-motion"
-import { Check, Star } from "lucide-react"
+import { Check } from "lucide-react"
 import Link from "next/link"
 import { useState, useRef } from "react"
 import confetti from "canvas-confetti"
@@ -86,46 +85,19 @@ export function Pricing({
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {plans.map((plan, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ y: 50, opacity: 1 }}
-            whileInView={
-              isDesktop
-                ? {
-                    y: plan.isPopular ? -20 : 0,
-                    opacity: 1,
-                    x: index === 2 ? -30 : index === 0 ? 30 : 0,
-                    scale: index === 0 || index === 2 ? 0.94 : 1.0,
-                  }
-                : {}
-            }
-            viewport={{ once: true }}
-            transition={{
-              duration: 1.6,
-              type: "spring",
-              stiffness: 100,
-              damping: 30,
-              delay: 0.4,
-              opacity: { duration: 0.5 },
-            }}
             className={cn(
-              `rounded-2xl border-[1px] p-6 bg-white/10 backdrop-blur-md text-center lg:flex lg:flex-col lg:justify-center relative`,
-              plan.isPopular ? "border-blue-400 border-2" : "border-white/20",
+              "rounded-2xl p-6 bg-white/8 backdrop-blur-md text-center lg:flex lg:flex-col lg:justify-center relative",
               "flex flex-col",
-              !plan.isPopular && "mt-5",
-              index === 0 || index === 2
-                ? "z-0 transform translate-x-0 translate-y-0 -translate-z-[50px] rotate-y-[10deg]"
-                : "z-10",
-              index === 0 && "origin-right",
-              index === 2 && "origin-left",
+              "border border-white/10",
+              "transition-all duration-300",
+              "w-full",
+              !isDesktop && "mt-2",
+              // Hover effects: lift, scale, stronger shadow, ring outline and subtle bg change
+              "hover:-translate-y-2 md:hover:-translate-y-3 hover:scale-105 md:hover:scale-105 hover:shadow-2xl hover:ring-2 hover:ring-blue-400 hover:bg-white/6 hover:border-transparent",
             )}
           >
-            {plan.isPopular && (
-              <div className="absolute top-0 right-0 bg-blue-500 py-0.5 px-2 rounded-bl-xl rounded-tr-xl flex items-center">
-                <Star className="text-white h-4 w-4 fill-current" />
-                <span className="text-white ml-1 font-sans font-semibold">Popular</span>
-              </div>
-            )}
             <div className="flex-1 flex flex-col">
               <p className="text-base font-semibold text-gray-300">{plan.name}</p>
               <div className="mt-6 flex items-center justify-center gap-x-2">
@@ -170,14 +142,14 @@ export function Pricing({
                   }),
                   "group relative w-full gap-2 overflow-hidden text-lg font-semibold tracking-tighter",
                   "transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-blue-400 hover:ring-offset-1 hover:bg-blue-500 hover:text-white",
-                  plan.isPopular ? "bg-blue-500 text-white border-blue-400" : "bg-white/10 text-white border-white/20",
+                  "bg-white/10 text-white border-white/20",
                 )}
               >
                 {plan.buttonText}
               </Link>
               <p className="mt-6 text-xs leading-5 text-gray-400">{plan.description}</p>
             </div>
-          </motion.div>
+              </div>
         ))}
       </div>
     </div>
