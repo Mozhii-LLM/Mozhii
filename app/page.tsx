@@ -291,7 +291,7 @@ export default function HomePage() {
                 { name: "Dinojan", image: "/assets/3d/logo.png", role: t.team.role },
                 { name: "Vipooshan", image: "/assets/3d/vipi.png", role: t.team.role },
                 { name: "Vishalini", image: "/assets/3d/logo.png", role: t.team.role },
-                { name: "Yashwin", image: "/assets/3d/logo.png", role: t.team.role },
+                { name: "Yashwin", image: "/assets/3d/yashwin.jpg", role: t.team.role },
                 { name: "Ridursha", image: "/assets/3d/logo.png", role: t.team.role },
                 { name: "Vishaal", image: "/assets/3d/logo.png", role: t.team.role },
               ].map((member) => (
