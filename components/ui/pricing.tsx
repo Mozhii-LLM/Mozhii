@@ -88,14 +88,14 @@ export function Pricing({
           <div
             key={index}
             className={cn(
-              "rounded-2xl p-6 bg-white/8 backdrop-blur-md text-center lg:flex lg:flex-col lg:justify-center relative",
+              "rounded-2xl p-6 bg-black/30 backdrop-blur-md text-center lg:flex lg:flex-col lg:justify-center relative",
               "flex flex-col",
-              "border border-white/10",
+              "border border-blue-500/20",
               "transition-all duration-300",
               "w-full",
               !isDesktop && "mt-2",
               // Hover effects: lift, scale, stronger shadow, ring outline and subtle bg change
-              "hover:-translate-y-2 md:hover:-translate-y-3 hover:scale-105 md:hover:scale-105 hover:shadow-2xl hover:ring-2 hover:ring-blue-400 hover:bg-white/6 hover:border-transparent",
+              "hover:-translate-y-2 md:hover:-translate-y-3 hover:scale-105 md:hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/30 hover:ring-2 hover:ring-blue-500/60 hover:bg-black/50 hover:border-blue-500/60",
             )}
           >
             <div className="flex-1 flex flex-col">
@@ -132,7 +132,7 @@ export function Pricing({
                 ))}
               </ul>
 
-              <hr className="w-full my-4 border-white/20" />
+              <hr className="w-full my-4 border-blue-500/30" />
 
               <Link
                 href={plan.href}
@@ -142,7 +142,7 @@ export function Pricing({
                   }),
                   "group relative w-full gap-2 overflow-hidden text-lg font-semibold tracking-tighter",
                   "transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-blue-400 hover:ring-offset-1 hover:bg-blue-500 hover:text-white",
-                  "bg-white/10 text-white border-white/20",
+                  "bg-blue-500/10 text-white border-blue-500/30 hover:border-blue-500/60",
                 )}
               >
                 {plan.buttonText}

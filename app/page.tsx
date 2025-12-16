@@ -279,14 +279,14 @@ export default function HomePage() {
         </section>
 
         {/* Team Section */}
-        <section id="team" className="py-24 bg-transparent">
+        <section id="team" className="py-16 md:py-24 bg-transparent">
           <div className="container mx-auto px-4">
-            <div className="text-center space-y-4 mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">{t.team.title}</h2>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto">{t.team.subtitle}</p>
+            <div className="text-center space-y-3 md:space-y-4 mb-12 md:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">{t.team.title}</h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto px-2">{t.team.subtitle}</p>
             </div>
 
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {[
                 { name: "Dinojan", image: "/assets/3d/logo.png", role: t.team.role },
                 { name: "Vipooshan", image: "/assets/3d/vipi.png", role: t.team.role },
@@ -297,14 +297,19 @@ export default function HomePage() {
               ].map((member) => (
                 <div
                   key={member.name}
-                  className="bg-black/30 border border-white/10 rounded-lg p-6 text-center backdrop-blur-sm"
+                  className="group relative bg-black/30 border border-blue-500/20 rounded-lg p-4 sm:p-6 text-center backdrop-blur-sm transition-all duration-300 hover:bg-black/50 hover:border-blue-500/60 hover:shadow-lg hover:shadow-blue-500/20 cursor-pointer"
                 >
-                  <div className="mx-auto w-28 h-28 rounded-full overflow-hidden bg-white/5 flex items-center justify-center">
+                  {/* Outline glow effect on hover */}
+                  <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{
+                    boxShadow: "inset 0 0 20px rgba(59, 130, 246, 0.2), 0 0 20px rgba(59, 130, 246, 0.3)"
+                  }} />
+
+                  <div className="relative z-10 mx-auto w-24 sm:w-28 h-24 sm:h-28 rounded-full overflow-hidden bg-blue-500/10 flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 border-2 border-blue-500/30 group-hover:border-blue-400/80">
                     <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                   </div>
 
-                  <h3 className="mt-4 text-lg font-semibold text-white">{member.name}</h3>
-                  <p className="text-sm text-gray-300">{member.role}</p>
+                  <h3 className="relative z-10 mt-3 sm:mt-4 text-base sm:text-lg font-semibold text-white transition-colors duration-300 group-hover:text-blue-300">{member.name}</h3>
+                  <p className="relative z-10 text-xs sm:text-sm text-gray-300 transition-colors duration-300 group-hover:text-blue-200">{member.role}</p>
                 </div>
               ))}
             </div>
