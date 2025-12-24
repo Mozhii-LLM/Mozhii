@@ -29,10 +29,19 @@ export default function (passport) {
           let user = await User.findOne({ email: newUser.email });
 
           if (user) {
-            // If user exists, update googleId if not present
+            // If user exists, update googleId if not present using findOneAndUpdate to avoid validation issues
             if (!user.googleId) {
-                user.googleId = profile.id;
-                await user.save();
+                user = await User.findOneAndUpdate(
+                    { email: newUser.email },
+                    { 
+                        $set: { 
+                            googleId: profile.id,
+                            // Only update avatar if it's missing or we want to sync it
+                            ...(newUser.avatar && { avatar: newUser.avatar })
+                        } 
+                    },
+                    { new: true }
+                );
             }
             done(null, user);
           } else {

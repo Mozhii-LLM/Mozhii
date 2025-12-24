@@ -18,7 +18,7 @@ router.get('/google/callback', (req, res, next) => {
 
     if (err) {
       console.error('Google Auth Error:', err);
-      return res.redirect(`${clientUrl}/login?error=server_error`);
+      return res.redirect(`${clientUrl}/login?error=server_error&details=${encodeURIComponent(err.message)}`);
     }
     if (!user) {
       return res.redirect(`${clientUrl}/login?error=authentication_failed`);
