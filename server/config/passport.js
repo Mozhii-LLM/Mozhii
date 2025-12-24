@@ -14,15 +14,15 @@ export default function (passport) {
         const newUser = {
           googleId: profile.id,
           name: profile.displayName,
-          email: profile.emails[0].value,
-          avatar: profile.photos[0].value,
+          email: profile.emails?.[0]?.value,
+          avatar: profile.photos?.[0]?.value,
         };
 
         try {
-          let user = await User.findOne({ email: profile.emails[0].value });
+          let user = await User.findOne({ email: newUser.email });
 
           if (user) {
-            // If user exists, update googleId if not present (linking accounts logic could go here)
+            // If user exists, update googleId if not present
             if (!user.googleId) {
                 user.googleId = profile.id;
                 await user.save();
@@ -33,7 +33,7 @@ export default function (passport) {
             done(null, user);
           }
         } catch (err) {
-          console.error(err);
+          console.error('Google Auth Error:', err);
           done(err, null);
         }
       }
