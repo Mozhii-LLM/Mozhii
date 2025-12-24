@@ -11,12 +11,19 @@ export default function (passport) {
         callbackURL: process.env.GOOGLE_CALLBACK_URL || 'http://localhost:5001/api/auth/google/callback',
       },
       async (accessToken, refreshToken, profile, done) => {
+        console.log('Google Profile:', profile); // Log profile for debugging
+
         const newUser = {
           googleId: profile.id,
           name: profile.displayName,
           email: profile.emails?.[0]?.value,
           avatar: profile.photos?.[0]?.value,
         };
+
+        if (!newUser.email) {
+            console.error('Google Auth Error: No email found in profile');
+            return done(new Error('No email found'), null);
+        }
 
         try {
           let user = await User.findOne({ email: newUser.email });
