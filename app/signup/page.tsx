@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { register, googleLogin } from "@/lib/authService"
+import { useLanguage } from "@/lib/language-context"
 
 export default function Signup() {
   const [name, setName] = useState("")
@@ -11,6 +12,7 @@ export default function Signup() {
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const router = useRouter()
+  const { t } = useLanguage()
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -27,9 +29,9 @@ export default function Signup() {
       {/* Left Side - Gradient */}
       <div className="w-full md:w-1/2 bg-gradient-to-br from-[#0B0377] to-black flex items-center justify-center text-white p-8 md:p-12 h-48 md:h-auto shrink-0">
         <div className="max-w-md text-center md:text-left">
-          <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-6">Join Mozhii AI</h1>
+          <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-6">{t.auth.signupTitle}</h1>
           <p className="text-sm md:text-xl text-gray-300 hidden md:block">
-            Create an account to start your journey with the most advanced AI assistant.
+            {t.auth.signupSubtitle}
           </p>
         </div>
       </div>
@@ -38,8 +40,8 @@ export default function Signup() {
       <div className="w-full md:w-1/2 flex items-center justify-center bg-white p-8 grow">
         <div className="w-full max-w-md space-y-8">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900">Create your account</h2>
-            <p className="mt-2 text-gray-600">Get started with your free account today.</p>
+            <h2 className="text-3xl font-bold text-gray-900">{t.auth.signupTitle}</h2>
+            <p className="mt-2 text-gray-600">{t.auth.signupSubtitle}</p>
           </div>
 
           {error && (
@@ -52,7 +54,7 @@ export default function Signup() {
             <div className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                  Full Name
+                  {t.auth.nameLabel}
                 </label>
                 <input
                   id="name"
@@ -60,14 +62,14 @@ export default function Signup() {
                   type="text"
                   required
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#0B0377] focus:border-[#0B0377]"
-                  placeholder="Enter your full name"
+                  placeholder={t.auth.nameLabel}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                  Email
+                  {t.auth.emailLabel}
                 </label>
                 <input
                   id="email"
@@ -75,14 +77,14 @@ export default function Signup() {
                   type="email"
                   required
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#0B0377] focus:border-[#0B0377]"
-                  placeholder="Enter your email"
+                  placeholder={t.auth.emailLabel}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                  Password
+                  {t.auth.passwordLabel}
                 </label>
                 <input
                   id="password"
@@ -90,7 +92,7 @@ export default function Signup() {
                   type="password"
                   required
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#0B0377] focus:border-[#0B0377]"
-                  placeholder="Create a password"
+                  placeholder={t.auth.passwordLabel}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -101,7 +103,7 @@ export default function Signup() {
               type="submit"
               className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#0B0377] hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0B0377]"
             >
-              Sign up
+              {t.auth.signupButton}
             </button>
           </form>
 
@@ -111,7 +113,7 @@ export default function Signup() {
                 <div className="w-full border-t border-gray-300" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                <span className="px-2 bg-white text-gray-500">{t.auth.orContinueWith}</span>
               </div>
             </div>
 
@@ -138,15 +140,15 @@ export default function Signup() {
                     fill="#EA4335"
                   />
                 </svg>
-                Sign up with Google
+                {t.auth.googleButton}
               </button>
             </div>
           </div>
           
           <p className="mt-2 text-center text-sm text-gray-600">
-            Already have an account?{" "}
+            {t.auth.hasAccount}{" "}
             <Link href="/login" className="font-medium text-[#0B0377] hover:text-blue-900">
-              Sign in
+              {t.auth.loginButton}
             </Link>
           </p>
         </div>

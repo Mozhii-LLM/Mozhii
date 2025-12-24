@@ -11,44 +11,41 @@ export default function (passport) {
         callbackURL: process.env.GOOGLE_CALLBACK_URL || 'http://localhost:5001/api/auth/google/callback',
       },
       async (accessToken, refreshToken, profile, done) => {
-        console.log('Google Profile:', profile); // Log profile for debugging
-
-        const email = profile.emails?.[0]?.value?.toLowerCase();
-        
-        if (!email) {
-            console.error('Google Auth Error: No email found in profile');
-            return done(new Error('No email found in Google profile'), null);
-        }
-
-        const newUser = {
-          googleId: profile.id,
-          name: profile.displayName,
-          email: email,
-          avatar: profile.photos?.[0]?.value,
-        };
-
         try {
-          let user = await User.findOne({ email: email });
+            console.log('Google Profile:', profile ? profile.id : 'No Profile'); 
 
-          if (user) {
-            // If user exists, update googleId if not present
-            if (!user.googleId) {
-                user = await User.findOneAndUpdate(
-                    { email: email },
-                    { 
-                        $set: { 
-                            googleId: profile.id,
-                            ...(newUser.avatar && { avatar: newUser.avatar })
-                        } 
-                    },
-                    { new: true }
-                );
+            const email = profile.emails?.[0]?.value?.toLowerCase();
+            
+            if (!email) {
+                console.error('Google Auth Error: No email found in profile');
+                return done(new Error('No email found in Google profile'), null);
             }
+
+            const newUser = {
+              googleId: profile.id,
+              name: profile.displayName || email.split('@')[0], // Fallback name
+              email: email,
+              avatar: profile.photos?.[0]?.value,
+            };
+
+            // Use findOneAndUpdate with upsert option for atomic operation
+            // This handles both create and update in one go, preventing race conditions
+            const user = await User.findOneAndUpdate(
+                { email: email },
+                { 
+                    $set: { 
+                        googleId: profile.id,
+                        name: newUser.name, // Ensure name is set
+                        ...(newUser.avatar && { avatar: newUser.avatar })
+                    },
+                    $setOnInsert: {
+                        email: email // Only set email on insert
+                    }
+                },
+                { new: true, upsert: true, setDefaultsOnInsert: true }
+            );
+
             done(null, user);
-          } else {
-            user = await User.create(newUser);
-            done(null, user);
-          }
         } catch (err) {
           console.error('Google Auth Error inside strategy:', err);
           done(err, null);

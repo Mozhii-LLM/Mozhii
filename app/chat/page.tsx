@@ -5,9 +5,11 @@ import { motion } from "framer-motion"
 import { SparklesCore } from "@/components/ui/sparkles"
 import { Button } from "@/components/ui/button"
 import { LogOut, Bot, Sparkles, Construction } from "lucide-react"
+import { useLanguage } from "@/lib/language-context"
 
 export default function Chat() {
   const router = useRouter()
+  const { t } = useLanguage()
 
   const logout = () => {
     localStorage.removeItem("user")
@@ -46,7 +48,7 @@ export default function Chat() {
           className="text-gray-300 hover:text-white hover:bg-white/10 gap-2 transition-all duration-300"
         >
           <LogOut className="w-4 h-4" />
-          Logout
+          {t.chat.logout}
         </Button>
       </header>
 
@@ -64,7 +66,7 @@ export default function Chat() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
           </span>
-          <span className="text-sm font-medium text-blue-200">Development in Progress</span>
+          <span className="text-sm font-medium text-blue-200">{t.chat.wipTitle}</span>
         </motion.div>
 
         {/* Hero Title */}
@@ -74,7 +76,7 @@ export default function Chat() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 mb-6 tracking-tight"
         >
-          Mozhii AI Interface
+          {t.chat.welcome}
         </motion.h1>
 
         {/* Subtitle */}
@@ -84,7 +86,7 @@ export default function Chat() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl leading-relaxed"
         >
-          We are crafting a revolutionary AI experience. The chat interface is currently under construction and will be available soon with powerful features.
+          {t.chat.wipDesc}
         </motion.p>
 
         {/* Feature Cards Placeholder */}
@@ -95,9 +97,9 @@ export default function Chat() {
           className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full"
         >
           {[
-            { icon: Bot, title: "Advanced AI", desc: "Next-gen language models" },
-            { icon: Sparkles, title: "Creative Studio", desc: "Image & content generation" },
-            { icon: Construction, title: "Coming Soon", desc: "Full chat capabilities" }
+            { icon: Bot, title: t.chat.features.advanced, desc: t.chat.features.advancedDesc },
+            { icon: Sparkles, title: t.chat.features.creative, desc: t.chat.features.creativeDesc },
+            { icon: Construction, title: t.chat.features.comingSoon, desc: t.chat.features.comingSoonDesc }
           ].map((item, index) => (
             <div 
               key={index}

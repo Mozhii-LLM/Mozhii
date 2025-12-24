@@ -4,6 +4,7 @@ import { useState, useEffect, Suspense } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import Link from "next/link"
 import { login, googleLogin } from "@/lib/authService"
+import { useLanguage } from "@/lib/language-context"
 
 function LoginForm() {
   const [email, setEmail] = useState("")
@@ -11,6 +12,7 @@ function LoginForm() {
   const [error, setError] = useState("")
   const router = useRouter()
   const searchParams = useSearchParams()
+  const { t } = useLanguage()
 
   useEffect(() => {
     const token = searchParams.get("token")
@@ -33,8 +35,8 @@ function LoginForm() {
   return (
     <div className="w-full max-w-md space-y-8">
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-gray-900">Log in to your account</h2>
-        <p className="mt-2 text-gray-600">Welcome back! Please enter your details.</p>
+        <h2 className="text-3xl font-bold text-gray-900">{t.auth.loginTitle}</h2>
+        <p className="mt-2 text-gray-600">{t.auth.loginSubtitle}</p>
       </div>
 
       {error && (
@@ -47,7 +49,7 @@ function LoginForm() {
         <div className="space-y-4">
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email
+              {t.auth.emailLabel}
             </label>
             <input
               id="email"
@@ -55,14 +57,14 @@ function LoginForm() {
               type="email"
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#0B0377] focus:border-[#0B0377]"
-              placeholder="Enter your email"
+              placeholder={t.auth.emailLabel}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>
             <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              Password
+              {t.auth.passwordLabel}
             </label>
             <input
               id="password"
@@ -70,7 +72,7 @@ function LoginForm() {
               type="password"
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#0B0377] focus:border-[#0B0377]"
-              placeholder="Enter your password"
+              placeholder={t.auth.passwordLabel}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -101,7 +103,7 @@ function LoginForm() {
           type="submit"
           className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#0B0377] hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0B0377]"
         >
-          Sign in
+          {t.auth.loginButton}
         </button>
       </form>
 
@@ -111,7 +113,7 @@ function LoginForm() {
             <div className="w-full border-t border-gray-300" />
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="px-2 bg-white text-gray-500">Or continue with</span>
+            <span className="px-2 bg-white text-gray-500">{t.auth.orContinueWith}</span>
           </div>
         </div>
 
@@ -138,15 +140,15 @@ function LoginForm() {
                 fill="#EA4335"
               />
             </svg>
-            Sign in with Google
+            {t.auth.googleButton}
           </button>
         </div>
       </div>
 
       <p className="mt-2 text-center text-sm text-gray-600">
-        Don’t have an account?{" "}
+        {t.auth.noAccount}{" "}
         <Link href="/signup" className="font-medium text-[#0B0377] hover:text-blue-900">
-          Sign up
+          {t.auth.signupButton}
         </Link>
       </p>
     </div>
@@ -154,14 +156,15 @@ function LoginForm() {
 }
 
 export default function Login() {
+  const { t } = useLanguage()
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Left Side - Gradient */}
       <div className="w-full md:w-1/2 bg-gradient-to-br from-[#0B0377] to-black flex items-center justify-center text-white p-8 md:p-12 h-48 md:h-auto shrink-0">
         <div className="max-w-md text-center md:text-left">
-          <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-6">Welcome Back</h1>
+          <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-6">{t.auth.loginTitle}</h1>
           <p className="text-sm md:text-xl text-gray-300 hidden md:block">
-            Log in to access your personalized AI assistant and continue your journey.
+            {t.auth.loginSubtitle}
           </p>
         </div>
       </div>
