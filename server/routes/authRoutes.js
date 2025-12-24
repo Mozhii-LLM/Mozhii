@@ -17,8 +17,9 @@ router.get('/google/callback', (req, res, next) => {
     const clientUrl = process.env.CLIENT_URL || 'http://localhost:3000';
 
     if (err) {
-      console.error('Google Auth Error:', err);
-      return res.redirect(`${clientUrl}/login?error=server_error&details=${encodeURIComponent(err.message)}`);
+      console.error('Google Auth Error in callback:', err);
+      const errorMessage = err.message || err.toString() || 'Unknown error';
+      return res.redirect(`${clientUrl}/login?error=server_error&details=${encodeURIComponent(errorMessage)}`);
     }
     if (!user) {
       return res.redirect(`${clientUrl}/login?error=authentication_failed`);

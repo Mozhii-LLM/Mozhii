@@ -13,30 +13,31 @@ export default function (passport) {
       async (accessToken, refreshToken, profile, done) => {
         console.log('Google Profile:', profile); // Log profile for debugging
 
+        const email = profile.emails?.[0]?.value?.toLowerCase();
+        
+        if (!email) {
+            console.error('Google Auth Error: No email found in profile');
+            return done(new Error('No email found in Google profile'), null);
+        }
+
         const newUser = {
           googleId: profile.id,
           name: profile.displayName,
-          email: profile.emails?.[0]?.value,
+          email: email,
           avatar: profile.photos?.[0]?.value,
         };
 
-        if (!newUser.email) {
-            console.error('Google Auth Error: No email found in profile');
-            return done(new Error('No email found'), null);
-        }
-
         try {
-          let user = await User.findOne({ email: newUser.email });
+          let user = await User.findOne({ email: email });
 
           if (user) {
-            // If user exists, update googleId if not present using findOneAndUpdate to avoid validation issues
+            // If user exists, update googleId if not present
             if (!user.googleId) {
                 user = await User.findOneAndUpdate(
-                    { email: newUser.email },
+                    { email: email },
                     { 
                         $set: { 
                             googleId: profile.id,
-                            // Only update avatar if it's missing or we want to sync it
                             ...(newUser.avatar && { avatar: newUser.avatar })
                         } 
                     },
@@ -49,7 +50,7 @@ export default function (passport) {
             done(null, user);
           }
         } catch (err) {
-          console.error('Google Auth Error:', err);
+          console.error('Google Auth Error inside strategy:', err);
           done(err, null);
         }
       }
