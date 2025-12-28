@@ -19,6 +19,7 @@ router.get('/google', passport.authenticate('google', {
 router.get('/google/callback', (req, res, next) => {
   passport.authenticate('google', { session: false }, (err, user, info) => {
     const clientUrl = process.env.CLIENT_URL || 'http://localhost:3000';
+    console.log('Google Callback - Client URL:', clientUrl);
 
     if (err) {
       console.error('Google Auth Error (Full):', JSON.stringify(err, Object.getOwnPropertyNames(err)));
