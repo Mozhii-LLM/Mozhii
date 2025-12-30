@@ -5,6 +5,13 @@
 
 html {
   scroll-behavior: smooth;
+  /* Prevent horizontal jiggle/spacing differences across OS scrollbars (notably Chrome on Windows). */
+  scrollbar-gutter: stable both-edges;
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
 }
 
 :root {
