@@ -192,7 +192,7 @@ export const translations = {
       help: "Help",
       activity: "Activity",
       settings: "Settings",
-      helloHuman: "Hello, Human",
+      helloHuman: "Hello, Mozhii user!",
       howCanIHelp: "How can I help you today?",
       workingOnComingSoon: "In development processes Coming Soon ...",
       thankYouForVisit: "Thank you for visit",
@@ -203,6 +203,122 @@ export const translations = {
       enterPrompt: "Enter a prompt here",
       disclaimer: "Mozhii AI can make mistakes. Consider checking important information.",
       backToHome: "Back to Home",
+    },
+    mozhiiPage: {
+      hero: {
+        title: "Introducing Mozhii.ai",
+        subtitle: "Sri Lanka's first bilingual AI assistant, designed to break language barriers in Tamil and Sinhala.",
+        getStarted: "Get Started",
+        learnMore: "Learn More",
+      },
+      problem: {
+        title: "The Problem",
+        description: "Sri Lanka's linguistic diversity often creates communication gaps, limiting access to information and services.",
+        cards: [
+          {
+            title: "Language Barriers",
+            description: "Many Sri Lankans struggle to access English-only content and services.",
+          },
+          {
+            title: "Limited Local AI",
+            description: "Existing AI models have poor support for Sinhala and Tamil nuances.",
+          },
+          {
+            title: "Digital Divide",
+            description: "Rural communities are often left out of digital advancements due to language constraints.",
+          },
+        ],
+      },
+      solution: {
+        title: "Our Solution",
+        description: "Mozhii.ai bridges the gap by using advanced AI models that deeply understand local language contexts.",
+        cards: [
+          {
+            title: "Bilingual Proficiency",
+            description: "Specially trained for natural language processing in both Tamil and Sinhala.",
+          },
+          {
+            title: "Cultural Awareness",
+            description: "AI that understands Sri Lankan cultural context and local idioms.",
+          },
+          {
+            title: "Accessible Tech",
+            description: "Easy-to-use interface for everyone, regardless of technical expertise.",
+          },
+        ],
+      },
+      tech: {
+        title: "Technology",
+        description: "Powered by state-of-the-art machine learning and natural language processing technologies.",
+        cards: [
+          {
+            title: "Advanced NLP",
+            description: "Utilizing the latest natural language processing techniques to understand complex language structures.",
+          },
+          {
+            title: "Continuous Learning",
+            description: "Our models are constantly improving, learning from every interaction.",
+          },
+          {
+            title: "Secure & Private",
+            description: "Your data privacy and security are our top priority.",
+          },
+        ],
+      },
+      platforms: {
+        title: "Platforms",
+        description: "Access Mozhii.ai wherever you are.",
+        web: "Web",
+        mobile: "Mobile",
+        api: "API",
+      },
+    },
+    aboutPage: {
+      title: "About Mozhii AI",
+      faqs: [
+        {
+          question: "What is Mozhii AI?",
+          answer: "Mozhii AI is a Tamil-focused Large Language Model (LLM) designed to understand, generate, and assist in authentic Tamil language use, with a special focus on Sri Lankan Tamil, code-mixed language, and real-world contexts. Built using modern open-source foundation models and enhanced through domain-specific data, Mozhii AI aims to make advanced AI accessible to Tamil speakers across education, research, governance, and daily digital interactions."
+        },
+        {
+          question: "Which languages does Mozhii AI support?",
+          answer: "Mozhii AI accepts prompts in Tamil, English, Sinhala, or mixed language, but it responds only in Tamil to ensure consistency and language focus."
+        },
+        {
+          question: "Why Mozhii AI Exists ?",
+          answer: "Despite Tamil being one of the world’s oldest living languages, it remains severely underrepresented in modern AI systems. Most existing language models provide limited, inaccurate, or culturally misaligned Tamil responses. Mozhii AI was created to bridge this gap by building a Tamil-first AI system that truly understands how Tamil is spoken, written, and used in real life — especially within the Sri Lankan context."
+        },
+        {
+          question: "How is Mozhii AI different from ChatGPT or other AI chatbots?",
+          answer: "Mozhii AI is not a general-purpose chatbot. It is purpose-built for Tamil, with:",
+          list: [
+            "Tamil-only responses",
+            "Focus on local dialects",
+            "Community-driven data collection",
+            "Architecture optimized for Tamil language tasks"
+          ]
+        },
+        {
+          question: "Our Mission",
+          answer: "Our mission is to empower Tamil speakers with accurate, inclusive, and culturally aware AI, while preserving linguistic identity and enabling innovation in local languages."
+        },
+        {
+          question: "Does Mozhii AI use real-time web data?",
+          answer: "Currently, Mozhii AI uses curated knowledge sources through a RAG system. Controlled web-based retrieval is planned for future releases to improve factual accuracy."
+        },
+        {
+          question: "Can users contribute data to Mozhii AI?",
+          answer: "Yes. Mozhii AI includes a Tamil Data Collection Platform where users can contribute high-quality Tamil prompts and responses to help improve the model. (contact our team to contribute)"
+        },
+        {
+          question: "How do you ensure data privacy?",
+          answer: "User privacy is a priority. Submitted data is handled securely, anonymized where necessary, and used strictly for research and model improvement purposes."
+        },
+        {
+          question: "Is Mozhii AI free to use?",
+          answer: "Mozhii AI is currently in an early development phase. Access models (free, research, or commercial) will be announced as the platform matures."
+        }
+      ]
     },
   },
   tam: {
@@ -398,7 +514,7 @@ export const translations = {
       help: "உதவி",
       activity: "செயல்பாடு",
       settings: "அமைப்புகள்",
-      helloHuman: "வணக்கம், மனிதரே",
+      helloHuman: "வணக்கம், Mozhii பயனர்!",
       howCanIHelp: "இன்று நான் உங்களுக்கு எப்படி உதவ முடியும்?",
       workingOnComingSoon: "நாங்கள் விரைவில் வருகிறோம் என்பதில் வேலை செய்கிறோம்...",
       thankYouForVisit: "வருகைக்கு நன்றி",
@@ -409,6 +525,122 @@ export const translations = {
       enterPrompt: "இங்கே ஒரு தூண்டுதலை உள்ளிடவும்",
       disclaimer: "Mozhii AI தவறுகளைச் செய்யலாம். முக்கியமான தகவல்களைச் சரிபார்க்கவும்.",
       backToHome: "முகப்புக்குத் திரும்பு",
+    },
+    mozhiiPage: {
+      hero: {
+        title: "Mozhii.ai அறிமுகம்",
+        subtitle: "இலங்கையின் முதல் இருமொழி AI உதவியாளர், தமிழ் மற்றும் சிங்கள மொழிகளில் மொழித் தடைகளை உடைக்க வடிவமைக்கப்பட்டுள்ளது.",
+        getStarted: "தொடங்கவும்",
+        learnMore: "மேலும் அறிய",
+      },
+      problem: {
+        title: "பிரச்சினை",
+        description: "இலங்கையின் மொழியியல் பன்முகத்தன்மை பெரும்பாலும் தகவல் தொடர்பு இடைவெளிகளை உருவாக்குகிறது, தகவல் மற்றும் சேவைகளுக்கான அணுகலைக் கட்டுப்படுத்துகிறது.",
+        cards: [
+          {
+            title: "மொழித் தடைகள்",
+            description: "பல இலங்கையர்கள் ஆங்கிலம் மட்டுமே உள்ள உள்ளடக்கம் மற்றும் சேவைகளை அணுக சிரமப்படுகிறார்கள்.",
+          },
+          {
+            title: "வரையறுக்கப்பட்ட உள்ளூர் AI",
+            description: "தற்போதுள்ள AI மாதிரிகள் சிங்களம் மற்றும் தமிழ் நுணுக்கங்களுக்கு மோசமான ஆதரவைக் கொண்டுள்ளன.",
+          },
+          {
+            title: "டிஜிட்டல் பிளவு",
+            description: "கிராமப்புற சமூகங்கள் பெரும்பாலும் மொழி கட்டுப்பாடுகள் காரணமாக டிஜிட்டல் முன்னேற்றங்களிலிருந்து விடுபடுகின்றன.",
+          },
+        ],
+      },
+      solution: {
+        title: "எங்கள் தீர்வு",
+        description: "Mozhii.ai உள்ளூர் மொழி சூழல்களை ஆழமாகப் புரிந்துகொள்ளும் மேம்பட்ட AI மாதிரிகளைப் பயன்படுத்தி இடைவெளியைக் குறைக்கிறது.",
+        cards: [
+          {
+            title: "இருமொழித் திறன்",
+            description: "தமிழ் மற்றும் சிங்களம் ஆகிய இரண்டிலும் இயற்கை மொழி செயலாக்கத்திற்காக சிறப்பாகப் பயிற்றுவிக்கப்பட்டது.",
+          },
+          {
+            title: "கலாச்சார விழிப்புணர்வு",
+            description: "இலங்கை கலாச்சார சூழல் மற்றும் உள்ளூர் பேச்சுவழக்குகளைப் புரிந்துகொள்ளும் AI.",
+          },
+          {
+            title: "அணுகக்கூடிய தொழில்நுட்பம்",
+            description: "தொழில்நுட்ப நிபுணத்துவத்தைப் பொருட்படுத்தாமல் அனைவருக்கும் பயன்படுத்த எளிதான இடைமுகம்.",
+          },
+        ],
+      },
+      tech: {
+        title: "தொழில்நுட்பம்",
+        description: "அதிநவீன இயந்திர கற்றல் மற்றும் இயற்கை மொழி செயலாக்க தொழில்நுட்பங்களால் இயக்கப்படுகிறது.",
+        cards: [
+          {
+            title: "மேம்பட்ட NLP",
+            description: "சிக்கலான மொழி கட்டமைப்புகளைப் புரிந்துகொள்ள சமீபத்திய இயற்கை மொழி செயலாக்க நுட்பங்களைப் பயன்படுத்துதல்.",
+          },
+          {
+            title: "தொடர்ச்சியான கற்றல்",
+            description: "எங்கள் மாதிரிகள் தொடர்ந்து மேம்பட்டு வருகின்றன, ஒவ்வொரு தொடர்புகளிலிருந்தும் கற்றுக்கொள்கின்றன.",
+          },
+          {
+            title: "பாதுகாப்பான மற்றும் தனிப்பட்ட",
+            description: "உங்கள் தரவு தனியுரிமை மற்றும் பாதுகாப்பு எங்கள் முன்னுரிமை.",
+          },
+        ],
+      },
+      platforms: {
+        title: "தளங்கள்",
+        description: "நீங்கள் எங்கிருந்தாலும் Mozhii.ai ஐ அணுகவும்.",
+        web: "இணையம்",
+        mobile: "மொபைல்",
+        api: "API",
+      },
+    },
+    aboutPage: {
+      title: "Mozhii AI பற்றி",
+      faqs: [
+        {
+          question: "Mozhii AI என்றால் என்ன?",
+          answer: "Mozhii AI என்பது உண்மையான தமிழ் மொழி பயன்பாட்டைப் புரிந்துகொள்ளவும், உருவாக்கவும் மற்றும் உதவவும் வடிவமைக்கப்பட்ட ஒரு தமிழ் சார்ந்த பெரிய மொழி மாதிரி (LLM) ஆகும், இது இலங்கைத் தமிழ், கலப்பு மொழி மற்றும் நிஜ உலக சூழல்களில் சிறப்பு கவனம் செலுத்துகிறது. நவீன திறந்த மூல அடிப்படை மாதிரிகளைப் பயன்படுத்தி கட்டமைக்கப்பட்டு, டொமைன் சார்ந்த தரவு மூலம் மேம்படுத்தப்பட்ட Mozhii AI, கல்வி, ஆராய்ச்சி, நிர்வாகம் மற்றும் அன்றாட டிஜிட்டல் தொடர்புகளில் தமிழ் பேசுபவர்களுக்கு மேம்பட்ட AI ஐ அணுகக்கூடியதாக மாற்றுவதை நோக்கமாகக் கொண்டுள்ளது."
+        },
+        {
+          question: "Mozhii AI எந்த மொழிகளை ஆதரிக்கிறது?",
+          answer: "Mozhii AI தமிழ், ஆங்கிலம், சிங்களம் அல்லது கலப்பு மொழியில் தூண்டுதல்களை ஏற்றுக்கொள்கிறது, ஆனால் நிலைத்தன்மை மற்றும் மொழி கவனத்தை உறுதிப்படுத்த தமிழில் மட்டுமே பதிலளிக்கிறது."
+        },
+        {
+          question: "Mozhii AI ஏன் உள்ளது?",
+          answer: "தமிழ் உலகின் பழமையான வாழும் மொழிகளில் ஒன்றாக இருந்தபோதிலும், நவீன AI அமைப்புகளில் இது மிகவும் குறைவாகவே பிரதிநிதித்துவப்படுத்தப்படுகிறது. தற்போதுள்ள பெரும்பாலான மொழி மாதிரிகள் வரையறுக்கப்பட்ட, துல்லியமற்ற அல்லது கலாச்சார ரீதியாக தவறான தமிழ் பதில்களை வழங்குகின்றன. தமிழ் எவ்வாறு பேசப்படுகிறது, எழுதப்படுகிறது மற்றும் நிஜ வாழ்க்கையில் பயன்படுத்தப்படுகிறது என்பதை உண்மையாகப் புரிந்துகொள்ளும் தமிழ்-முதல் AI அமைப்பை உருவாக்குவதன் மூலம் இந்த இடைவெளியைக் குறைக்க Mozhii AI உருவாக்கப்பட்டது — குறிப்பாக இலங்கை சூழலில்."
+        },
+        {
+          question: "ChatGPT அல்லது பிற AI சாட்போட்களிலிருந்து Mozhii AI எவ்வாறு வேறுபடுகிறது?",
+          answer: "Mozhii AI ஒரு பொது நோக்கத்திற்கான சாட்போட் அல்ல. இது தமிழுக்காகவே உருவாக்கப்பட்டது, இதனுடன்:",
+          list: [
+            "தமிழ் மட்டும் பதில்கள்",
+            "உள்ளூர் பேச்சுவழக்குகளில் கவனம்",
+            "சமூகம் சார்ந்த தரவு சேகரிப்பு",
+            "தமிழ் மொழி பணிகளுக்காக உகந்ததாக்கப்பட்ட கட்டமைப்பு"
+          ]
+        },
+        {
+          question: "எங்கள் நோக்கம்",
+          answer: "எங்கள் நோக்கம் தமிழ் பேசுபவர்களுக்கு துல்லியமான, உள்ளடக்கிய மற்றும் கலாச்சார ரீதியாக விழிப்புணர்வுள்ள AI உடன் அதிகாரம் அளிப்பதாகும், அதே நேரத்தில் மொழியியல் அடையாளத்தைப் பாதுகாத்தல் மற்றும் உள்ளூர் மொழிகளில் புதுமைகளை செயல்படுத்துதல்."
+        },
+        {
+          question: "Mozhii AI நிகழ்நேர இணையத் தரவைப் பயன்படுத்துகிறதா?",
+          answer: "தற்போது, Mozhii AI RAG அமைப்பு மூலம் நிர்வகிக்கப்பட்ட அறிவு மூலங்களைப் பயன்படுத்துகிறது. உண்மைத் துல்லியத்தை மேம்படுத்த எதிர்கால வெளியீடுகளுக்கு கட்டுப்படுத்தப்பட்ட இணைய அடிப்படையிலான மீட்டெடுப்பு திட்டமிடப்பட்டுள்ளது."
+        },
+        {
+          question: "பயனர்கள் Mozhii AI க்கு தரவை வழங்க முடியுமா?",
+          answer: "ஆம். Mozhii AI ஒரு தமிழ் தரவு சேகரிப்பு தளத்தை உள்ளடக்கியது, அங்கு பயனர்கள் மாதிரியை மேம்படுத்த உதவ உயர்தர தமிழ் தூண்டுதல்கள் மற்றும் பதில்களை வழங்க முடியும். (பங்களிக்க எங்கள் குழுவைத் தொடர்பு கொள்ளவும்)"
+        },
+        {
+          question: "தரவு தனியுரிமையை நீங்கள் எவ்வாறு உறுதிப்படுத்துகிறீர்கள்?",
+          answer: "பயனர் தனியுரிமை ஒரு முன்னுரிமை. சமர்ப்பிக்கப்பட்ட தரவு பாதுகாப்பாகக் கையாளப்படுகிறது, தேவைப்படும் இடங்களில் அநாமதேயமாக்கப்படுகிறது, மேலும் ஆராய்ச்சி மற்றும் மாதிரி மேம்பாட்டு நோக்கங்களுக்காக மட்டுமே பயன்படுத்தப்படுகிறது."
+        },
+        {
+          question: "Mozhii AI பயன்படுத்த இலவசமா?",
+          answer: "Mozhii AI தற்போது ஆரம்பக்கட்ட மேம்பாட்டில் உள்ளது. தளம் முதிர்ச்சியடையும் போது அணுகல் மாதிரிகள் (இலவச, ஆராய்ச்சி அல்லது வணிக) அறிவிக்கப்படும்."
+        }
+      ]
     },
   },
   sin: {
@@ -604,7 +836,7 @@ export const translations = {
       help: "උදව්",
       activity: "ක්‍රියාකාරකම්",
       settings: "සැකසුම්",
-      helloHuman: "ආයුබෝවන්, මිතුර",
+      helloHuman: "ආයුබෝවන්, Mozhii පරිශීලකයා",
       howCanIHelp: "අද මම ඔබට උදව් කරන්නේ කෙසේද?",
       workingOnComingSoon: "අපි ළඟදීම පැමිණීමට කටයුතු කරමින් සිටිමු...",
       thankYouForVisit: "පැමිණීමට ස්තූතියි",
@@ -615,6 +847,122 @@ export const translations = {
       enterPrompt: "මෙහි විමසුමක් ඇතුළත් කරන්න",
       disclaimer: "Mozhii AI වැරදි කළ හැක. වැදගත් තොරතුරු පරීක්ෂා කිරීම සලකා බලන්න.",
       backToHome: "මුල් පිටුවට ආපසු",
+    },
+    mozhiiPage: {
+      hero: {
+        title: "Mozhii.ai හඳුන්වා දීම",
+        subtitle: "ශ්‍රී ලංකාවේ පළමු ද්විභාෂා AI සහායකයා, දෙමළ සහ සිංහල භාෂා බාධක බිඳ දැමීමට නිර්මාණය කර ඇත.",
+        getStarted: "ආරම්භ කරන්න",
+        learnMore: "තව දැනගන්න",
+      },
+      problem: {
+        title: "ගැටලුව",
+        description: "ශ්‍රී ලංකාවේ භාෂා විවිධත්වය බොහෝ විට සන්නිවේදන හිඩැස් ඇති කරයි, තොරතුරු සහ සේවාවන් වෙත ප්‍රවේශ වීම සීමා කරයි.",
+        cards: [
+          {
+            title: "භාෂා බාධක",
+            description: "බොහෝ ශ්‍රී ලාංකිකයන් ඉංග්‍රීසි පමණක් අන්තර්ගතය සහ සේවාවන් වෙත ප්‍රවේශ වීමට අරගල කරයි.",
+          },
+          {
+            title: "සීමිත දේශීය AI",
+            description: "පවතින AI ආකෘතිවලට සිංහල සහ දෙමළ භාෂා සූක්ෂ්මතා සඳහා දුර්වල සහායක් ඇත.",
+          },
+          {
+            title: "ඩිජිටල් බෙදීම",
+            description: "ග්‍රාමීය ප්‍රජාවන් බොහෝ විට භාෂා සීමාවන් නිසා ඩිජිටල් දියුණුවෙන් ඉවත් කරනු ලැබේ.",
+          },
+        ],
+      },
+      solution: {
+        title: "අපගේ විසඳුම",
+        description: "Mozhii.ai දේශීය භාෂා සන්දර්භය ගැඹුරින් අවබෝධ කර ගන්නා උසස් AI ආකෘති භාවිතා කරමින් පරතරය පියවයි.",
+        cards: [
+          {
+            title: "ද්විභාෂා ප්‍රවීණතාව",
+            description: "දෙමළ සහ සිංහල භාෂා දෙකෙහිම ස්වභාවික භාෂා සැකසුම් සඳහා විශේෂයෙන් පුහුණු කර ඇත.",
+          },
+          {
+            title: "සංස්කෘතික දැනුවත්භාවය",
+            description: "ශ්‍රී ලංකාවේ සංස්කෘතික සන්දර්භය සහ දේශීය ව්‍යවහාරයන් තේරුම් ගන්නා AI.",
+          },
+          {
+            title: "ප්‍රවේශ විය හැකි තාක්ෂණය",
+            description: "සෑම කෙනෙකුටම භාවිතා කිරීමට පහසු අතුරු මුහුණතක්, තාක්ෂණික දැනුම නොසලකා.",
+          },
+        ],
+      },
+      tech: {
+        title: "තාක්ෂණය",
+        description: "අති නවීන යන්ත්‍ර ඉගෙනුම් සහ ස්වභාවික භාෂා සැකසුම් තාක්ෂණයන් මගින් බල ගැන්වේ.",
+        cards: [
+          {
+            title: "උසස් NLP",
+            description: "සංකීර්ණ භාෂා ව්‍යුහයන් තේරුම් ගැනීමට නවතම ස්වභාවික භාෂා සැකසුම් ශිල්පීය ක්‍රම භාවිතා කරයි.",
+          },
+          {
+            title: "අඛණ්ඩ ඉගෙනීම",
+            description: "අපගේ ආකෘති නිරන්තරයෙන් වැඩි දියුණු වන අතර, සෑම අන්තර්ක්‍රියාවකින්ම ඉගෙන ගනී.",
+          },
+          {
+            title: "ආරක්ෂිත සහ පුද්ගලික",
+            description: "ඔබගේ දත්ත රහස්‍යතාව සහ ආරක්ෂාව අපගේ ප්‍රමුඛතාවයයි.",
+          },
+        ],
+      },
+      platforms: {
+        title: "වේදිකා",
+        description: "ඔබ සිටින තැන Mozhii.ai වෙත ප්‍රවේශ වන්න.",
+        web: "වෙබ්",
+        mobile: "ජංගම",
+        api: "API",
+      },
+    },
+    aboutPage: {
+      title: "Mozhii AI ගැන",
+      faqs: [
+        {
+          question: "Mozhii AI යනු කුමක්ද?",
+          answer: "Mozhii AI යනු ශ්‍රී ලාංකික දෙමළ, කේත-මිශ්‍ර භාෂාව සහ සැබෑ ලෝක සන්දර්භයන් කෙරෙහි විශේෂ අවධානයක් යොමු කරමින් අව්‍යාජ දෙමළ භාෂා භාවිතය අවබෝධ කර ගැනීමට, උත්පාදනය කිරීමට සහ සහාය වීමට නිර්මාණය කර ඇති දෙමළ කේන්ද්‍ර කරගත් විශාල භාෂා ආකෘතියකි (LLM). නවීන විවෘත මූලාශ්‍ර පදනම් ආකෘති භාවිතයෙන් ගොඩනගා ඇති අතර වසම්-විශේෂිත දත්ත හරහා වැඩි දියුණු කර ඇති Mozhii AI, අධ්‍යාපනය, පර්යේෂණ, පාලනය සහ දෛනික ඩිජිටල් අන්තර්ක්‍රියා හරහා දෙමළ කථිකයන්ට උසස් AI ප්‍රවේශ විය හැකි බවට පත් කිරීම අරමුණු කරයි."
+        },
+        {
+          question: "Mozhii AI සහාය දක්වන භාෂා මොනවාද?",
+          answer: "Mozhii AI දෙමළ, ඉංග්‍රීසි, සිංහල හෝ මිශ්‍ර භාෂාවෙන් විමසුම් පිළිගනී, නමුත් අනුකූලතාව සහ භාෂා අවධානය සහතික කිරීම සඳහා එය ප්‍රතිචාර දක්වන්නේ දෙමළ භාෂාවෙන් පමණි."
+        },
+        {
+          question: "Mozhii AI පවතින්නේ ඇයි?",
+          answer: "දෙමළ ලොව පැරණිතම ජීවමාන භාෂාවක් වුවද, නවීන AI පද්ධති තුළ එය ඉතා අඩුවෙන් නියෝජනය වේ. පවතින බොහෝ භාෂා ආකෘති සීමිත, සාවද්‍ය හෝ සංස්කෘතිකමය වශයෙන් නොගැලපෙන දෙමළ ප්‍රතිචාර සපයයි. Mozhii AI නිර්මාණය කරන ලද්දේ දෙමළ කතා කරන, ලියන සහ සැබෑ ජීවිතයේ භාවිතා කරන ආකාරය සැබවින්ම තේරුම් ගන්නා දෙමළ-පළමු AI පද්ධතියක් ගොඩනැගීමෙන් මෙම පරතරය පියවීම සඳහා ය — විශේෂයෙන් ශ්‍රී ලංකා සන්දර්භය තුළ."
+        },
+        {
+          question: "ChatGPT හෝ වෙනත් AI චැට්බෝට් වලට වඩා Mozhii AI වෙනස් වන්නේ කෙසේද?",
+          answer: "Mozhii AI යනු සාමාන්‍ය කාර්ය චැට්බෝට් එකක් නොවේ. එය දෙමළ සඳහාම ගොඩනගා ඇත, මේවා සමඟ:",
+          list: [
+            "දෙමළ පමණක් ප්‍රතිචාර",
+            "දේශීය උපභාෂා කෙරෙහි අවධානය යොමු කිරීම",
+            "ප්‍රජාව විසින් මෙහෙයවනු ලබන දත්ත එකතු කිරීම",
+            "දෙමළ භාෂා කාර්යයන් සඳහා ප්‍රශස්ත කළ ගෘහ නිර්මාණ ශිල්පය"
+          ]
+        },
+        {
+          question: "අපගේ මෙහෙවර",
+          answer: "අපගේ මෙහෙවර වන්නේ භාෂාමය අනන්‍යතාවය ආරක්ෂා කරමින් සහ දේශීය භාෂාවලින් නවෝත්පාදනයන් සක්‍රීය කරමින් නිවැරදි, ඇතුළත් සහ සංස්කෘතිකමය වශයෙන් දැනුවත් AI සමඟ දෙමළ කථිකයන් සවිබල ගැන්වීමයි."
+        },
+        {
+          question: "Mozhii AI තත්‍ය කාලීන වෙබ් දත්ත භාවිතා කරයිද?",
+          answer: "දැනට, Mozhii AI RAG පද්ධතියක් හරහා සංරක්ෂිත දැනුම මූලාශ්‍ර භාවිතා කරයි. සත්‍ය නිරවද්‍යතාවය වැඩි දියුණු කිරීම සඳහා අනාගත නිකුතු සඳහා පාලිත වෙබ් පාදක ලබා ගැනීම සැලසුම් කර ඇත."
+        },
+        {
+          question: "පරිශීලකයින්ට Mozhii AI වෙත දත්ත දායක කළ හැකිද?",
+          answer: "ඔව්. Mozhii AI හි දෙමළ දත්ත එකතු කිරීමේ වේදිකාවක් ඇතුළත් වන අතර එහිදී පරිශීලකයින්ට ආකෘතිය වැඩිදියුණු කිරීමට උපකාර කිරීම සඳහා උසස් තත්ත්වයේ දෙමළ විමසුම් සහ ප්‍රතිචාර දායක කළ හැකිය. (දායක වීමට අපගේ කණ්ඩායම අමතන්න)"
+        },
+        {
+          question: "ඔබ දත්ත රහස්‍යතාව සහතික කරන්නේ කෙසේද?",
+          answer: "පරිශීලක රහස්‍යතාව ප්‍රමුඛතාවයකි. ඉදිරිපත් කරන ලද දත්ත ආරක්ෂිතව හැසිරවීම, අවශ්‍ය විට නිර්නාමික කිරීම සහ පර්යේෂණ සහ ආකෘති වැඩිදියුණු කිරීමේ අරමුණු සඳහා පමණක් දැඩි ලෙස භාවිතා කරනු ලැබේ."
+        },
+        {
+          question: "Mozhii AI භාවිතා කිරීම නොමිලේද?",
+          answer: "Mozhii AI දැනට මුල් සංවර්ධන අවධියක පවතී. වේදිකාව පරිණත වන විට ප්‍රවේශ ආකෘති (නොමිලේ, පර්යේෂණ හෝ වාණිජ) ප්‍රකාශයට පත් කෙරේ."
+        }
+      ]
     },
   },
 }

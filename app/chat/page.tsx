@@ -37,17 +37,25 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="flex h-screen bg-black text-white overflow-hidden font-sans">
+    <div className="flex h-screen bg-black text-white overflow-hidden font-sans relative">
+      {/* Mobile Overlay */}
+      {isExpanded && (
+        <div 
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-20 md:hidden"
+          onClick={() => setIsExpanded(false)}
+        />
+      )}
+
       {/* Sidebar */}
       <div 
         ref={sidebarRef}
         onMouseMove={handleMouseMove}
         className={`
-          ${isExpanded ? "w-72" : "w-20"} 
-          bg-white/5 backdrop-blur-xl border-r border-white/10 
+          fixed md:relative z-30 h-full
+          bg-[#0a0a0a] md:bg-white/5 backdrop-blur-xl border-r border-white/10 
           transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] 
-          flex flex-col md:relative absolute z-20 h-full shadow-2xl
-          group
+          flex flex-col shadow-2xl group
+          ${isExpanded ? "w-72 translate-x-0" : "w-72 -translate-x-full md:w-20 md:translate-x-0"}
         `}
       >
         {/* Glowing Border Line */}
@@ -162,8 +170,8 @@ export default function ChatPage() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col relative">
-        <LanguageSwitcher className="absolute top-4 right-4 bottom-auto left-auto translate-x-0" />
+      <div className="flex-1 flex flex-col relative w-full">
+        <LanguageSwitcher className="fixed top-1/2 right-4 -translate-y-1/2 left-auto bottom-auto translate-x-0 flex-col" />
         {/* Mobile Header */}
         <div className="md:hidden flex items-center p-4 border-b border-white/10 bg-[#1e1e1e]">
           <Button variant="ghost" size="icon" onClick={() => setIsExpanded(!isExpanded)}>
@@ -226,14 +234,14 @@ export default function ChatPage() {
         {/* Input Area (Dummy) */}
         <div className="p-4 md:p-6 max-w-4xl mx-auto w-full relative z-20">
           <div className="relative">
-            <div className="absolute left-4 top-1/2 -translate-y-1/2 flex gap-2">
+            <div className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 flex gap-2">
               <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white rounded-full h-8 w-8">
                 <ImageIcon className="h-5 w-5" />
               </Button>
             </div>
             <Input 
               placeholder={t.chat.enterPrompt}
-              className="w-full bg-[#1e1e1e] border-white/10 rounded-full py-6 pl-14 pr-24 text-gray-300 focus-visible:ring-blue-500/50 focus-visible:border-blue-500/50"
+              className="w-full bg-[#1e1e1e] border-white/10 rounded-full py-6 pl-12 pr-20 md:pl-14 md:pr-24 text-gray-300 focus-visible:ring-blue-500/50 focus-visible:border-blue-500/50 text-sm md:text-base"
               // Removed disabled prop to allow typing
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
