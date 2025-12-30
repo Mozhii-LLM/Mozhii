@@ -1,16 +1,20 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Spotlight } from "@/components/ui/spotlight"
 import Image from "next/image"
 import AnimatedGradientBackground from "@/components/ui/animated-gradient-background"
 import { SparklesCore } from "@/components/ui/sparkles"
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid"
-import { Navbar } from "@/components/ui/navbar"
+import { Navbar } from "@/components/layout/navbar"
 import { Pricing } from "@/components/ui/pricing"
-import { WaitlistSection } from "@/components/waitlist-section"
+import { WaitlistSection } from "@/components/sections/waitlist-section"
 import { useLanguage } from "@/lib/language-context"
+import { cn } from "@/lib/utils"
+import { FadeIn } from "@/components/ui/fade-in"
+import { motion } from "framer-motion"
 import {
   CheckCircle,
   ArrowRight,
@@ -28,70 +32,155 @@ import {
   MapPin,
   Linkedin,
   Instagram,
-  Facebook,
+  Youtube,
   Database,
   Binary,
+  Languages,
+  Mic,
+  ShieldCheck,
+  Code2,
+  Users,
+  Lock,
+  WifiOff,
 } from "lucide-react"
 
+const TamilIcon = (props: any) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <text x="50%" y="55%" dominantBaseline="middle" textAnchor="middle" fontSize="9" fontWeight="bold" fill="currentColor" stroke="none">TAM</text>
+    <rect x="2" y="4" width="20" height="16" rx="2" />
+  </svg>
+)
+
 export default function HomePage() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
+  const isTamil = language === 'tam'
 
   return (
     <div className="min-h-screen bg-transparent">
       {/* Navigation Component */}
       <Navbar />
 
-      <main className="mx-auto max-w-[1400px] px-4 md:px-8">
+      <main className="w-full">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent pt-20 pb-10 lg:pt-0 lg:pb-0">
+        <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent pt-24 pb-4 lg:pt-0 lg:pb-0">
           <div className="container mx-auto px-4 h-full flex items-center">
             {/* Make Card background transparent so the global radial gradient shows through.
         Keep a subtle backdrop blur for readability. */}
-            <Card className="w-full min-h-[80vh] lg:h-screen bg-transparent backdrop-blur-sm relative overflow-hidden border-none flex items-center">
+            <Card className="w-full h-auto lg:h-screen bg-transparent backdrop-blur-sm relative overflow-hidden border-none flex items-center">
               <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" />
 
-              <div className="flex flex-col lg:flex-row h-full w-full items-center justify-center pt-20 lg:pt-0">
+              <div className="flex flex-col lg:flex-row h-full w-full items-center justify-center pt-10 lg:pt-0">
                 {/* Left content */}
-                <div className="flex-1 p-8 relative z-10 flex flex-col justify-center text-center lg:text-left">
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text">
-                    {t.hero.title}
-                  </h1>
-                  <p className="mt-4 text-neutral-300 max-w-lg mx-auto lg:mx-0">{t.hero.description}</p>
+                <motion.div 
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="flex-1 p-6 md:p-8 relative z-10 flex flex-col justify-center text-center lg:text-left"
+                >
+                  <div className="flex flex-col">
+                    <span className={cn(
+                      "text-white font-serif",
+                      isTamil ? "text-4xl md:text-5xl lg:text-6xl tracking-normal leading-tight" : "text-5xl md:text-6xl lg:text-7xl tracking-wide"
+                    )}>
+                      Sri Lanka&apos;s
+                    </span>
+                    <span className={cn(
+                      "mt-2 text-neutral-300 font-serif",
+                      isTamil ? "text-lg md:text-2xl lg:text-3xl tracking-normal leading-snug" : "text-xl md:text-3xl lg:text-4xl tracking-widest"
+                    )}>
+                      Tamil Large Language Model
+                    </span>
+                  </div>
+                  <p className={cn(
+                    "mt-6 text-neutral-300 max-w-lg mx-auto lg:mx-0 text-sm md:text-base leading-relaxed text-justify",
+                    isTamil && "leading-loose"
+                  )}>
+                    {t.hero.description}
+                  </p>
 
 
                   <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
-                    <Button size="lg" className="bg-white text-black hover:bg-gray-100">
+                    <Button 
+                      size="lg" 
+                      className="bg-white text-black hover:bg-gray-100"
+                      onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
                       {t.hero.joinWaitlist}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-neutral-600 text-neutral-300 hover:bg-neutral-800 bg-transparent"
-                    >
-                      {t.hero.contactTeam}
-                    </Button>
+                    <Link href="/chat">
+                      <Button
+                        size="lg"
+                        variant="outline"
+                        className="border-neutral-600 text-neutral-300 hover:bg-neutral-800 bg-transparent cursor-pointer"
+                      >
+                        Try It now
+                      </Button>
+                    </Link>
                   </div>
-
-                  <div className="flex items-center justify-center lg:justify-start gap-8 text-sm text-neutral-400 mt-6">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-400" />
-                      <span> {t.hero.comingSoon} </span>
-                    </div>
-                  </div>
-                </div>
+                </motion.div>
 
                 {/* Right content */}
-                <div className="flex-1 relative flex items-center justify-center p-8 lg:p-0">
-                  <div className="relative w-full max-w-[350px] sm:max-w-[450px] lg:max-w-[650px]">
-                    <Image
-                      src="/image.png"
-                      alt="Mozhii.AI Interface"
-                      width={800}
-                      height={800}
-                      className="relative z-10 w-full h-auto object-contain"
-                      priority
-                    />
+                <div className="flex-1 relative flex items-center justify-center p-4 md:p-8 lg:p-0 mt-8 lg:mt-0">
+                  <div className="relative w-full max-w-[500px] grid grid-cols-2 gap-3 sm:gap-4">
+                    {t.hero.cards.map((item, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.4 + (index * 0.1) }}
+                        whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                        className="group relative bg-black/30 border border-blue-500/20 rounded-xl p-3 sm:p-4 text-center backdrop-blur-sm hover:bg-black/50 hover:border-blue-500/60 hover:shadow-lg hover:shadow-blue-500/20 aspect-square flex flex-col items-center justify-center"
+                      >
+                        {/* Outline glow effect on hover */}
+                        <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{
+                          boxShadow: "inset 0 0 20px rgba(59, 130, 246, 0.2), 0 0 20px rgba(59, 130, 246, 0.3)"
+                        }} />
+                        
+                        <h3 className={cn(
+                          "relative z-10 text-sm sm:text-base text-gray-400 mb-1 sm:mb-2 font-medium",
+                          isTamil ? "tracking-normal" : "uppercase tracking-wider"
+                        )}>
+                          {item.title}
+                        </h3>
+                        
+                        {item.active ? (
+                          <div className="relative z-10 flex flex-col items-center">
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+                              <span className={cn(
+                                "text-lg sm:text-xl md:text-2xl font-bold text-green-400",
+                                isTamil && "text-base sm:text-lg"
+                              )}>
+                                {item.active}
+                              </span>
+                            </div>
+                            <p className={cn(
+                              "text-base sm:text-lg font-bold text-white group-hover:text-blue-300 transition-colors duration-300 leading-tight",
+                              isTamil && "text-sm sm:text-base"
+                            )}>
+                              {item.value}
+                            </p>
+                          </div>
+                        ) : (
+                          <p className={cn(
+                            "relative z-10 text-lg sm:text-xl md:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300 leading-tight",
+                            isTamil && "text-base sm:text-lg"
+                          )}>
+                            {item.value}
+                          </p>
+                        )}
+                      </motion.div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -99,91 +188,165 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Gradient Transition */}
+        <div className="w-full h-32 bg-gradient-to-b from-transparent to-black pointer-events-none -mt-32 relative z-10" />
+
+        <div className="bg-black w-full relative z-20">
+          {/* Overview Section */}
+          <section id="overview" className="py-24 bg-transparent">
+          <div className="container mx-auto px-4">
+            <FadeIn>
+              <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+                {/* Left Content */}
+                <div className="space-y-8">
+                  <h2 className="text-4xl md:text-5xl font-serif text-white">{t.overview.title}</h2>
+                  <div className="space-y-6 text-neutral-300 font-sans text-lg leading-8 tracking-wide text-justify">
+                    <p>{t.overview.p1}</p>
+                    <p>{t.overview.p2}</p>
+                    <p>{t.overview.p3}</p>
+                  </div>
+                </div>
+
+                {/* Right Content - Quick Facts Card */}
+                <div className="lg:pt-8">
+                  <div className="group relative rounded-2xl overflow-hidden">
+                    {/* Base Background - Darker with more black */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0B0377]/30 via-black/60 to-[#0B0377]/20 backdrop-blur-xl border border-white/10 transition-colors duration-500 group-hover:border-blue-400/40" />
+                    
+                    {/* Hover Gradient Effect - Smooth blue/black */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0B0377]/30 via-black/50 to-[#0B0377]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    <Card className="relative bg-transparent border-none shadow-none">
+                      <CardContent className="p-8 space-y-8">
+                        <h3 className="text-xs font-bold text-gray-500 tracking-[0.2em] uppercase">{t.overview.quickFacts.title}</h3>
+                        
+                        <div className="space-y-6">
+                          <div className="flex justify-between items-center border-b border-white/5 pb-4">
+                            <span className="text-gray-400">{t.overview.quickFacts.f1.label}</span>
+                            <span className="text-white font-mono">{t.overview.quickFacts.f1.value}</span>
+                          </div>
+                          
+                          <div className="flex justify-between items-center border-b border-white/5 pb-4">
+                            <span className="text-gray-400">{t.overview.quickFacts.f2.label}</span>
+                            <span className="text-white font-mono text-right">{t.overview.quickFacts.f2.value}</span>
+                          </div>
+
+                          <div className="flex justify-between items-center border-b border-white/5 pb-4">
+                            <span className="text-gray-400">{t.overview.quickFacts.f3.label}</span>
+                            <span className="text-white font-mono">{t.overview.quickFacts.f3.value}</span>
+                          </div>
+
+                          <div className="flex justify-between items-center pt-2">
+                            <span className="text-gray-400">{t.overview.quickFacts.f4.label}</span>
+                            <div className="flex items-center gap-2 font-mono">
+                              <span className="text-white">{t.overview.quickFacts.f4.value}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Social Icons */}
+                        <div className="pt-4 flex justify-center gap-4">
+                          <a
+                            href="https://www.linkedin.com/company/mozhii-ai/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3Bkzajbj5dSYeZfNQu6TUArw%3D%3D"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-gray-400 hover:text-blue-400 hover:bg-blue-500/10 hover:border-blue-500/50 transition-all duration-300"
+                          >
+                            <Linkedin className="h-5 w-5" />
+                          </a>
+                          <a
+                            href="https://www.instagram.com/mozhii.ai?igsh=NW55ajVoc3gwOHdt"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-gray-400 hover:text-pink-500 hover:bg-pink-500/10 hover:border-pink-500/50 transition-all duration-300"
+                          >
+                            <Instagram className="h-5 w-5" />
+                          </a>
+                          <a
+                            href="https://www.youtube.com/@Mozhiiai"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-gray-400 hover:text-red-500 hover:bg-red-500/10 hover:border-red-500/50 transition-all duration-300"
+                          >
+                            <Youtube className="h-5 w-5" />
+                          </a>
+                          <a
+                            href="https://www.google.com/search?sca_esv=90ecd7b778e2c380&sxsrf=AE3TifPZJXfnFERBX9OpTj_3hGuY0IkVJw%3A1767096845929&q=Mozhii&stick=H4sIAAAAAAAAAONgU1I1qLAwNTUwTrQwS0o1NzA0S02xMqgwM0g1sDQ1Nk0yMjczN0w1WsTK5ptflZGZCQAM9qpHMgAAAA&mat=CRm6Me8_iIMk&ved=2ahUKEwip_aPepOWRAxXiRmwGHRpLF0gQrMcEegQIHRAC"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/50 transition-all duration-300"
+                          >
+                            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
+                            </svg>
+                          </a>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+
         {/* Services Section */}
-        <section id="services" className="py-12 bg-transparent">
+        <section id="features" className="py-12 bg-transparent">
           <div className="container mx-auto px-4">
-            <div className="text-center space-y-4 mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">{t.features.title}</h2>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto">{t.features.subtitle}</p>
-            </div>
+            <FadeIn>
+              <div className="text-center space-y-4 mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold text-white">{t.features.title}</h2>
+                <p className="text-xl text-gray-300 max-w-2xl mx-auto">{t.features.subtitle}</p>
+              </div>
 
-            <BentoGrid>
-              {/* Render 9 equal-size, responsive feature cards (translations supported) */}
-              {[
-                { data: t.features.cards.content, Icon: Bot },
-                { data: t.features.cards.multilingual, Icon: Workflow },
-                { data: t.features.cards.voice, Icon: Cog },
-                { data: t.features.cards.ethical, Icon: Brain },
-                { data: t.features.cards.code, Icon: MessageSquare },
-                { data: t.features.cards.collaboration, Icon: TrendingUp },
-                { data: t.features.cards.analytics, Icon: BarChart3 },
-                { data: t.features.cards.privacy, Icon: Database },
-                { data: t.features.cards.offline, Icon: Clock },
-              ].map((card) => (
-                <BentoCard
-                  key={card.data.title}
-                  name={card.data.title}
-                  className=""
-                  background={<div className="absolute inset-0 bg-black/80 backdrop-blur-sm border border-white/10" />}
-                  Icon={card.Icon}
-                  description={card.data.desc}
-                  href="#"
-                  cta={card.data.cta}
-                />
-              ))}
-            </BentoGrid>
+              <BentoGrid>
+                {/* Render 9 equal-size, responsive feature cards (translations supported) */}
+                {[
+                  { data: t.features.cards.content, Icon: TamilIcon },
+                  { data: t.features.cards.multilingual, Icon: Languages },
+                  { data: t.features.cards.voice, Icon: Mic },
+                  { data: t.features.cards.ethical, Icon: ShieldCheck },
+                  { data: t.features.cards.code, Icon: Code2 },
+                  { data: t.features.cards.collaboration, Icon: Users },
+                  { data: t.features.cards.analytics, Icon: BarChart3 },
+                  { data: t.features.cards.privacy, Icon: Lock },
+                  { data: t.features.cards.offline, Icon: WifiOff },
+                ].map((card) => (
+                  <BentoCard
+                    key={card.data.title}
+                    name={card.data.title}
+                    className="bg-transparent border-none shadow-none rounded-2xl"
+                    background={
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#0B0377]/30 via-black/60 to-[#0B0377]/20 backdrop-blur-xl border border-white/10 transition-colors duration-500 group-hover:border-blue-400/40" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#0B0377]/30 via-black/50 to-[#0B0377]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        {/* Animated Bottom Line */}
+                        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-in-out origin-center" />
+                      </>
+                    }
+                    Icon={card.Icon}
+                    description={card.data.desc}
+                    href="/features"
+                    cta={card.data.cta}
+                  />
+                ))}
+              </BentoGrid>
+
+              <div className="mt-16 flex flex-col items-center space-y-4">
+                <Link href="/features">
+                  <Button 
+                    size="lg"
+                    className="bg-[#0B0377] hover:bg-[#0B0377]/80 text-white rounded-xl px-12 py-8 text-xl font-medium shadow-[0_0_20px_rgba(11,3,119,0.3)] hover:shadow-[0_0_30px_rgba(11,3,119,0.6)] transition-all duration-300 transform hover:scale-105"
+                  >
+                    Explore Features
+                  </Button>
+                </Link>
+              </div>
+            </FadeIn>
           </div>
         </section>
 
-        {/* Social Proof Section */}
-        <section id="testimonials" className="py-24 bg-transparent">
-          <div className="container mx-auto px-4">
-            <div className="text-center space-y-4 mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">{t.testimonials.title}</h2>
-            </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <Card className="bg-black/80 backdrop-blur-sm border-white/10">
-                <CardContent className="p-6">
-                  <div className="space-y-4">
-                    <div className="flex text-yellow-400">{"★".repeat(5)}</div>
-                    <p className="text-gray-300">"{t.testimonials.t1}"</p>
-                    <div>
-                      <p className="font-semibold text-white">Sarah Johnson</p>
-                      <p className="text-sm text-gray-400">CEO, TechStart Solutions</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-black/80 backdrop-blur-sm border-white/10">
-                <CardContent className="p-6">
-                  <div className="space-y-4">
-                    <div className="flex text-yellow-400">{"★".repeat(5)}</div>
-                    <p className="text-gray-300">"{t.testimonials.t2}"</p>
-                    <div>
-                      <p className="font-semibold text-white">Michael Chen</p>
-                      <p className="text-sm text-gray-400">Operations Director, GrowthCorp</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-black/80 backdrop-blur-sm border-white/10">
-                <CardContent className="p-6">
-                  <div className="space-y-4">
-                    <div className="flex text-yellow-400">{"★".repeat(5)}</div>
-                    <p className="text-gray-300">"{t.testimonials.t3}"</p>
-                    <div>
-                      <p className="font-semibold text-white">Emily Rodriguez</p>
-                      <p className="text-sm text-gray-400">Founder, RetailMax</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
 
         {/* Benefits Section */}
         <section className="py-24 bg-transparent">
@@ -226,54 +389,67 @@ export default function HomePage() {
                 <p className="text-gray-300">{t.stats.s4}</p>
               </div>
             </div>
+
+            <div className="pt-16 text-center">
+              <Link href="/mozhii">
+                <Button 
+                  size="lg"
+                  className="bg-[#0B0377] hover:bg-[#0B0377]/80 text-white rounded-xl px-12 py-8 text-xl font-medium shadow-[0_0_20px_rgba(11,3,119,0.3)] hover:shadow-[0_0_30px_rgba(11,3,119,0.6)] transition-all duration-300 transform hover:scale-105"
+                >
+                  {t.stats.moreAbout}
+                </Button>
+              </Link>
+            </div>
           </div>
         </section>
 
         {/* Pricing Section (centered) */}
-        <section className="py-24 bg-transparent">
+        <section id="plans" className="py-24 bg-transparent">
           <div className="container mx-auto px-4 flex justify-center">
             <div className="w-full max-w-5xl">
-              <Pricing
-                title={t.pricing.title}
-                description={t.pricing.description}
-                annualBillingText={t.pricing.annualBilling}
-                saveText={t.pricing.save20}
-                plans={[
-                  {
-                    name: t.pricing.p1.name,
-                    price: t.pricing.p1.price,
-                    yearlyPrice: t.pricing.p1.price,
-                    period: "month",
-                    features: t.pricing.p1.features,
-                    description: t.pricing.p1.desc,
-                    buttonText: t.pricing.p1.btn,
-                    href: "#contact",
-                    isPopular: false,
-                  },
-                  {
-                    name: t.pricing.p2.name,
-                    price: t.pricing.p2.price,
-                    yearlyPrice: t.pricing.p2.price,
-                    period: "month",
-                    features: t.pricing.p2.features,
-                    description: t.pricing.p2.desc,
-                    buttonText: t.pricing.p2.btn,
-                    href: "#contact",
-                    isPopular: true,
-                  },
-                  {
-                    name: t.pricing.p3.name,
-                    price: t.pricing.p3.price,
-                    yearlyPrice: t.pricing.p3.price,
-                    period: "month",
-                    features: t.pricing.p3.features,
-                    description: t.pricing.p3.desc,
-                    buttonText: t.pricing.p3.btn,
-                    href: "#contact",
-                    isPopular: false,
-                  },
-                ]}
-              />
+              <FadeIn>
+                <Pricing
+                  title={t.pricing.title}
+                  description={t.pricing.description}
+                  annualBillingText={t.pricing.annualBilling}
+                  saveText={t.pricing.save20}
+                  plans={[
+                    {
+                      name: t.pricing.p1.name,
+                      price: t.pricing.p1.price,
+                      yearlyPrice: t.pricing.p1.price,
+                      period: "month",
+                      features: t.pricing.p1.features,
+                      description: t.pricing.p1.desc,
+                      buttonText: t.pricing.p1.btn,
+                      href: "#contact",
+                      isPopular: false,
+                    },
+                    {
+                      name: t.pricing.p2.name,
+                      price: t.pricing.p2.price,
+                      yearlyPrice: t.pricing.p2.price,
+                      period: "month",
+                      features: t.pricing.p2.features,
+                      description: t.pricing.p2.desc,
+                      buttonText: t.pricing.p2.btn,
+                      href: "#contact",
+                      isPopular: true,
+                    },
+                    {
+                      name: t.pricing.p3.name,
+                      price: t.pricing.p3.price,
+                      yearlyPrice: t.pricing.p3.price,
+                      period: "month",
+                      features: t.pricing.p3.features,
+                      description: t.pricing.p3.desc,
+                      buttonText: t.pricing.p3.btn,
+                      href: "#contact",
+                      isPopular: false,
+                    },
+                  ]}
+                />
+              </FadeIn>
             </div>
           </div>
         </section>
@@ -281,186 +457,56 @@ export default function HomePage() {
         {/* Team Section */}
         <section id="team" className="py-16 md:py-24 bg-transparent">
           <div className="container mx-auto px-4">
-            <div className="text-center space-y-3 md:space-y-4 mb-12 md:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">{t.team.title}</h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto px-2">{t.team.subtitle}</p>
-            </div>
+            <FadeIn>
+              <div className="text-center space-y-3 md:space-y-4 mb-12 md:mb-16">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">{t.team.title}</h2>
+                <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto px-2">{t.team.subtitle}</p>
+              </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-              {[
-                { name: "Dinojan", image: "/assets/3d/logo.png", role: t.team.role },
-                { name: "Vipooshan", image: "/assets/3d/vipi.png", role: t.team.role },
-                { name: "Vishalini", image: "/assets/3d/logo.png", role: t.team.role },
-                { name: "Yashwin", image: "/assets/3d/yashwin.jpg", role: t.team.role },
-                { name: "Ridursha", image: "/assets/3d/logo.png", role: t.team.role },
-                { name: "Vishaal", image: "/assets/3d/logo.png", role: t.team.role },
-              ].map((member) => (
-                <div
-                  key={member.name}
-                  className="group relative bg-black/30 border border-blue-500/20 rounded-lg p-4 sm:p-6 text-center backdrop-blur-sm transition-all duration-300 hover:bg-black/50 hover:border-blue-500/60 hover:shadow-lg hover:shadow-blue-500/20 cursor-pointer"
-                >
-                  {/* Outline glow effect on hover */}
-                  <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{
-                    boxShadow: "inset 0 0 20px rgba(59, 130, 246, 0.2), 0 0 20px rgba(59, 130, 246, 0.3)"
-                  }} />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                {[
+                  { name: "Dinojan", image: "/assets/3d/logo.png", role: t.team.role },
+                  { name: "Vipooshan", image: "/assets/3d/vipi.png", role: t.team.role },
+                  { name: "Vishalini", image: "/assets/3d/logo.png", role: t.team.role },
+                  { name: "Yashwin", image: "/assets/3d/yashwin.jpg", role: t.team.role },
+                  { name: "Ridursha", image: "/assets/3d/logo.png", role: t.team.role },
+                  { name: "Vishaal", image: "/assets/3d/logo.png", role: t.team.role },
+                ].map((member) => (
+                  <div
+                    key={member.name}
+                    className="group relative rounded-2xl overflow-hidden p-4 sm:p-6 text-center cursor-pointer"
+                  >
+                    {/* Base Background */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0B0377]/30 via-black/60 to-[#0B0377]/20 backdrop-blur-xl border border-white/10 transition-colors duration-500 group-hover:border-blue-400/40" />
+                    
+                    {/* Hover Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0B0377]/30 via-black/50 to-[#0B0377]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  <div className="relative z-10 mx-auto w-24 sm:w-28 h-24 sm:h-28 rounded-full overflow-hidden bg-blue-500/10 flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 border-2 border-blue-500/30 group-hover:border-blue-400/80">
-                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                    {/* Content */}
+                    <div className="relative z-10">
+                      <div className="mx-auto w-24 sm:w-28 h-24 sm:h-28 rounded-full overflow-hidden bg-blue-500/10 flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 border-2 border-blue-500/30 group-hover:border-blue-400/80">
+                        <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                      </div>
+
+                      <h3 className="mt-3 sm:mt-4 text-base sm:text-lg font-semibold text-white transition-colors duration-300 group-hover:text-blue-300">{member.name}</h3>
+                      <p className="text-xs sm:text-sm text-gray-300 transition-colors duration-300 group-hover:text-blue-200">{member.role}</p>
+                    </div>
                   </div>
-
-                  <h3 className="relative z-10 mt-3 sm:mt-4 text-base sm:text-lg font-semibold text-white transition-colors duration-300 group-hover:text-blue-300">{member.name}</h3>
-                  <p className="relative z-10 text-xs sm:text-sm text-gray-300 transition-colors duration-300 group-hover:text-blue-200">{member.role}</p>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </FadeIn>
           </div>
         </section>
+        </div>
       </main>
 
       {/* Waitlist Section */}
-      <WaitlistSection />
+      <div id="waitlist" className="bg-black">
+        <FadeIn>
+          <WaitlistSection />
+        </FadeIn>
+      </div>
 
-      {/* Footer */}
-      <footer id="contact" className="relative py-20 bg-transparent border-t border-white/10 overflow-hidden">
-        {/* Slight footer overlay so footer content remains readable while letting the global gradient show through */}
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-black/20 to-black/40" />
-
-        <div className="relative z-10 container mx-auto px-4">
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
-            {/* Company Info */}
-            <div className="lg:col-span-1 space-y-6">
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-white"> Mozhii.Ai </h3>
-                <p className="text-gray-300 leading-relaxed">{t.footer.desc}</p>
-              </div>
-
-              <div className="flex space-x-4">
-                <a
-                  href="https://www.linkedin.com/company/mozhii-ai/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3Bkzajbj5dSYeZfNQu6TUArw%3D%3D"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 bg-blue-500/10 backdrop-blur-sm border border-blue-500/30 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/60 transition-all duration-300"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </a>
-                <a
-                  href="https://www.instagram.com/mozhii.ai?igsh=NW55ajVoc3gwOHdt"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 bg-blue-500/10 backdrop-blur-sm border border-blue-500/30 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/60 transition-all duration-300"
-                >
-                  <Instagram className="h-5 w-5" />
-                </a>
-                <a
-                  href="https://www.facebook.com/share/1ACfpDiSFA/?mibextid=wwXIfr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 bg-blue-500/10 backdrop-blur-sm border border-blue-500/30 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/60 transition-all duration-300"
-                >
-                  <Facebook className="h-5 w-5" />
-                </a>
-              </div>
-
-              <div className="mt-6 space-y-2">
-                <p className="text-sm text-gray-400">{t.hero.comingSoon}</p>
-                <div className="flex space-x-2">
-                  <img src="/app-store.png" alt="Download on the App Store" className="h-10 w-auto object-contain" />
-                  <img src="/google-play.png" alt="Get it on Google Play" className="h-10 w-auto object-contain" />
-                </div>
-              </div>
-            </div>
-
-            {/* Team Members */}
-            <div className="space-y-6">
-              <h4 className="text-lg font-semibold text-white">{t.footer.team}</h4>
-              <ul className="space-y-3">
-                {[
-                  { name: "Dinojan", linkedin: "https://www.linkedin.com/in/thiyakarajah-dinojan-39664a354?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAFhfUaIBKgW4psb-RmXbqm1uO3zJvZEuq4A&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BZ1xnPFc8TZ66YB%2Bdm%2Fj9Fg%3D%3D" },
-                  { name: "Vipooshan", linkedin: "https://www.linkedin.com/in/balachandran-vipooshan?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAFVrVqcB5lgLNLQvLqWLlWdOx979WMMnaxY&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3B3LZM%2FEi5QvGx2kVjqGJCkA%3D%3D" },
-                  { name: "Vishalini", linkedin: "https://www.linkedin.com/in/vishalini-karunatharan-03b36a354?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAFhUja8BygzDsuQgcf4tLmS_lgfmakDjH5w&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BzljgTj57R3am4WTk6tFV9Q%3D%3D" },
-                  { name: "Yashwin", linkedin: "https://www.linkedin.com/in/yashwin01?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAEeX34wBTEaw9jhiX-fs7ktUgTMwrCORcKY&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BMSU0ISN7QKijACBRb%2FXRZQ%3D%3D" },
-                  { name: "Ridursha", linkedin: "https://www.linkedin.com/in/ridursha-thiyagaraja/" },
-                  { name: "Vishaal", linkedin: "https://www.linkedin.com/in/vishaal-thanapalan-733276333/" },
-                ].map((member) => (
-                  <li key={member.name}>
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group"
-                    >
-                      <ArrowRight className="h-3 w-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      {member.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Company */}
-            <div className="space-y-6">
-              <h4 className="text-lg font-semibold text-white">{t.footer.company}</h4>
-              <ul className="space-y-3">
-                {[
-                  { name: t.footer.links.about, href: "#" },
-                  { name: t.footer.links.caseStudies, href: "#testimonials" },
-                  { name: t.footer.links.blog, href: "#" },
-                  { name: t.footer.links.careers, href: "#" },
-                  { name: t.footer.links.contact, href: "#contact" },
-                ].map((item) => (
-                  <li key={item.name}>
-                    <a
-                      href={item.href}
-                      className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group"
-                    >
-                      <ArrowRight className="h-3 w-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact Info */}
-            <div className="space-y-6">
-              <h4 className="text-lg font-semibold text-white">{t.footer.getInTouch}</h4>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3 text-gray-300">
-                  <div className="p-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
-                    <Mail className="h-4 w-4" />
-                  </div>
-                  <a href="mailto:mozhii2025@gmail.com" className="hover:text-white transition-colors duration-300">
-                    mozhii2025@gmail.com
-                  </a>
-                </div>
-
-                <div className="flex items-center space-x-3 text-gray-300">
-                  <div className="p-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
-                    <MapPin className="h-4 w-4" />
-                  </div>
-                  <span>Colombo, Sri Lanka</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Section */}
-          <div className="border-t border-white/10 mt-16 pt-8">
-            <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
-              <p className="text-gray-400 text-center lg:text-left">{t.footer.rights}</p>
-
-              <div className="flex flex-wrap justify-center lg:justify-end space-x-8">
-                <a href="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">
-                  {t.footer.privacy}
-                </a>
-                <a href="/terms" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">
-                  {t.footer.terms}
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

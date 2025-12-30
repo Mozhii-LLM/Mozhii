@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" fill="none">
+  <defs>
+    <radialGradient id="g" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(450 240) rotate(90) scale(560 380)">
+      <stop stop-color="#0B0377" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#0B0377" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="70" y="60" width="760" height="480" rx="40" fill="url(#g)"/>
+  <rect x="70" y="60" width="760" height="480" rx="40" stroke="#FFFFFF" stroke-opacity="0.18"/>
+
+  <path d="M450 150c85 60 170 40 170 40v160c0 130-90 190-170 230-80-40-170-100-170-230V190s85 20 170-40z" fill="#0A0A0A" fill-opacity="0.52" stroke="#FFFFFF" stroke-opacity="0.14"/>
+
+  <path d="M390 315c0-34 28-62 62-62s62 28 62 62" stroke="#FFFFFF" stroke-opacity="0.70" stroke-width="10" stroke-linecap="round"/>
+  <rect x="360" y="315" width="180" height="150" rx="30" fill="#0B0377" fill-opacity="0.18" stroke="#0B0377" stroke-opacity="0.45"/>
+  <path d="M420 386c0-16 14-30 30-30s30 14 30 30c0 12-7 23-18 27v36h-24v-36c-11-4-18-15-18-27z" fill="#FFFFFF" fill-opacity="0.80"/>
+
+  <text x="310" y="520" font-family="ui-sans-serif, system-ui" font-size="30" font-weight="700" fill="#FFFFFF" fill-opacity="0.72">Privacy by design</text>
+</svg>

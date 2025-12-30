@@ -1,124 +1,272 @@
 "use client"
 
-import { useRouter } from "next/navigation"
-import { motion } from "framer-motion"
-import { SparklesCore } from "@/components/ui/sparkles"
+import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { LogOut, Bot, Sparkles, Construction } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { 
+  Menu, 
+  Plus, 
+  MessageSquare, 
+  Settings, 
+  HelpCircle, 
+  History, 
+  Send, 
+  Mic, 
+  Image as ImageIcon,
+  Sparkles,
+  FolderPlus,
+  Users
+} from "lucide-react"
+import Image from "next/image"
+import { LanguageSwitcher } from "@/components/common/language-switcher"
+import Link from "next/link"
 import { useLanguage } from "@/lib/language-context"
 
-export default function Chat() {
-  const router = useRouter()
+export default function ChatPage() {
+  // Default state is collapsed (false)
+  const [isExpanded, setIsExpanded] = useState(false)
   const { t } = useLanguage()
+  const sidebarRef = useRef<HTMLDivElement>(null)
+  const [mouseY, setMouseY] = useState(0)
 
-  const logout = () => {
-    localStorage.removeItem("user")
-    router.push("/login")
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (sidebarRef.current) {
+      const rect = sidebarRef.current.getBoundingClientRect()
+      setMouseY(e.clientY - rect.top)
+    }
   }
 
   return (
-    <div className="min-h-screen w-full bg-black flex flex-col items-center justify-center overflow-hidden relative">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#0B0377] via-black to-black opacity-80" />
-
-      {/* Sparkles Effect */}
-      <div className="w-full absolute inset-0 h-screen">
-        <SparklesCore
-          id="tsparticlesfullpage"
-          background="transparent"
-          minSize={0.6}
-          maxSize={1.4}
-          particleDensity={100}
-          className="w-full h-full"
-          particleColor="#FFFFFF"
+    <div className="flex h-screen bg-black text-white overflow-hidden font-sans">
+      {/* Sidebar */}
+      <div 
+        ref={sidebarRef}
+        onMouseMove={handleMouseMove}
+        className={`
+          ${isExpanded ? "w-72" : "w-20"} 
+          bg-white/5 backdrop-blur-xl border-r border-white/10 
+          transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] 
+          flex flex-col md:relative absolute z-20 h-full shadow-2xl
+          group
+        `}
+      >
+        {/* Glowing Border Line */}
+        <div 
+          className="absolute right-0 top-0 w-[3px] h-full pointer-events-none z-50"
+          style={{
+            background: `radial-gradient(600px circle at center ${mouseY}px, rgba(59, 130, 246, 1), transparent 40%)`
+          }}
         />
+
+        <div className="p-4 flex flex-col gap-6 h-full relative z-10">
+          {/* Toggle Button */}
+          <div 
+            className={`flex items-center ${isExpanded ? "justify-start px-2" : "justify-center"} cursor-pointer transition-all duration-300`} 
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            <div className="p-2 rounded-lg hover:bg-white/10 transition-colors">
+              <Menu className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
+            </div>
+          </div>
+          
+          {/* Action Buttons */}
+          <div className="space-y-2">
+            <Button 
+              variant="ghost" 
+              className={`w-full ${isExpanded ? "justify-start px-4" : "justify-center px-0"} h-12 gap-0 text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300`}
+              title={t.chat.createProject}
+            >
+              <FolderPlus className="h-5 w-5 shrink-0" />
+              <span className={`whitespace-nowrap overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? "w-auto opacity-100 ml-3 translate-x-0" : "w-0 opacity-0 ml-0 -translate-x-4"}`}>
+                {t.chat.createProject}
+              </span>
+            </Button>
+            
+            <Button 
+              variant="ghost" 
+              className={`w-full ${isExpanded ? "justify-start px-4" : "justify-center px-0"} h-12 gap-0 text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300`}
+              title={t.chat.createGroupChat}
+            >
+              <Users className="h-5 w-5 shrink-0" />
+              <span className={`whitespace-nowrap overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? "w-auto opacity-100 ml-3 translate-x-0" : "w-0 opacity-0 ml-0 -translate-x-4"}`}>
+                {t.chat.createGroupChat}
+              </span>
+            </Button>
+          </div>
+
+          {/* History Section */}
+          <div className="pt-4 border-t border-white/10">
+            <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? "h-6 opacity-100 mb-2" : "h-0 opacity-0 mb-0"}`}>
+              <p className="text-xs font-medium text-gray-500 px-4 uppercase tracking-wider whitespace-nowrap">
+                {t.chat.history}
+              </p>
+            </div>
+            <div className="space-y-1">
+              <Button 
+                variant="ghost" 
+                className={`w-full ${isExpanded ? "justify-start px-4" : "justify-center px-0"} h-10 gap-0 text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-300`}
+                title={t.chat.tamilGrammarHelp}
+              >
+                <MessageSquare className="h-5 w-5 shrink-0" />
+                <span className={`whitespace-nowrap overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? "w-auto opacity-100 ml-3 translate-x-0" : "w-0 opacity-0 ml-0 -translate-x-4"}`}>
+                  {t.chat.tamilGrammarHelp}
+                </span>
+              </Button>
+              <Button 
+                variant="ghost" 
+                className={`w-full ${isExpanded ? "justify-start px-4" : "justify-center px-0"} h-10 gap-0 text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-300`}
+                title={t.chat.translateToSinhala}
+              >
+                <MessageSquare className="h-5 w-5 shrink-0" />
+                <span className={`whitespace-nowrap overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? "w-auto opacity-100 ml-3 translate-x-0" : "w-0 opacity-0 ml-0 -translate-x-4"}`}>
+                  {t.chat.translateToSinhala}
+                </span>
+              </Button>
+            </div>
+          </div>
+
+          {/* Bottom Actions */}
+          <div className="mt-auto pt-4 border-t border-white/10 space-y-1">
+            <Button 
+              variant="ghost" 
+              className={`w-full ${isExpanded ? "justify-start px-4" : "justify-center px-0"} h-10 gap-0 text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-300`}
+              title={t.chat.help}
+            >
+              <HelpCircle className="h-5 w-5 shrink-0" />
+              <span className={`whitespace-nowrap overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? "w-auto opacity-100 ml-3 translate-x-0" : "w-0 opacity-0 ml-0 -translate-x-4"}`}>
+                {t.chat.help}
+              </span>
+            </Button>
+            <Button 
+              variant="ghost" 
+              className={`w-full ${isExpanded ? "justify-start px-4" : "justify-center px-0"} h-10 gap-0 text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-300`}
+              title={t.chat.activity}
+            >
+              <History className="h-5 w-5 shrink-0" />
+              <span className={`whitespace-nowrap overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? "w-auto opacity-100 ml-3 translate-x-0" : "w-0 opacity-0 ml-0 -translate-x-4"}`}>
+                {t.chat.activity}
+              </span>
+            </Button>
+            <Button 
+              variant="ghost" 
+              className={`w-full ${isExpanded ? "justify-start px-4" : "justify-center px-0"} h-10 gap-0 text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-300`}
+              title={t.chat.settings}
+            >
+              <Settings className="h-5 w-5 shrink-0" />
+              <span className={`whitespace-nowrap overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? "w-auto opacity-100 ml-3 translate-x-0" : "w-0 opacity-0 ml-0 -translate-x-4"}`}>
+                {t.chat.settings}
+              </span>
+            </Button>
+          </div>
+        </div>
       </div>
 
-      {/* Header */}
-      <header className="absolute top-0 left-0 w-full p-6 flex justify-between items-center z-50">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-            <Bot className="w-5 h-5 text-white" />
-          </div>
-          <span className="text-xl font-bold text-white tracking-tight">Mozhii.AI</span>
-        </div>
-        <Button 
-          onClick={logout}
-          variant="ghost" 
-          className="text-gray-300 hover:text-white hover:bg-white/10 gap-2 transition-all duration-300"
-        >
-          <LogOut className="w-4 h-4" />
-          {t.chat.logout}
-        </Button>
-      </header>
-
       {/* Main Content */}
-      <main className="relative z-20 flex flex-col items-center text-center px-4 max-w-4xl mx-auto">
-        
-        {/* Status Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-          </span>
-          <span className="text-sm font-medium text-blue-200">{t.chat.wipTitle}</span>
-        </motion.div>
+      <div className="flex-1 flex flex-col relative">
+        <LanguageSwitcher className="absolute top-4 right-4 bottom-auto left-auto translate-x-0" />
+        {/* Mobile Header */}
+        <div className="md:hidden flex items-center p-4 border-b border-white/10 bg-[#1e1e1e]">
+          <Button variant="ghost" size="icon" onClick={() => setIsExpanded(!isExpanded)}>
+            <Menu className="h-6 w-6" />
+          </Button>
+          <span className="ml-4 font-semibold">Mozhii AI</span>
+        </div>
 
-        {/* Hero Title */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 mb-6 tracking-tight"
-        >
-          {t.chat.welcome}
-        </motion.h1>
+        {/* Chat Area */}
+        <div className="flex-1 flex flex-col items-center justify-center p-4 md:p-8 relative overflow-hidden">
+          {/* Background Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[100px] pointer-events-none" />
 
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl leading-relaxed"
-        >
-          {t.chat.wipDesc}
-        </motion.p>
-
-        {/* Feature Cards Placeholder */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full"
-        >
-          {[
-            { icon: Bot, title: t.chat.features.advanced, desc: t.chat.features.advancedDesc },
-            { icon: Sparkles, title: t.chat.features.creative, desc: t.chat.features.creativeDesc },
-            { icon: Construction, title: t.chat.features.comingSoon, desc: t.chat.features.comingSoonDesc }
-          ].map((item, index) => (
-            <div 
-              key={index}
-              className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-blue-500/30 transition-all duration-300 backdrop-blur-sm flex flex-col items-center gap-4"
-            >
-              <div className="p-3 rounded-full bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
-                <item.icon className="w-6 h-6 text-blue-400" />
-              </div>
-              <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-              <p className="text-sm text-gray-400">{item.desc}</p>
+          <div className="text-center space-y-8 relative z-10 max-w-2xl w-full">
+            {/* Logo */}
+            <div className="relative w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 animate-pulse">
+              <Image
+                src="/icon.png"
+                alt="Mozhii AI Logo"
+                fill
+                className="object-contain drop-shadow-[0_0_30px_rgba(37,99,235,0.5)]"
+              />
             </div>
-          ))}
-        </motion.div>
-      </main>
 
-      {/* Footer */}
-      <footer className="absolute bottom-6 text-center text-sm text-gray-600 z-20">
-        <p>© 2025 Mozhii AI. All rights reserved.</p>
-      </footer>
+            {/* Welcome Text */}
+            <div className="space-y-4">
+              <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-white to-blue-400 bg-clip-text text-transparent">
+                {t.chat.helloHuman}
+              </h1>
+              <h2 className="text-xl md:text-2xl text-gray-400 font-light">
+                {t.chat.howCanIHelp}
+              </h2>
+            </div>
+
+            {/* Status Message */}
+            <div className="py-8">
+              <div className="inline-block px-6 py-3 rounded-full bg-blue-900/20 border border-blue-500/30 backdrop-blur-sm">
+                <p className="text-blue-300 font-medium flex items-center gap-2">
+                  <Sparkles className="h-4 w-4" />
+                  {t.chat.workingOnComingSoon}
+                </p>
+              </div>
+              <p className="mt-4 text-gray-500 text-sm">{t.chat.thankYouForVisit}</p>
+            </div>
+
+            {/* Suggestion Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left w-full opacity-50 pointer-events-none select-none">
+              <div className="p-4 rounded-xl bg-[#1e1e1e] border border-white/5 hover:bg-[#2a2a2a] transition-colors cursor-pointer">
+                <p className="text-sm text-gray-300">{t.chat.suggestion1Title}</p>
+                <p className="text-sm text-gray-500">{t.chat.suggestion1Desc}</p>
+              </div>
+              <div className="p-4 rounded-xl bg-[#1e1e1e] border border-white/5 hover:bg-[#2a2a2a] transition-colors cursor-pointer">
+                <p className="text-sm text-gray-300">{t.chat.suggestion2Title}</p>
+                <p className="text-sm text-gray-500">{t.chat.suggestion2Desc}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Input Area (Dummy) */}
+        <div className="p-4 md:p-6 max-w-4xl mx-auto w-full relative z-20">
+          <div className="relative">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 flex gap-2">
+              <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white rounded-full h-8 w-8">
+                <ImageIcon className="h-5 w-5" />
+              </Button>
+            </div>
+            <Input 
+              placeholder={t.chat.enterPrompt}
+              className="w-full bg-[#1e1e1e] border-white/10 rounded-full py-6 pl-14 pr-24 text-gray-300 focus-visible:ring-blue-500/50 focus-visible:border-blue-500/50"
+              // Removed disabled prop to allow typing
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault(); // Prevent enter from doing anything
+                }
+              }}
+            />
+            <div className="absolute right-2 top-1/2 -translate-y-1/2 flex gap-1">
+              <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white rounded-full h-8 w-8">
+                <Mic className="h-5 w-5" />
+              </Button>
+              <Button 
+                size="icon" 
+                className="bg-blue-600 hover:bg-blue-700 text-white rounded-full h-8 w-8 ml-1 cursor-default"
+                onClick={(e) => e.preventDefault()} // Prevent click
+              >
+                <Send className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+          <p className="text-center text-xs text-gray-600 mt-3">
+            {t.chat.disclaimer}
+          </p>
+          
+          <div className="mt-4 text-center">
+             <Link href="/">
+                <Button variant="link" className="text-gray-500 hover:text-white text-xs">
+                    {t.chat.backToHome}
+                </Button>
+             </Link>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

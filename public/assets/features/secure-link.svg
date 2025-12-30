@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" fill="none">
+  <defs>
+    <radialGradient id="g" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(450 260) rotate(90) scale(560 380)">
+      <stop stop-color="#0B0377" stop-opacity="0.48"/>
+      <stop offset="1" stop-color="#0B0377" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="70" y="60" width="760" height="480" rx="40" fill="url(#g)"/>
+  <rect x="70" y="60" width="760" height="480" rx="40" stroke="#FFFFFF" stroke-opacity="0.18"/>
+
+  <rect x="180" y="230" width="540" height="140" rx="34" fill="#0A0A0A" fill-opacity="0.50" stroke="#FFFFFF" stroke-opacity="0.14"/>
+
+  <path d="M295 300c0-38 30-68 68-68h48c38 0 68 30 68 68v0" stroke="#FFFFFF" stroke-opacity="0.72" stroke-width="10" stroke-linecap="round"/>
+  <rect x="330" y="295" width="220" height="120" rx="26" fill="#0B0377" fill-opacity="0.18" stroke="#0B0377" stroke-opacity="0.45"/>
+  <path d="M420 355c0-12 10-22 22-22s22 10 22 22c0 9-5 16-12 20v24h-20v-24c-7-4-12-11-12-20z" fill="#FFFFFF" fill-opacity="0.78"/>
+
+  <path d="M590 300h88" stroke="#FFFFFF" stroke-opacity="0.50" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="695" cy="300" r="18" fill="#0B0377" fill-opacity="0.55"/>
+  <text x="210" y="458" font-family="ui-sans-serif, system-ui" font-size="30" font-weight="700" fill="#FFFFFF" fill-opacity="0.72">Secure sharing</text>
+</svg>

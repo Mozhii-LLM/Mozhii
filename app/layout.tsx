@@ -3,8 +3,10 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from '@/lib/language-context'
-import { LanguageSwitcher } from '@/components/language-switcher'
+import { LanguageSwitcherWrapper } from '@/components/common/language-switcher-wrapper'
 import { Toaster } from "@/components/ui/sonner"
+import { SmoothScroll } from '@/components/providers/smooth-scroll'
+import { FooterWrapper } from '@/components/layout/footer-wrapper'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -34,9 +36,11 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/assets/3d/logo.png" />
       </head>
       <body className={`font-sans antialiased ${GeistSans.variable} ${GeistMono.variable}`}>
+        <SmoothScroll />
         <LanguageProvider>
-          <LanguageSwitcher />
+          <LanguageSwitcherWrapper />
           {children}
+          <FooterWrapper />
           <Toaster />
         </LanguageProvider>
         <Analytics />

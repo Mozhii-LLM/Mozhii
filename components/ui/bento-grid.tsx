@@ -11,7 +11,7 @@ const BentoGrid = ({
   children: ReactNode
   className?: string
 }) => {
-  return <div className={cn("grid w-full auto-rows-[22rem] grid-cols-1 md:grid-cols-3 gap-4", className)}>{children}</div>
+  return <div className={cn("grid w-full auto-rows-auto grid-cols-1 md:grid-cols-3 gap-4", className)}>{children}</div>
 }
 
 const BentoCard = ({
@@ -34,13 +34,13 @@ const BentoCard = ({
   <div
     key={name}
     className={cn(
-      "group relative col-span-1 flex flex-col justify-between overflow-hidden rounded-xl",
+      "group relative col-span-1 flex flex-col justify-between overflow-hidden rounded-xl h-full min-h-[250px]",
       "bg-white/10 backdrop-blur-md border border-white/20 shadow-xl",
       className,
     )}
   >
     <div>{background}</div>
-    <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
+    <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-3 p-6 transition-all duration-300 group-hover:-translate-y-10">
       <Icon className="h-12 w-12 origin-left transform-gpu text-white/80 transition-all duration-300 ease-in-out group-hover:scale-75" />
       <h3 className="text-xl font-semibold text-white">{name}</h3>
       <p className="max-w-lg text-white/70">{description}</p>

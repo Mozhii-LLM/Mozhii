@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" fill="none">
+  <defs>
+    <radialGradient id="g" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(320 210) rotate(40) scale(560 380)">
+      <stop stop-color="#0B0377" stop-opacity="0.48"/>
+      <stop offset="1" stop-color="#0B0377" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="70" y="60" width="760" height="480" rx="40" fill="url(#g)"/>
+  <rect x="70" y="60" width="760" height="480" rx="40" stroke="#FFFFFF" stroke-opacity="0.18"/>
+
+  <rect x="150" y="170" width="360" height="150" rx="32" fill="#0A0A0A" fill-opacity="0.55" stroke="#FFFFFF" stroke-opacity="0.14"/>
+  <path d="M230 320l-35 55" stroke="#0A0A0A" stroke-width="18" stroke-linecap="round"/>
+  <rect x="390" y="240" width="360" height="150" rx="32" fill="#0A0A0A" fill-opacity="0.40" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  <path d="M650 390l35 55" stroke="#0A0A0A" stroke-width="18" stroke-linecap="round"/>
+
+  <circle cx="245" cy="240" r="22" fill="#0B0377" fill-opacity="0.55"/>
+  <circle cx="305" cy="240" r="22" fill="#FFFFFF" fill-opacity="0.30"/>
+  <circle cx="365" cy="240" r="22" fill="#FFFFFF" fill-opacity="0.20"/>
+
+  <circle cx="520" cy="310" r="22" fill="#0B0377" fill-opacity="0.45"/>
+  <circle cx="580" cy="310" r="22" fill="#FFFFFF" fill-opacity="0.25"/>
+  <circle cx="640" cy="310" r="22" fill="#FFFFFF" fill-opacity="0.18"/>
+
+  <text x="150" y="470" font-family="ui-sans-serif, system-ui" font-size="30" font-weight="700" fill="#FFFFFF" fill-opacity="0.72">Collaboration</text>
+</svg>

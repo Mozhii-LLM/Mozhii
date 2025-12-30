@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" fill="none">
+  <defs>
+    <radialGradient id="g" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(320 250) rotate(30) scale(580 420)">
+      <stop stop-color="#0B0377" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#0B0377" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="70" y="60" width="760" height="480" rx="40" fill="url(#g)"/>
+  <rect x="70" y="60" width="760" height="480" rx="40" stroke="#FFFFFF" stroke-opacity="0.18"/>
+
+  <rect x="220" y="165" width="460" height="300" rx="34" fill="#0A0A0A" fill-opacity="0.50" stroke="#FFFFFF" stroke-opacity="0.14"/>
+
+  <path d="M450 235v150" stroke="#FFFFFF" stroke-opacity="0.78" stroke-width="12" stroke-linecap="round"/>
+  <path d="M390 330l60 60 60-60" stroke="#FFFFFF" stroke-opacity="0.78" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M350 410h200" stroke="#0B0377" stroke-opacity="0.7" stroke-width="10" stroke-linecap="round"/>
+
+  <rect x="270" y="475" width="360" height="44" rx="16" fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" stroke-opacity="0.10"/>
+  <text x="295" y="505" font-family="ui-sans-serif, system-ui" font-size="22" font-weight="700" fill="#FFFFFF" fill-opacity="0.72">Export PDF / DOC</text>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" fill="none">
+  <defs>
+    <radialGradient id="g" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(560 220) rotate(160) scale(560 380)">
+      <stop stop-color="#0B0377" stop-opacity="0.48"/>
+      <stop offset="1" stop-color="#0B0377" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="70" y="60" width="760" height="480" rx="40" fill="url(#g)"/>
+  <rect x="70" y="60" width="760" height="480" rx="40" stroke="#FFFFFF" stroke-opacity="0.18"/>
+
+  <rect x="350" y="170" width="200" height="260" rx="80" fill="#0A0A0A" fill-opacity="0.55" stroke="#FFFFFF" stroke-opacity="0.14"/>
+  <rect x="402" y="220" width="96" height="150" rx="48" fill="#0B0377" fill-opacity="0.25" stroke="#0B0377" stroke-opacity="0.50"/>
+
+  <path d="M310 300c0 78 63 140 140 140s140-62 140-140" stroke="#FFFFFF" stroke-opacity="0.40" stroke-width="10" stroke-linecap="round"/>
+  <path d="M450 440v55" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="10" stroke-linecap="round"/>
+  <path d="M390 495h120" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="10" stroke-linecap="round"/>
+
+  <path d="M615 280c18 14 32 34 38 58" stroke="#0B0377" stroke-opacity="0.65" stroke-width="8" stroke-linecap="round"/>
+  <path d="M285 280c-18 14-32 34-38 58" stroke="#0B0377" stroke-opacity="0.65" stroke-width="8" stroke-linecap="round"/>
+</svg>

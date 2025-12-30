@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" fill="none">
+  <defs>
+    <radialGradient id="g" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(300 180) rotate(35) scale(520 340)">
+      <stop stop-color="#0B0377" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#0B0377" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shine" x1="120" y1="90" x2="780" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="70" y="60" width="760" height="480" rx="40" fill="url(#g)"/>
+  <rect x="70" y="60" width="760" height="480" rx="40" stroke="#FFFFFF" stroke-opacity="0.18"/>
+  <rect x="110" y="115" width="680" height="120" rx="26" fill="#0A0A0A" fill-opacity="0.55" stroke="#FFFFFF" stroke-opacity="0.14"/>
+  <rect x="110" y="260" width="520" height="95" rx="26" fill="#0A0A0A" fill-opacity="0.45" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  <rect x="110" y="380" width="600" height="115" rx="26" fill="#0A0A0A" fill-opacity="0.40" stroke="#FFFFFF" stroke-opacity="0.10"/>
+
+  <text x="150" y="170" font-family="ui-sans-serif, system-ui" font-size="44" font-weight="700" fill="#FFFFFF" fill-opacity="0.92">Tamil-only</text>
+  <text x="150" y="318" font-family="ui-sans-serif, system-ui" font-size="30" font-weight="600" fill="#FFFFFF" fill-opacity="0.72">High-Tamil responses</text>
+  <text x="150" y="440" font-family="ui-sans-serif, system-ui" font-size="30" font-weight="600" fill="#FFFFFF" fill-opacity="0.72">Culturally accurate</text>
+
+  <path d="M110 115h680" stroke="url(#shine)" stroke-width="2"/>
+  <circle cx="745" cy="170" r="34" fill="#0B0377" fill-opacity="0.35" stroke="#0B0377" stroke-opacity="0.55"/>
+  <path d="M732 170h26" stroke="#FFFFFF" stroke-opacity="0.8" stroke-width="3" stroke-linecap="round"/>
+  <path d="M745 157v26" stroke="#FFFFFF" stroke-opacity="0.8" stroke-width="3" stroke-linecap="round"/>
+</svg>

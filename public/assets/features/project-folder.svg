@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" fill="none">
+  <defs>
+    <radialGradient id="g" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(520 210) rotate(150) scale(560 380)">
+      <stop stop-color="#0B0377" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#0B0377" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="70" y="60" width="760" height="480" rx="40" fill="url(#g)"/>
+  <rect x="70" y="60" width="760" height="480" rx="40" stroke="#FFFFFF" stroke-opacity="0.18"/>
+
+  <path d="M200 210c0-24 20-44 44-44h155l34 34h223c24 0 44 20 44 44v180c0 24-20 44-44 44H244c-24 0-44-20-44-44V210z" fill="#0A0A0A" fill-opacity="0.52" stroke="#FFFFFF" stroke-opacity="0.14"/>
+  <path d="M244 252h412" stroke="#FFFFFF" stroke-opacity="0.14"/>
+
+  <rect x="260" y="285" width="210" height="44" rx="14" fill="#0B0377" fill-opacity="0.25" stroke="#0B0377" stroke-opacity="0.45"/>
+  <rect x="260" y="350" width="320" height="44" rx="14" fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" stroke-opacity="0.10"/>
+  <rect x="260" y="415" width="260" height="44" rx="14" fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" stroke-opacity="0.10"/>
+
+  <text x="285" y="317" font-family="ui-sans-serif, system-ui" font-size="24" font-weight="700" fill="#FFFFFF" fill-opacity="0.82">Projects</text>
+</svg>
