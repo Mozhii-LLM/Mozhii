@@ -171,13 +171,16 @@ export default function ChatPage() {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col relative w-full">
-        <LanguageSwitcher className="fixed top-1/2 right-4 -translate-y-1/2 left-auto bottom-auto translate-x-0 flex-col" />
+        <LanguageSwitcher className="hidden md:flex fixed top-1/2 right-4 -translate-y-1/2 left-auto bottom-auto translate-x-0 flex-col" />
         {/* Mobile Header */}
-        <div className="md:hidden flex items-center p-4 border-b border-white/10 bg-[#1e1e1e]">
-          <Button variant="ghost" size="icon" onClick={() => setIsExpanded(!isExpanded)}>
-            <Menu className="h-6 w-6" />
-          </Button>
-          <span className="ml-4 font-semibold">Mozhii AI</span>
+        <div className="md:hidden flex items-center justify-between p-4 border-b border-white/10 bg-white/5 backdrop-blur-xl sticky top-0 z-40">
+          <div className="flex items-center">
+            <Button variant="ghost" size="icon" onClick={() => setIsExpanded(!isExpanded)}>
+              <Menu className="h-6 w-6" />
+            </Button>
+            <span className="ml-4 font-semibold">Mozhii AI</span>
+          </div>
+          <LanguageSwitcher className="static translate-x-0 translate-y-0 bottom-auto left-auto flex-row bg-transparent border-none shadow-none p-0" />
         </div>
 
         {/* Chat Area */}
@@ -185,9 +188,9 @@ export default function ChatPage() {
           {/* Background Glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[100px] pointer-events-none" />
 
-          <div className="text-center space-y-8 relative z-10 max-w-2xl w-full">
+          <div className="text-center flex flex-col items-center justify-center gap-4 md:gap-8 relative z-10 max-w-2xl w-full h-full max-h-[800px]">
             {/* Logo */}
-            <div className="relative w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 animate-pulse">
+            <div className="relative w-16 h-16 md:w-32 md:h-32 shrink-0 animate-pulse">
               <Image
                 src="/icon.png"
                 alt="Mozhii AI Logo"
@@ -197,35 +200,35 @@ export default function ChatPage() {
             </div>
 
             {/* Welcome Text */}
-            <div className="space-y-4">
-              <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-white to-blue-400 bg-clip-text text-transparent">
+            <div className="space-y-2 md:space-y-4 shrink-0">
+              <h1 className="text-2xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-white to-blue-400 bg-clip-text text-transparent">
                 {t.chat.helloHuman}
               </h1>
-              <h2 className="text-xl md:text-2xl text-gray-400 font-light">
+              <h2 className="text-lg md:text-2xl text-gray-400 font-light">
                 {t.chat.howCanIHelp}
               </h2>
             </div>
 
             {/* Status Message */}
-            <div className="py-8">
-              <div className="inline-block px-6 py-3 rounded-full bg-blue-900/20 border border-blue-500/30 backdrop-blur-sm">
-                <p className="text-blue-300 font-medium flex items-center gap-2">
-                  <Sparkles className="h-4 w-4" />
+            <div className="py-2 md:py-4 shrink-0">
+              <div className="inline-block px-4 py-2 md:px-6 md:py-3 rounded-full bg-blue-900/20 border border-blue-500/30 backdrop-blur-sm">
+                <p className="text-blue-300 font-medium flex items-center gap-2 text-sm md:text-base">
+                  <Sparkles className="h-3 w-3 md:h-4 md:w-4" />
                   {t.chat.workingOnComingSoon}
                 </p>
               </div>
-              <p className="mt-4 text-gray-500 text-sm">{t.chat.thankYouForVisit}</p>
+              <p className="mt-2 md:mt-4 text-gray-500 text-xs md:text-sm">{t.chat.thankYouForVisit}</p>
             </div>
 
             {/* Suggestion Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left w-full opacity-50 pointer-events-none select-none">
-              <div className="p-4 rounded-xl bg-[#1e1e1e] border border-white/5 hover:bg-[#2a2a2a] transition-colors cursor-pointer">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-left w-full opacity-50 pointer-events-none select-none shrink-0">
+              <div className="p-3 md:p-4 rounded-xl bg-[#1e1e1e] border border-white/5 hover:bg-[#2a2a2a] transition-colors cursor-pointer">
                 <p className="text-sm text-gray-300">{t.chat.suggestion1Title}</p>
-                <p className="text-sm text-gray-500">{t.chat.suggestion1Desc}</p>
+                <p className="text-xs md:text-sm text-gray-500">{t.chat.suggestion1Desc}</p>
               </div>
-              <div className="p-4 rounded-xl bg-[#1e1e1e] border border-white/5 hover:bg-[#2a2a2a] transition-colors cursor-pointer">
+              <div className="p-3 md:p-4 rounded-xl bg-[#1e1e1e] border border-white/5 hover:bg-[#2a2a2a] transition-colors cursor-pointer">
                 <p className="text-sm text-gray-300">{t.chat.suggestion2Title}</p>
-                <p className="text-sm text-gray-500">{t.chat.suggestion2Desc}</p>
+                <p className="text-xs md:text-sm text-gray-500">{t.chat.suggestion2Desc}</p>
               </div>
             </div>
           </div>
