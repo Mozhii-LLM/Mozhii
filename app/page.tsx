@@ -4,9 +4,6 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Spotlight } from "@/components/ui/spotlight"
-import Image from "next/image"
-import AnimatedGradientBackground from "@/components/ui/animated-gradient-background"
-import { SparklesCore } from "@/components/ui/sparkles"
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid"
 import { Navbar } from "@/components/layout/navbar"
 import { Pricing } from "@/components/ui/pricing"
@@ -16,20 +13,10 @@ import { cn } from "@/lib/utils"
 import { FadeIn } from "@/components/ui/fade-in"
 import { motion } from "framer-motion"
 import {
-  CheckCircle,
   ArrowRight,
-  TrendingUp,
   Clock,
-  DollarSign,
   BarChart3,
-  Bot,
   Workflow,
-  Brain,
-  MessageSquare,
-  Cog,
-  Mail,
-  Phone,
-  MapPin,
   Linkedin,
   Instagram,
   Youtube,
@@ -44,7 +31,7 @@ import {
   WifiOff,
 } from "lucide-react"
 
-const TamilIcon = (props: any) => (
+const TamilIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"

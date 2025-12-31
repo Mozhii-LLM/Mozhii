@@ -7,7 +7,7 @@ const formSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
 })
 
-export async function joinWaitlist(prevState: any, formData: FormData) {
+export async function joinWaitlist(prevState: unknown, formData: FormData) {
   const email = formData.get("email")
 
   // Validate the email

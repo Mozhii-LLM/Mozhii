@@ -10,24 +10,18 @@ router.post('/login', loginUser);
 router.get('/me', protect, getMe);
 
 // Google Auth
-router.get('/google', passport.authenticate('google', { 
-  scope: ['profile', 'email'], 
-  session: false,
-  prompt: 'select_account' 
-}));
+router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'], session: false }));
 
 router.get('/google/callback', (req, res, next) => {
   passport.authenticate('google', { session: false }, (err, user, info) => {
     const clientUrl = process.env.CLIENT_URL || 'http://localhost:3000';
 
     if (err) {
-      console.error('Google Auth Error (Full):', JSON.stringify(err, Object.getOwnPropertyNames(err)));
+      console.error('Google Auth Error in callback:', err);
       const errorMessage = err.message || err.toString() || 'Unknown error';
       return res.redirect(`${clientUrl}/login?error=server_error&details=${encodeURIComponent(errorMessage)}`);
     }
-    
     if (!user) {
-      console.error('Google Auth Failed: No user returned', info);
       return res.redirect(`${clientUrl}/login?error=authentication_failed`);
     }
 

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
@@ -36,7 +37,9 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/assets/3d/logo.png" />
       </head>
       <body className={`font-sans antialiased ${GeistSans.variable} ${GeistMono.variable}`}>
-        <SmoothScroll />
+        <Suspense fallback={null}>
+          <SmoothScroll />
+        </Suspense>
         <LanguageProvider>
           <LanguageSwitcherWrapper />
           {children}
