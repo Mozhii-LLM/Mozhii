@@ -206,8 +206,8 @@ export const translations = {
     },
     mozhiiPage: {
       hero: {
-        title: "Introducing Mozhii.ai",
-        subtitle: "Sri Lanka's first bilingual AI assistant, designed to break language barriers in Tamil and Sinhala.",
+        title: "Mozhii AI Eco System",
+        subtitle: "Mozhii AI is not a single product — it is a complete ecosystem built to create accurate, trusted, and scalable Tamil intelligence.",
         getStarted: "Get Started",
         learnMore: "Learn More",
       },
@@ -528,8 +528,8 @@ export const translations = {
     },
     mozhiiPage: {
       hero: {
-        title: "Mozhii.ai அறிமுகம்",
-        subtitle: "இலங்கையின் முதல் இருமொழி AI உதவியாளர், தமிழ் மற்றும் சிங்கள மொழிகளில் மொழித் தடைகளை உடைக்க வடிவமைக்கப்பட்டுள்ளது.",
+        title: "Mozhii AI Eco System",
+        subtitle: "Mozhii AI is not a single product — it is a complete ecosystem built to create accurate, trusted, and scalable Tamil intelligence.",
         getStarted: "தொடங்கவும்",
         learnMore: "மேலும் அறிய",
       },
@@ -850,8 +850,8 @@ export const translations = {
     },
     mozhiiPage: {
       hero: {
-        title: "Mozhii.ai හඳුන්වා දීම",
-        subtitle: "ශ්‍රී ලංකාවේ පළමු ද්විභාෂා AI සහායකයා, දෙමළ සහ සිංහල භාෂා බාධක බිඳ දැමීමට නිර්මාණය කර ඇත.",
+        title: "Mozhii AI Eco System",
+        subtitle: "Mozhii AI is not a single product — it is a complete ecosystem built to create accurate, trusted, and scalable Tamil intelligence.",
         getStarted: "ආරම්භ කරන්න",
         learnMore: "තව දැනගන්න",
       },

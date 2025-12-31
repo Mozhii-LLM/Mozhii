@@ -1,6 +1,9 @@
 {
-  "/page": "app/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/privacy/page": "app/privacy/page.js",
   "/features/page": "app/features/page.js",
-  "/about/page": "app/about/page.js",
-  "/chat/page": "app/chat/page.js"
+  "/mozhii/page": "app/mozhii/page.js",
+  "/chat/page": "app/chat/page.js",
+  "/page": "app/page.js",
+  "/terms/page": "app/terms/page.js"
 }

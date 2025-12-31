@@ -281,6 +281,9 @@ export default function HomePage() {
                             </svg>
                           </a>
                         </div>
+                        <p className="text-center text-sm text-gray-400 italic">
+                          Mozhii is building the foundational AI infrastructure for Tamil language
+                        </p>
                       </CardContent>
                     </Card>
                   </div>
