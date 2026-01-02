@@ -3,7 +3,11 @@
 import { useState, useEffect, Suspense } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
+import { motion } from "framer-motion"
 import { login, googleLogin } from "@/lib/authService"
+import { useLanguage } from "@/lib/language-context"
+import { translations } from "@/lib/translations"
 
 function LoginForm() {
   const [email, setEmail] = useState("")
@@ -11,6 +15,8 @@ function LoginForm() {
   const [error, setError] = useState("")
   const router = useRouter()
   const searchParams = useSearchParams()
+  const { language } = useLanguage()
+  const t = translations[language].auth.login
 
   useEffect(() => {
     const token = searchParams.get("token")
@@ -33,8 +39,8 @@ function LoginForm() {
   return (
     <div className="w-full max-w-md space-y-8">
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-gray-900">Log in to your account</h2>
-        <p className="mt-2 text-gray-600">Welcome back! Please enter your details.</p>
+        <h2 className="text-3xl font-bold text-gray-900">{t.formTitle}</h2>
+        <p className="mt-2 text-gray-600">{t.formSubtitle}</p>
       </div>
 
       {error && (
@@ -47,7 +53,7 @@ function LoginForm() {
         <div className="space-y-4">
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email
+              {t.emailLabel}
             </label>
             <input
               id="email"
@@ -55,14 +61,14 @@ function LoginForm() {
               type="email"
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#0B0377] focus:border-[#0B0377]"
-              placeholder="Enter your email"
+              placeholder={t.emailPlaceholder}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>
             <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              Password
+              {t.passwordLabel}
             </label>
             <input
               id="password"
@@ -70,7 +76,7 @@ function LoginForm() {
               type="password"
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#0B0377] focus:border-[#0B0377]"
-              placeholder="Enter your password"
+              placeholder={t.passwordPlaceholder}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -86,13 +92,13 @@ function LoginForm() {
               className="h-4 w-4 text-[#0B0377] focus:ring-[#0B0377] border-gray-300 rounded"
             />
             <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-              Remember me
+              {t.rememberMe}
             </label>
           </div>
 
           <div className="text-sm">
             <a href="#" className="font-medium text-[#0B0377] hover:text-blue-900">
-              Forgot your password?
+              {t.forgotPassword}
             </a>
           </div>
         </div>
@@ -101,7 +107,7 @@ function LoginForm() {
           type="submit"
           className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#0B0377] hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0B0377]"
         >
-          Sign in
+          {t.submitButton}
         </button>
       </form>
 
@@ -138,15 +144,15 @@ function LoginForm() {
                 fill="#EA4335"
               />
             </svg>
-            Sign in with Google
+            {t.googleButton}
           </button>
         </div>
       </div>
 
       <p className="mt-2 text-center text-sm text-gray-600">
-        Don’t have an account?{" "}
+        {t.signupLinkText}{" "}
         <Link href="/signup" className="font-medium text-[#0B0377] hover:text-blue-900">
-          Sign up
+          {t.signupLink}
         </Link>
       </p>
     </div>
@@ -154,24 +160,35 @@ function LoginForm() {
 }
 
 export default function Login() {
+  const { language } = useLanguage()
+  const t = translations[language].auth.login
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Left Side - Gradient */}
-      <div className="w-full md:w-1/2 bg-gradient-to-br from-[#0B0377] to-black flex items-center justify-center text-white p-8 md:p-12 h-48 md:h-auto shrink-0">
-        <div className="max-w-md text-center md:text-left">
-          <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-6">Welcome Back</h1>
+      <div className="w-full md:w-1/2 bg-gradient-to-br from-[#0B0377] to-black flex flex-col items-center justify-center text-white p-8 md:p-12 h-48 md:h-auto shrink-0 relative">
+        <div className="flex flex-col items-center justify-center h-full w-full max-w-md text-center">
+           <div className="mb-8">
+              <Image src="/assets/3d/logo.png" alt="Mozhii Logo" width={150} height={150} className="mx-auto" />
+           </div>
+          <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-6">{t.title}</h1>
           <p className="text-sm md:text-xl text-gray-300 hidden md:block">
-            Log in to access your personalized AI assistant and continue your journey.
+            {t.subtitle}
           </p>
         </div>
       </div>
 
       {/* Right Side - Login Form */}
-      <div className="w-full md:w-1/2 flex items-center justify-center bg-white p-8 grow">
+      <motion.div 
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-full md:w-1/2 flex items-center justify-center bg-white p-8 grow relative"
+      >
         <Suspense fallback={<div>Loading...</div>}>
           <LoginForm />
         </Suspense>
-      </div>
+      </motion.div>
     </div>
   )
 }

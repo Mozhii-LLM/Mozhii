@@ -3,7 +3,11 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
+import { motion } from "framer-motion"
 import { register, googleLogin } from "@/lib/authService"
+import { useLanguage } from "@/lib/language-context"
+import { translations } from "@/lib/translations"
 
 export default function Signup() {
   const [name, setName] = useState("")
@@ -11,6 +15,8 @@ export default function Signup() {
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const router = useRouter()
+  const { language } = useLanguage()
+  const t = translations[language].auth.signup
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -25,21 +31,29 @@ export default function Signup() {
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Left Side - Gradient */}
-      <div className="w-full md:w-1/2 bg-gradient-to-br from-[#0B0377] to-black flex items-center justify-center text-white p-8 md:p-12 h-48 md:h-auto shrink-0">
-        <div className="max-w-md text-center md:text-left">
-          <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-6">Join Mozhii AI</h1>
+      <div className="w-full md:w-1/2 bg-gradient-to-br from-[#0B0377] to-black flex flex-col items-center justify-center text-white p-8 md:p-12 h-48 md:h-auto shrink-0 relative">
+        <div className="flex flex-col items-center justify-center h-full w-full max-w-md text-center">
+           <div className="mb-8">
+              <Image src="/assets/3d/logo.png" alt="Mozhii Logo" width={150} height={150} className="mx-auto" />
+           </div>
+          <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-6">{t.title}</h1>
           <p className="text-sm md:text-xl text-gray-300 hidden md:block">
-            Create an account to start your journey with the most advanced AI assistant.
+            {t.subtitle}
           </p>
         </div>
       </div>
 
       {/* Right Side - Signup Form */}
-      <div className="w-full md:w-1/2 flex items-center justify-center bg-white p-8 grow">
+      <motion.div 
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-full md:w-1/2 flex items-center justify-center bg-white p-8 grow relative"
+      >
         <div className="w-full max-w-md space-y-8">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900">Create your account</h2>
-            <p className="mt-2 text-gray-600">Get started with your free account today.</p>
+            <h2 className="text-3xl font-bold text-gray-900">{t.formTitle}</h2>
+            <p className="mt-2 text-gray-600">{t.formSubtitle}</p>
           </div>
 
           {error && (
@@ -52,7 +66,7 @@ export default function Signup() {
             <div className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                  Full Name
+                  {t.nameLabel}
                 </label>
                 <input
                   id="name"
@@ -60,14 +74,14 @@ export default function Signup() {
                   type="text"
                   required
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#0B0377] focus:border-[#0B0377]"
-                  placeholder="Enter your full name"
+                  placeholder={t.namePlaceholder}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                  Email
+                  {t.emailLabel}
                 </label>
                 <input
                   id="email"
@@ -75,14 +89,14 @@ export default function Signup() {
                   type="email"
                   required
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#0B0377] focus:border-[#0B0377]"
-                  placeholder="Enter your email"
+                  placeholder={t.emailPlaceholder}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                  Password
+                  {t.passwordLabel}
                 </label>
                 <input
                   id="password"
@@ -90,7 +104,7 @@ export default function Signup() {
                   type="password"
                   required
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#0B0377] focus:border-[#0B0377]"
-                  placeholder="Create a password"
+                  placeholder={t.passwordPlaceholder}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -101,7 +115,7 @@ export default function Signup() {
               type="submit"
               className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#0B0377] hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0B0377]"
             >
-              Sign up
+              {t.submitButton}
             </button>
           </form>
 
@@ -138,19 +152,19 @@ export default function Signup() {
                     fill="#EA4335"
                   />
                 </svg>
-                Sign up with Google
+                {t.googleButton}
               </button>
             </div>
           </div>
           
           <p className="mt-2 text-center text-sm text-gray-600">
-            Already have an account?{" "}
+            {t.loginLinkText}{" "}
             <Link href="/login" className="font-medium text-[#0B0377] hover:text-blue-900">
-              Sign in
+              {t.loginLink}
             </Link>
           </p>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

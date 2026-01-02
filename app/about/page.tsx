@@ -46,12 +46,12 @@ export default function AboutPage() {
           <div className="max-w-5xl mx-auto space-y-12">
             {/* Header */}
             <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(37,99,235,0.6)]">
-                {aboutPage.title}
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">Mozhii AI</span> <span className="text-blue-500">FAQ</span>
               </h1>
             </div>
 
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
+            <div className="bg-white/5 border border-white/20 rounded-2xl p-8 backdrop-blur-sm hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all duration-500 hover:border-blue-500/50">
               <Accordion type="single" collapsible className="w-full space-y-4">
                 {aboutPage.faqs.map((faq: { question: string; answer: string; list?: string[] }, index: number) => (
                   <AccordionItem key={index} value={`item-${index}`} className="border-white/10 px-2">

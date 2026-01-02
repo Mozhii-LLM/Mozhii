@@ -68,19 +68,8 @@ export function Pricing({
   return (
     <div className="container py-20">
       <div className="text-center space-y-4 mb-12">
-        <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-white">{title}</h2>
+        <h2 className="text-4xl md:text-5xl font-serif text-white">{title}</h2>
         <p className="text-lg text-gray-400 whitespace-pre-line">{description}</p>
-      </div>
-
-      <div className="flex justify-center mb-10">
-        <label className="relative inline-flex items-center cursor-pointer">
-          <Label>
-            <Switch ref={switchRef} checked={!isMonthly} onCheckedChange={handleToggle} className="relative" />
-          </Label>
-        </label>
-        <span className="ml-2 font-semibold text-white">
-          {annualBillingText} <span className="text-blue-400">{saveText}</span>
-        </span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

@@ -110,7 +110,7 @@ export default function HomePage() {
                       <Button
                         size="lg"
                         variant="outline"
-                        className="border-neutral-600 text-neutral-300 hover:bg-neutral-800 bg-transparent cursor-pointer"
+                        className="border-neutral-600 text-neutral-300 hover:bg-blue-600 hover:text-white hover:border-blue-600 bg-transparent cursor-pointer transition-colors duration-300"
                         aria-label="Try Mozhii AI now"
                       >
                         Try It now
@@ -189,7 +189,9 @@ export default function HomePage() {
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
                 {/* Left Content */}
                 <div className="space-y-8">
-                  <h2 className="text-4xl md:text-5xl font-serif text-white">{t.overview.title}</h2>
+                  <h2 className="text-4xl md:text-5xl font-serif text-white">
+                    Overview of <span className="text-blue-500">Mozhii</span> Model
+                  </h2>
                   <div className="space-y-6 text-neutral-300 font-sans text-lg leading-8 tracking-wide text-justify">
                     <p>{t.overview.p1}</p>
                     <p>{t.overview.p2}</p>
@@ -201,7 +203,7 @@ export default function HomePage() {
                 <div className="lg:pt-8">
                   <div className="group relative rounded-2xl overflow-hidden">
                     {/* Base Background - Darker with more black */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#0B0377]/30 via-black/60 to-[#0B0377]/20 backdrop-blur-xl border border-white/10 transition-colors duration-500 group-hover:border-blue-400/40" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0B0377]/30 via-black/60 to-[#0B0377]/20 backdrop-blur-md border border-white/10 transition-colors duration-500 group-hover:border-blue-400/40" />
                     
                     {/* Hover Gradient Effect - Smooth blue/black */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[#0B0377]/30 via-black/50 to-[#0B0377]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -288,7 +290,9 @@ export default function HomePage() {
           <div className="container mx-auto px-4">
             <FadeIn>
               <div className="text-center space-y-4 mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold text-white">{t.features.title}</h2>
+                <h2 className="text-4xl md:text-5xl font-serif drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                  <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">Our AI</span> <span className="text-blue-500">Features</span>
+                </h2>
                 <p className="text-xl text-gray-300 max-w-2xl mx-auto">{t.features.subtitle}</p>
               </div>
 
@@ -308,10 +312,10 @@ export default function HomePage() {
                   <BentoCard
                     key={card.data.title}
                     name={card.data.title}
-                    className="bg-transparent border-none shadow-none rounded-2xl"
+                    className="bg-transparent border-none shadow-none rounded-2xl backdrop-blur-none"
                     background={
                       <>
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#0B0377]/30 via-black/60 to-[#0B0377]/20 backdrop-blur-xl border border-white/10 transition-colors duration-500 group-hover:border-blue-400/40" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#0B0377]/30 via-black/60 to-[#0B0377]/20 backdrop-blur-md border border-white/10 transition-colors duration-500 group-hover:border-blue-400/40" />
                         <div className="absolute inset-0 bg-gradient-to-br from-[#0B0377]/30 via-black/50 to-[#0B0377]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         {/* Animated Bottom Line */}
                         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-in-out origin-center" />
@@ -343,7 +347,7 @@ export default function HomePage() {
 
 
         {/* Benefits Section */}
-        <section className="py-24 bg-transparent">
+        <section className="py-24 bg-transparent hidden">
           <div className="container mx-auto px-4">
             <div className="text-center space-y-4 mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white">{t.stats.title}</h2>
@@ -449,55 +453,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Team Section */}
-        <section id="team" className="py-16 md:py-24 bg-transparent">
-          <div className="container mx-auto px-4">
-            <FadeIn>
-              <div className="text-center space-y-3 md:space-y-4 mb-12 md:mb-16">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">{t.team.title}</h2>
-                <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto px-2">{t.team.subtitle}</p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-                {[
-                  { name: "Dinojan", image: "/assets/3d/logo.png", role: t.team.role },
-                  { name: "Vipooshan", image: "/assets/3d/vipi.png", role: t.team.role },
-                  { name: "Vishalini", image: "/assets/3d/logo.png", role: t.team.role },
-                  { name: "Yashwin", image: "/assets/3d/yashwin.jpg", role: t.team.role },
-                  { name: "Ridursha", image: "/assets/3d/logo.png", role: t.team.role },
-                  { name: "Vishaal", image: "/assets/3d/logo.png", role: t.team.role },
-                ].map((member) => (
-                  <div
-                    key={member.name}
-                    className="group relative rounded-2xl overflow-hidden p-4 sm:p-6 text-center cursor-pointer"
-                  >
-                    {/* Base Background */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#0B0377]/30 via-black/60 to-[#0B0377]/20 backdrop-blur-xl border border-white/10 transition-colors duration-500 group-hover:border-blue-400/40" />
-                    
-                    {/* Hover Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#0B0377]/30 via-black/50 to-[#0B0377]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                    {/* Content */}
-                    <div className="relative z-10">
-                      <div className="relative mx-auto w-24 sm:w-28 h-24 sm:h-28 rounded-full overflow-hidden bg-blue-500/10 flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 border-2 border-blue-500/30 group-hover:border-blue-400/80">
-                        <Image 
-                          src={member.image} 
-                          alt={member.name} 
-                          fill 
-                          sizes="(max-width: 640px) 96px, 112px"
-                          className="object-cover" 
-                        />
-                      </div>
-
-                      <h3 className="mt-3 sm:mt-4 text-base sm:text-lg font-semibold text-white transition-colors duration-300 group-hover:text-blue-300">{member.name}</h3>
-                      <p className="text-xs sm:text-sm text-gray-300 transition-colors duration-300 group-hover:text-blue-200">{member.role}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </FadeIn>
-          </div>
-        </section>
+        {/* Team Section Removed */}
         </div>
       </main>
 

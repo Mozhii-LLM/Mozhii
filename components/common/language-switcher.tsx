@@ -7,9 +7,9 @@ export function LanguageSwitcher({ className }: { className?: string }) {
   const { language, setLanguage } = useLanguage()
 
   const languages = [
+    { code: "tam", label: "த" },
     { code: "en", label: "EN" },
     { code: "sin", label: "සිං" },
-    { code: "tam", label: "த" },
   ] as const
 
   return (

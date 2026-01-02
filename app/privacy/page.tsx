@@ -2,6 +2,7 @@
 
 import { Navbar } from "@/components/layout/navbar"
 import { FadeIn } from "@/components/ui/fade-in"
+import { Shield, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 
 export default function PrivacyPolicy() {
@@ -10,18 +11,28 @@ export default function PrivacyPolicy() {
       <Navbar />
 
       <main className="pt-32 pb-20 container mx-auto px-4">
+        <Link href="/" className="inline-flex items-center text-gray-400 hover:text-blue-400 transition-colors mb-8 group">
+          <ArrowLeft className="h-6 w-6 mr-2 group-hover:-translate-x-1 transition-transform" />
+          <span>Back to Home</span>
+        </Link>
         <FadeIn>
           <div className="max-w-4xl mx-auto space-y-12">
             {/* Header */}
-            <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(37,99,235,0.6)]">
-                Privacy & Policy
+            <div className="text-center space-y-6">
+              <div className="flex justify-center">
+                <div className="h-20 w-20 bg-blue-500 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.4)]">
+                  <Shield className="h-10 w-10 text-white" />
+                </div>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">Privacy</span> <span className="text-blue-500">Policy</span>
               </h1>
             </div>
 
             {/* About Mozhii AI */}
             <section className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-white">About Mozhii AI</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold text-blue-500">About Mozhii AI</h2>
               <p className="text-gray-300 leading-relaxed text-lg">
                 Mozhii AI is a Tamil-focused artificial intelligence platform designed to deliver language understanding,
                 responses, and tools optimized for Tamil users. This Privacy Policy explains how Mozhii AI collects,
@@ -35,7 +46,7 @@ export default function PrivacyPolicy() {
 
             {/* Scope of This Policy */}
             <section className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-white">Scope of This Policy</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold text-blue-500">Scope of This Policy</h2>
               <p className="text-gray-300 leading-relaxed">This policy applies to:</p>
               <ul className="list-disc pl-6 space-y-2 text-gray-300">
                 <li>Website visitors</li>
@@ -51,7 +62,7 @@ export default function PrivacyPolicy() {
 
             {/* Information We Collect */}
             <section className="space-y-6">
-              <h2 className="text-2xl md:text-3xl font-semibold text-white">Information We Collect</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold text-blue-500">Information We Collect</h2>
               <p className="text-gray-300 leading-relaxed">
                 We collect information only to operate and improve Mozhii AI responsibly.
               </p>
@@ -91,7 +102,7 @@ export default function PrivacyPolicy() {
 
             {/* Purpose of Data Processing */}
             <section className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-white">Purpose of Data Processing</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold text-blue-500">Purpose of Data Processing</h2>
               <p className="text-gray-300 leading-relaxed">
                 Mozhii AI processes information for legitimate and limited purposes, including:
               </p>
@@ -110,7 +121,7 @@ export default function PrivacyPolicy() {
 
             {/* User Rights */}
             <section className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-white">User Rights</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold text-blue-500">User Rights</h2>
               <p className="text-gray-300 leading-relaxed">Depending on applicable laws, users may have the right to:</p>
               <ul className="list-disc pl-6 space-y-2 text-gray-300">
                 <li>Access their personal information</li>
@@ -125,7 +136,7 @@ export default function PrivacyPolicy() {
 
             {/* Policy Changes */}
             <section className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-white">Policy Changes</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold text-blue-500">Policy Changes</h2>
               <p className="text-gray-300 leading-relaxed">
                 This Privacy Policy may be updated periodically to reflect changes in technology, regulations, or platform
                 features. Any updates will be published on this page with a revised date.
@@ -137,7 +148,7 @@ export default function PrivacyPolicy() {
 
             {/* Contact Information */}
             <section className="space-y-6 bg-white/5 p-8 rounded-2xl border border-white/10">
-              <h2 className="text-2xl md:text-3xl font-semibold text-white">Contact Information</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold text-blue-500">Contact Information</h2>
               <div className="space-y-2 text-gray-300">
                 <p>For privacy-related questions or requests, contact:</p>
                 <div className="mt-4 space-y-1">

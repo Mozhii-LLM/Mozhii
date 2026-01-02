@@ -84,11 +84,13 @@ export function Navbar() {
 
   const navLinksData = [
     { label: t.nav.home, href: "/" },
-    { label: t.nav.about, href: "/about" },
-    { label: t.nav.features, href: "/#features" },
-    { label: t.nav.team, href: "/#team" },
+    { label: t.nav.about, href: "/mozhii" },
+    { label: t.nav.features, href: "/features" },
     { label: t.nav.plans, href: "/#plans" },
+    { label: "Benchmarks", href: "#" },
     { label: t.nav.waitlist, href: "/#waitlist" },
+    { label: t.nav.team, href: "/team" },
+    { label: "FAQ", href: "/about" },
   ]
 
   const loginButtonElement = (

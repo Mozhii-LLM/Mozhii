@@ -2,164 +2,155 @@
 
 import { Navbar } from "@/components/layout/navbar"
 import { FadeIn } from "@/components/ui/fade-in"
-import Image from "next/image"
+import { 
+  MessageSquare, 
+  Globe, 
+  RefreshCw, 
+  Users, 
+  Folder, 
+  Link as LinkIcon, 
+  Download, 
+  Mic, 
+  Shield,
+  Sparkles
+} from "lucide-react"
+import { motion } from "framer-motion"
 
-type FeatureCard = {
-  title: string
-  description: string
-  imageSrc: string
-  gridClassName: string
-  imageClassName?: string
-}
-
-const featureCards: FeatureCard[] = [
+const features = [
   {
-    title: "Tamil - Only AI Response",
-    description:
-      "Mozhii AI is built to respond primarily in high Tamil, ensuring natural language flow, cultural relevance, and clarity.",
-    imageSrc: "/assets/features/tamil-only.svg",
-    gridClassName: "lg:col-span-1 lg:row-span-2",
-    imageClassName: "object-contain object-bottom",
+    title: "Tamil-First AI",
+    description: "Mozhii AI is built to respond primarily in high-quality Tamil, ensuring natural language flow, cultural relevance, and clarity.",
+    icon: MessageSquare,
+    color: "text-blue-400",
+    gradient: "from-blue-500/20 to-blue-600/5",
+    delay: 0.1
   },
   {
-    title: "Multilingual Prompt Support (Tamil • Sinhala • English)",
-    description:
-      "Ask question in Tamil Sinhala or English. Mozhii understands all three seamlessly",
-    imageSrc: "/assets/features/multilingual.svg",
-    gridClassName: "lg:col-span-1 lg:row-span-1",
-    imageClassName: "object-contain object-center scale-95",
+    title: "Multilingual Support",
+    description: "Ask questions in Tamil, Sinhala, or English. Mozhii understands all three languages seamlessly and provides accurate responses.",
+    icon: Globe,
+    color: "text-green-400",
+    gradient: "from-green-500/20 to-green-600/5",
+    delay: 0.2
   },
   {
-    title: "Instant Language Switching",
-    description:
-      "Switch responses instantly between Tamil, Sinhala or English without restarting the conversation",
-    imageSrc: "/assets/features/language-switch.svg",
-    gridClassName: "lg:col-span-1 lg:row-span-2",
-    imageClassName: "object-contain object-bottom",
+    title: "Instant Switching",
+    description: "Switch responses instantly between Tamil, Sinhala, or English without restarting the conversation context.",
+    icon: RefreshCw,
+    color: "text-purple-400",
+    gradient: "from-purple-500/20 to-purple-600/5",
+    delay: 0.3
   },
   {
-    title: "Group Chat & Collaboration",
-    description:
-      "Collaborate with multiple users in a shared conversation - ideal for teams, students, and discussions.",
-    imageSrc: "/assets/features/group-chat.svg",
-    gridClassName: "lg:col-span-1 lg:row-span-1",
-    imageClassName: "object-contain object-center scale-90",
+    title: "Group Collaboration",
+    description: "Collaborate with multiple users in a shared conversation - ideal for teams, students, and group discussions.",
+    icon: Users,
+    color: "text-orange-400",
+    gradient: "from-orange-500/20 to-orange-600/5",
+    delay: 0.4
   },
   {
-    title: "Project Folder creation & Management",
-    description:
-      "Create dedicated AI - powered projects to organize conversations, ideas, and tasks in one workspace.",
-    imageSrc: "/assets/features/project-folder.svg",
-    gridClassName: "lg:col-span-2 lg:row-span-1",
-    imageClassName: "object-contain object-center scale-90",
+    title: "Project Management",
+    description: "Create dedicated AI-powered projects to organize conversations, ideas, and tasks in one unified workspace.",
+    icon: Folder,
+    color: "text-yellow-400",
+    gradient: "from-yellow-500/20 to-yellow-600/5",
+    delay: 0.5
   },
   {
-    title: "Share via secure Link",
-    description:
-      "Share conversations easily using a link-only sharing option, with full control over access",
-    imageSrc: "/assets/features/secure-link.svg",
-    gridClassName: "lg:col-span-1 lg:row-span-1",
-    imageClassName: "object-contain object-center scale-90",
+    title: "Secure Sharing",
+    description: "Share conversations easily using a link-only sharing option, with full control over access and permissions.",
+    icon: LinkIcon,
+    color: "text-pink-400",
+    gradient: "from-pink-500/20 to-pink-600/5",
+    delay: 0.6
   },
   {
-    title: "Download Conversations",
-    description:
-      "Export your chats in PDF or Doc format for reports, documentation or offline use.",
-    imageSrc: "/assets/features/download.svg",
-    gridClassName: "lg:col-span-1 lg:row-span-1",
-    imageClassName: "object-contain object-bottom scale-95",
+    title: "Export Chats",
+    description: "Export your conversations in PDF or Doc format for reports, documentation, or offline reference.",
+    icon: Download,
+    color: "text-cyan-400",
+    gradient: "from-cyan-500/20 to-cyan-600/5",
+    delay: 0.7
   },
   {
-    title: "Voice Assistant (Coming Soon)",
-    description:
-      "Talk to Mozhii AI using voice for hands-free, real-time Tamil AI interactions",
-    imageSrc: "/assets/features/voice.svg",
-    gridClassName: "lg:col-span-1 lg:row-span-1",
-    imageClassName: "object-contain object-center scale-90",
+    title: "Voice Assistant",
+    description: "Talk to Mozhii AI using voice for hands-free, real-time Tamil AI interactions (Coming Soon).",
+    icon: Mic,
+    color: "text-red-400",
+    gradient: "from-red-500/20 to-red-600/5",
+    delay: 0.8
   },
   {
-    title: "Data Privacy & Security",
-    description:
-      "Your conversations remain private. Mozhii.AI is designed with strong privacy protection and responsible AI practices",
-    imageSrc: "/assets/features/privacy.svg",
-    gridClassName: "lg:col-span-1 lg:row-span-1",
-    imageClassName: "object-contain object-bottom scale-95",
+    title: "Privacy & Security",
+    description: "Your conversations remain private. Mozhii.AI is designed with strong privacy protection and responsible AI practices.",
+    icon: Shield,
+    color: "text-emerald-400",
+    gradient: "from-emerald-500/20 to-emerald-600/5",
+    delay: 0.9
   },
 ]
 
-function FeatureBentoCard({ card }: { card: FeatureCard }) {
-  return (
-    <div
-      className={
-        "group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-md " +
-        "shadow-[0_0_0_1px_rgba(255,255,255,0.06)] transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05] " +
-        card.gridClassName
-      }
-    >
-      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div className="absolute -top-24 -left-24 h-64 w-64 rounded-full bg-[#0B0377]/30 blur-3xl" />
-        <div className="absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-[#0B0377]/20 blur-3xl" />
-      </div>
-
-      <div className="relative z-10 flex h-full flex-col p-6">
-        <div>
-          <h3 className="text-base md:text-lg font-semibold text-white tracking-tight">
-            {card.title}
-          </h3>
-          <p className="mt-2 text-sm md:text-[15px] text-white/65 leading-relaxed">
-            {card.description}
-          </p>
-        </div>
-
-        <div className="mt-6 flex-1 relative">
-          <div className="absolute inset-0 rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent" />
-          <div className="absolute inset-0">
-            <Image
-              src={card.imageSrc}
-              alt={card.title}
-              fill
-              className={
-                "select-none opacity-90 transition-transform duration-300 group-hover:scale-[1.02] " +
-                (card.imageClassName ?? "object-contain object-center")
-              }
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              priority={false}
-            />
-          </div>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent" />
-        </div>
-
-        <div className="mt-5 h-[2px] w-10 rounded-full bg-[#0B0377]/70 transition-all duration-300 group-hover:w-24" />
-      </div>
-    </div>
-  )
-}
-
 export default function FeaturesPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white selection:bg-blue-500/30">
       <Navbar />
-      
-      <main className="pt-32 pb-16 container mx-auto px-4">
-        <FadeIn>
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center">
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight flex flex-col items-center gap-2">
-                <span className="text-white">Discover Our</span>
-                <span className="bg-gradient-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(37,99,235,0.6)]">Mozhii AI Features</span>
-              </h1>
-              <p className="mt-5 text-sm md:text-base text-white/65 max-w-3xl mx-auto leading-relaxed">
-                From Tamil-first AI responses to multilingual prompts and collaborative tools,
-                Mozhi.AI makes intelligent conversations simple, accessible, and culturally
-                accurate.
-              </p>
-            </div>
 
-            <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[260px]">
-              {featureCards.map((card) => (
-                <FeatureBentoCard key={card.title} card={card} />
-              ))}
-            </div>
+      <main className="pt-32 pb-20 container mx-auto px-4">
+        <FadeIn>
+          <div className="text-center space-y-6 mb-20">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-medium mb-4"
+            >
+              <Sparkles className="w-4 h-4 mr-2" />
+              Powerful Features
+            </motion.div>
+            
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+              <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">Everything you need to</span> <br className="hidden md:block" />
+              <span className="text-blue-500">master languages</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+              Discover the tools that make Mozhii the most advanced Tamil LLM platform, designed for seamless communication and productivity.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: feature.delay }}
+                whileHover={{ y: -5 }}
+                className="group relative rounded-3xl border border-blue-500/30 bg-white/5 p-8 backdrop-blur-sm overflow-hidden hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transition-all duration-300"
+              >
+                {/* Hover Gradient Background */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                
+                <div className="relative z-10">
+                  <div className={`h-14 w-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ${feature.color}`}>
+                    <feature.icon className="h-7 w-7" />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors">
+                    {feature.title}
+                  </h3>
+                  
+                  <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                    {feature.description}
+                  </p>
+                </div>
+
+                {/* Decorative corner glow */}
+                <div className={`absolute -bottom-10 -right-10 w-32 h-32 bg-gradient-to-br ${feature.gradient} blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-500`} />
+              </motion.div>
+            ))}
           </div>
         </FadeIn>
       </main>

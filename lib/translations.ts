@@ -10,6 +10,40 @@ export const translations = {
       signin: "Try Now",
       signup: "Sign Up",
     },
+    auth: {
+      signup: {
+        title: "Join Mozhii AI",
+        subtitle: "Create an account to start your journey with the most advanced AI assistant.",
+        formTitle: "Create your account",
+        formSubtitle: "Get started with your free account today.",
+        nameLabel: "Full Name",
+        namePlaceholder: "Enter your full name",
+        emailLabel: "Email",
+        emailPlaceholder: "Enter your email",
+        passwordLabel: "Password",
+        passwordPlaceholder: "Create a password",
+        submitButton: "Create Account",
+        googleButton: "Sign up with Google",
+        loginLinkText: "Already have an account?",
+        loginLink: "Log in",
+      },
+      login: {
+        title: "Welcome Back",
+        subtitle: "Log in to access your personalized AI assistant and continue your journey.",
+        formTitle: "Log in to your account",
+        formSubtitle: "Welcome back! Please enter your details.",
+        emailLabel: "Email",
+        emailPlaceholder: "Enter your email",
+        passwordLabel: "Password",
+        passwordPlaceholder: "Enter your password",
+        rememberMe: "Remember me",
+        forgotPassword: "Forgot your password?",
+        submitButton: "Sign in",
+        googleButton: "Sign in with Google",
+        signupLinkText: "Don’t have an account?",
+        signupLink: "Sign up",
+      },
+    },
     hero: {
       title: "Sri Lanka's Tamil Large Language Model",
       description: "Mozhii.AI is a research-driven initiative focused on building Sri Lanka’s first Tamil Large Language Model, designed to understand local language, culture, and context.",
@@ -52,7 +86,7 @@ export const translations = {
         },
         voice: {
           title: "Instant Language Switching",
-          desc: "Awitch responses instantly between Tamil, Sinhala or English without restarting the conversation",
+          desc: "Switch responses instantly between Tamil, Sinhala or English without restarting the conversation",
           cta: "Learn more",
         },
         ethical: {
@@ -103,8 +137,8 @@ export const translations = {
       moreAbout: "More About Mozhii AI",
     },
     pricing: {
-      title: "Choose Your AI Transformation Plan",
-      description: "Flexible pricing designed to scale with your business growth\nAll plans include setup, training, and 30-day money-back guarantee",
+      title: "Choose The Plans That Suits You!",
+      description: "Features and limits may change as Mozhii AI evolves.",
       annualBilling: "Annual billing",
       save20: "(Save 20%)",
       p1: {
@@ -213,7 +247,7 @@ export const translations = {
       },
       problem: {
         title: "The Problem",
-        description: "Sri Lanka's linguistic diversity often creates communication gaps, limiting access to information and services.",
+        description: "Language is the key to understanding, but Tamil—spoken by over 80 million people worldwide—remains underrepresented in AI technology. Current AI models struggle with Tamil nuances, context, and regional dialects, leaving speakers with limited access to accurate, intelligent, and culturally-aware AI assistance.",
         cards: [
           {
             title: "Language Barriers",
@@ -230,8 +264,8 @@ export const translations = {
         ],
       },
       solution: {
-        title: "Our Solution",
-        description: "Mozhii.ai bridges the gap by using advanced AI models that deeply understand local language contexts.",
+        title: "The Solution",
+        description: "Mozhii AI bridges this gap. Using cutting-edge LLMs, RAG systems, and a dedicated Tamil data platform, we deliver a highly accurate, efficient, and context-aware AI that understands Tamil like a native. From mobile apps to web platforms, Mozhii AI empowers users with tools, insights, and automation in their own language.",
         cards: [
           {
             title: "Bilingual Proficiency",
@@ -246,6 +280,19 @@ export const translations = {
             description: "Easy-to-use interface for everyone, regardless of technical expertise.",
           },
         ],
+      },
+      vision: {
+        title: "Our Vision",
+        description: "To create an AI ecosystem where Tamil speakers can interact naturally, access knowledge seamlessly, and harness technology without language barriers—making Tamil a first-class language in the AI era."
+      },
+      mission: {
+        title: "Our Mission",
+        list: [
+          "Collect and curate high-quality Tamil data across domains.",
+          "Build intelligent AI solutions tailored for Tamil speakers.",
+          "Continuously innovate to improve language understanding, reasoning, and accessibility.",
+          "Enable both individuals and businesses to leverage AI confidently in Tamil."
+        ]
       },
       tech: {
         title: "Technology",
@@ -331,6 +378,40 @@ export const translations = {
       waitlist: "காத்திருப்புப் பட்டியல்",
       signin: "உள்நுழைக",
       signup: "பதிவு செய்க",
+    },
+    auth: {
+      signup: {
+        title: "Mozhii AI இல் இணையுங்கள்",
+        subtitle: "மிகவும் மேம்பட்ட AI உதவியாளருடன் உங்கள் பயணத்தைத் தொடங்க கணக்கை உருவாக்கவும்.",
+        formTitle: "உங்கள் கணக்கை உருவாக்கவும்",
+        formSubtitle: "இன்றே உங்கள் இலவச கணக்குடன் தொடங்கவும்.",
+        nameLabel: "முழு பெயர்",
+        namePlaceholder: "உங்கள் முழு பெயரை உள்ளிடவும்",
+        emailLabel: "மின்னஞ்சல்",
+        emailPlaceholder: "உங்கள் மின்னஞ்சலை உள்ளிடவும்",
+        passwordLabel: "கடவுச்சொல்",
+        passwordPlaceholder: "கடவுச்சொல்லை உருவாக்கவும்",
+        submitButton: "கணக்கை உருவாக்கவும்",
+        googleButton: "Google மூலம் பதிவு செய்க",
+        loginLinkText: "ஏற்கனவே கணக்கு உள்ளதா?",
+        loginLink: "உள்நுழையவும்",
+      },
+      login: {
+        title: "மீண்டும் வருக",
+        subtitle: "உங்கள் தனிப்பயனாக்கப்பட்ட AI உதவியாளரை அணுக உள்நுழையவும்.",
+        formTitle: "உங்கள் கணக்கில் உள்நுழையவும்",
+        formSubtitle: "மீண்டும் வருக! உங்கள் விவரங்களை உள்ளிடவும்.",
+        emailLabel: "மின்னஞ்சல்",
+        emailPlaceholder: "உங்கள் மின்னஞ்சலை உள்ளிடவும்",
+        passwordLabel: "கடவுச்சொல்",
+        passwordPlaceholder: "உங்கள் கடவுச்சொல்லை உள்ளிடவும்",
+        rememberMe: "என்னை நினைவில் கொள்",
+        forgotPassword: "கடவுச்சொல்லை மறந்துவிட்டீர்களா?",
+        submitButton: "உள்நுழையவும்",
+        googleButton: "Google மூலம் உள்நுழையவும்",
+        signupLinkText: "கணக்கு இல்லையா?",
+        signupLink: "பதிவு செய்க",
+      },
     },
     hero: {
       title: "இலங்கையின் தமிழ் மொழி மாதிரி",
@@ -426,7 +507,7 @@ export const translations = {
     },
     pricing: {
       title: "உங்கள் AI மாற்றத் திட்டத்தைத் தேர்வுசெய்க",
-      description: "உங்கள் வணிக வளர்ச்சியுடன் அளவிட வடிவமைக்கப்பட்ட நெகிழ்வான விலை நிர்ணயம்\nஅனைத்து திட்டங்களிலும் அமைப்பு, பயிற்சி மற்றும் 30 நாள் பணத்தை திரும்பப் பெறும் உத்தரவாதம் அடங்கும்",
+      description: "Mozhii AI உருவாகும்போது அம்சங்களும் வரம்புகளும் மாறக்கூடும்.",
       annualBilling: "வருடாந்திர கட்டணம்",
       save20: "(20% சேமிக்கவும்)",
       p1: {
@@ -535,7 +616,7 @@ export const translations = {
       },
       problem: {
         title: "பிரச்சினை",
-        description: "இலங்கையின் மொழியியல் பன்முகத்தன்மை பெரும்பாலும் தகவல் தொடர்பு இடைவெளிகளை உருவாக்குகிறது, தகவல் மற்றும் சேவைகளுக்கான அணுகலைக் கட்டுப்படுத்துகிறது.",
+        description: "மொழி என்பது புரிதலுக்கான திறவுகோல், ஆனால் உலகம் முழுவதும் 80 மில்லியனுக்கும் அதிகமான மக்களால் பேசப்படும் தமிழ் மொழி, AI தொழில்நுட்பத்தில் குறைவாகவே பிரதிநிதித்துவப்படுத்தப்படுகிறது. தற்போதைய AI மாதிரிகள் தமிழ் நுணுக்கங்கள், சூழல் மற்றும் வட்டார வழக்குகளைப் புரிந்துகொள்வதில் சிரமப்படுகின்றன, இதனால் துல்லியமான, அறிவார்ந்த மற்றும் கலாச்சார ரீதியாக விழிப்புணர்வுள்ள AI உதவியைப் பெறுவதில் தமிழ் பேசுபவர்களுக்கு வரம்புகள் உள்ளன.",
         cards: [
           {
             title: "மொழித் தடைகள்",
@@ -553,9 +634,22 @@ export const translations = {
       },
       solution: {
         title: "எங்கள் தீர்வு",
-        description: "Mozhii.ai உள்ளூர் மொழி சூழல்களை ஆழமாகப் புரிந்துகொள்ளும் மேம்பட்ட AI மாதிரிகளைப் பயன்படுத்தி இடைவெளியைக் குறைக்கிறது.",
+        description: "Mozhii AI இந்த இடைவெளியைக் குறைக்கிறது. அதிநவீன LLMகள், RAG அமைப்புகள் மற்றும் பிரத்யேக தமிழ் தரவுத் தளத்தைப் பயன்படுத்தி, தமிழைத் தாய்மொழியைப் போலப் புரிந்துகொள்ளும் மிகத் துல்லியமான, திறமையான மற்றும் சூழல் சார்ந்த AI-ஐ நாங்கள் வழங்குகிறோம். மொபைல் செயலிகள் முதல் இணையத் தளங்கள் வரை, Mozhii AI பயனர்களுக்கு அவர்களின் சொந்த மொழியில் கருவிகள், நுண்ணறிவு மற்றும் ஆட்டோமேஷன் மூலம் அதிகாரம் அளிக்கிறது.",
         cards: [
           {
+      vision: {
+        title: "எங்கள் தொலைநோக்கு",
+        description: "தமிழ் பேசுபவர்கள் இயற்கையாக உரையாடவும், அறிவை தடையின்றி அணுகவும், மொழித் தடைகள் இன்றி தொழில்நுட்பத்தைப் பயன்படுத்தவும் கூடிய ஒரு AI சுற்றுச்சூழல் அமைப்பை உருவாக்குதல்—AI சகாப்தத்தில் தமிழை முதன்மை மொழியாக மாற்றுதல்."
+      },
+      mission: {
+        title: "எங்கள் நோக்கம்",
+        list: [
+          "பல்வேறு துறைகளில் உயர்தர தமிழ் தரவுகளைச் சேகரித்து நிர்வகித்தல்.",
+          "தமிழ் பேசுபவர்களுக்காக வடிவமைக்கப்பட்ட அறிவார்ந்த AI தீர்வுகளை உருவாக்குதல்.",
+          "மொழி புரிதல், பகுத்தறிவு மற்றும் அணுகலை மேம்படுத்த தொடர்ந்து புதுமைகளைப் புகுத்துதல்.",
+          "தனிநபர்களும் வணிகங்களும் தமிழில் AI-ஐ நம்பிக்கையுடன் பயன்படுத்த உதவுதல்."
+        ]
+      },
             title: "இருமொழித் திறன்",
             description: "தமிழ் மற்றும் சிங்களம் ஆகிய இரண்டிலும் இயற்கை மொழி செயலாக்கத்திற்காக சிறப்பாகப் பயிற்றுவிக்கப்பட்டது.",
           },
@@ -568,6 +662,19 @@ export const translations = {
             description: "தொழில்நுட்ப நிபுணத்துவத்தைப் பொருட்படுத்தாமல் அனைவருக்கும் பயன்படுத்த எளிதான இடைமுகம்.",
           },
         ],
+      },
+      vision: {
+        title: "எங்கள் தொலைநோக்கு",
+        description: "தமிழ் பேசுபவர்கள் இயற்கையாக உரையாடவும், அறிவை தடையின்றி அணுகவும், மொழித் தடைகள் இன்றி தொழில்நுட்பத்தைப் பயன்படுத்தவும் கூடிய ஒரு AI சுற்றுச்சூழல் அமைப்பை உருவாக்குதல்—AI சகாப்தத்தில் தமிழை முதன்மை மொழியாக மாற்றுதல்."
+      },
+      mission: {
+        title: "எங்கள் நோக்கம்",
+        list: [
+          "பல்வேறு துறைகளில் உயர்தர தமிழ் தரவுகளைச் சேகரித்து நிர்வகித்தல்.",
+          "தமிழ் பேசுபவர்களுக்காக வடிவமைக்கப்பட்ட அறிவார்ந்த AI தீர்வுகளை உருவாக்குதல்.",
+          "மொழி புரிதல், பகுத்தறிவு மற்றும் அணுகலை மேம்படுத்த தொடர்ந்து புதுமைகளைப் புகுத்துதல்.",
+          "தனிநபர்களும் வணிகங்களும் தமிழில் AI-ஐ நம்பிக்கையுடன் பயன்படுத்த உதவுதல்."
+        ]
       },
       tech: {
         title: "தொழில்நுட்பம்",
@@ -654,6 +761,40 @@ export const translations = {
       signin: "ඇතුල් වන්න",
       signup: "ලියාපදිංචි වන්න",
     },
+    auth: {
+      signup: {
+        title: "Mozhii AI හා එක්වන්න",
+        subtitle: "වඩාත්ම දියුණු AI සහායකයා සමඟ ඔබේ ගමන ආරම්භ කිරීමට ගිණුමක් සාදන්න.",
+        formTitle: "ඔබගේ ගිණුම සාදන්න",
+        formSubtitle: "අදම ඔබගේ නොමිලේ ගිණුම සමඟ ආරම්භ කරන්න.",
+        nameLabel: "සම්පූර්ණ නම",
+        namePlaceholder: "ඔබගේ සම්පූර්ණ නම ඇතුළත් කරන්න",
+        emailLabel: "විද්යුත් තැපෑල",
+        emailPlaceholder: "ඔබගේ විද්යුත් තැපෑල ඇතුළත් කරන්න",
+        passwordLabel: "මුරපදය",
+        passwordPlaceholder: "මුරපදයක් සාදන්න",
+        submitButton: "ගිණුම සාදන්න",
+        googleButton: "Google සමඟ ලියාපදිංචි වන්න",
+        loginLinkText: "දැනටමත් ගිණුමක් තිබේද?",
+        loginLink: "ලොග් වන්න",
+      },
+      login: {
+        title: "නැවත සාදරයෙන් පිළිගනිමු",
+        subtitle: "ඔබගේ පුද්ගලීකරණය කළ AI සහායකයා වෙත ප්‍රවේශ වීමට ලොග් වන්න.",
+        formTitle: "ඔබගේ ගිණුමට ලොග් වන්න",
+        formSubtitle: "නැවත සාදරයෙන් පිළිගනිමු! කරුණාකර ඔබගේ විස්තර ඇතුළත් කරන්න.",
+        emailLabel: "විද්යුත් තැපෑල",
+        emailPlaceholder: "ඔබගේ විද්යුත් තැපෑල ඇතුළත් කරන්න",
+        passwordLabel: "මුරපදය",
+        passwordPlaceholder: "ඔබගේ මුරපදය ඇතුළත් කරන්න",
+        rememberMe: "මාව මතක තබා ගන්න",
+        forgotPassword: "මුරපදය අමතකද?",
+        submitButton: "ලොග් වන්න",
+        googleButton: "Google සමඟ ලොග් වන්න",
+        signupLinkText: "ගිණුමක් නොමැතිද?",
+        signupLink: "ලියාපදිංචි වන්න",
+      },
+    },
     hero: {
       title: "ශ්‍රී ලංකාවේ දෙමළ භාෂා ආකෘතිය",
       description: "Mozhii.AI යනු දේශීය භාෂාව, සංස්කෘතිය සහ සන්දර්භය අවබෝධ කර ගැනීම සඳහා නිර්මාණය කර ඇති ශ්‍රී ලංකාවේ පළමු දෙමළ විශාල භාෂා ආකෘතිය ගොඩනැගීම කෙරෙහි අවධානය යොමු කරන පර්යේෂණ-මෙහෙයවන මුලපිරීමකි.",
@@ -682,7 +823,7 @@ export const translations = {
     },
     features: {
       title: "අපගේ AI විශේෂාංග",
-      subtitle: "ඔබගේ ව්‍යාපාරික කටයුතු පරිවර්තනය කිරීම සඳහා නිර්මාණය කර ඇති පුළුල් AI සේවාවන්",
+      subtitle: "Mozhii AI පරිණාමය වන විට විශේෂාංග සහ සීමාවන් වෙනස් විය හැක.",
       cards: {
         content: {
           title: "දෙමළ-පළමු AI ප්‍රතිචාර",
@@ -890,6 +1031,19 @@ export const translations = {
             description: "සෑම කෙනෙකුටම භාවිතා කිරීමට පහසු අතුරු මුහුණතක්, තාක්ෂණික දැනුම නොසලකා.",
           },
         ],
+      },
+      vision: {
+        title: "Our Vision",
+        description: "To create an AI ecosystem where Tamil speakers can interact naturally, access knowledge seamlessly, and harness technology without language barriers—making Tamil a first-class language in the AI era."
+      },
+      mission: {
+        title: "Our Mission",
+        list: [
+          "Collect and curate high-quality Tamil data across domains.",
+          "Build intelligent AI solutions tailored for Tamil speakers.",
+          "Continuously innovate to improve language understanding, reasoning, and accessibility.",
+          "Enable both individuals and businesses to leverage AI confidently in Tamil."
+        ]
       },
       tech: {
         title: "තාක්ෂණය",

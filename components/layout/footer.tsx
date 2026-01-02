@@ -9,10 +9,13 @@ export function Footer() {
   const { t } = useLanguage()
 
   return (
-    <footer id="contact" className="relative py-20 bg-black">
+    <footer id="contact" className="relative py-20 bg-black overflow-hidden">
         {/* Top Glow Line */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-900/50 to-transparent" />
         <div className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent shadow-[0_-4px_25px_rgba(96,165,250,0.6)]" />
+        
+        {/* Half Circle Blue Glow */}
+        <div className="absolute -top-48 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-blue-600/40 blur-[120px] rounded-full pointer-events-none" />
 
         {/* Slight footer overlay so footer content remains readable while letting the global gradient show through */}
         <div className="absolute inset-0 bg-gradient-to-t from-transparent via-black/20 to-black/40 pointer-events-none" />
@@ -76,11 +79,6 @@ export function Footer() {
               </div>
 
               <div className="mt-6 space-y-2">
-                <p className="text-sm text-gray-400">{t.hero.comingSoon}</p>
-                <div className="flex space-x-2">
-                  <Image src="/app-store.png" alt="Download on the App Store" width={120} height={40} className="h-10 w-auto object-contain" />
-                  <Image src="/google-play.png" alt="Get it on Google Play" width={135} height={40} className="h-10 w-auto object-contain" />
-                </div>
               </div>
             </div>
 
