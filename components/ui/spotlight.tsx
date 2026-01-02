@@ -69,6 +69,7 @@ export function Spotlight({ className, size = 200, springOptions = { bounce: 0 }
         height: size,
         left: spotlightLeft,
         top: spotlightTop,
+        willChange: "transform, opacity", // Optimize for GPU
       }}
     />
   )

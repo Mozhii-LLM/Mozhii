@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Spotlight } from "@/components/ui/spotlight"
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid"
@@ -74,12 +75,12 @@ export default function HomePage() {
                   className="flex-1 p-6 md:p-8 relative z-10 flex flex-col justify-center text-center lg:text-left"
                 >
                   <div className="flex flex-col">
-                    <span className={cn(
+                    <h1 className={cn(
                       "text-white font-serif",
                       isTamil ? "text-4xl md:text-5xl lg:text-6xl tracking-normal leading-tight" : "text-5xl md:text-6xl lg:text-7xl tracking-wide"
                     )}>
                       Sri Lanka&apos;s
-                    </span>
+                    </h1>
                     <span className={cn(
                       "mt-2 text-neutral-300 font-serif",
                       isTamil ? "text-lg md:text-2xl lg:text-3xl tracking-normal leading-snug" : "text-xl md:text-3xl lg:text-4xl tracking-widest"
@@ -100,6 +101,7 @@ export default function HomePage() {
                       size="lg" 
                       className="bg-white text-black hover:bg-gray-100"
                       onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                      aria-label={t.hero.joinWaitlist}
                     >
                       {t.hero.joinWaitlist}
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -109,6 +111,7 @@ export default function HomePage() {
                         size="lg"
                         variant="outline"
                         className="border-neutral-600 text-neutral-300 hover:bg-neutral-800 bg-transparent cursor-pointer"
+                        aria-label="Try Mozhii AI now"
                       >
                         Try It now
                       </Button>
@@ -327,6 +330,7 @@ export default function HomePage() {
                   <Button 
                     size="lg"
                     className="bg-[#0B0377] hover:bg-[#0B0377]/80 text-white rounded-xl px-12 py-8 text-xl font-medium shadow-[0_0_20px_rgba(11,3,119,0.3)] hover:shadow-[0_0_30px_rgba(11,3,119,0.6)] transition-all duration-300 transform hover:scale-105"
+                    aria-label="Explore all features"
                   >
                     Explore Features
                   </Button>
@@ -385,6 +389,7 @@ export default function HomePage() {
                 <Button 
                   size="lg"
                   className="bg-[#0B0377] hover:bg-[#0B0377]/80 text-white rounded-xl px-12 py-8 text-xl font-medium shadow-[0_0_20px_rgba(11,3,119,0.3)] hover:shadow-[0_0_30px_rgba(11,3,119,0.6)] transition-all duration-300 transform hover:scale-105"
+                  aria-label={t.stats.moreAbout}
                 >
                   {t.stats.moreAbout}
                 </Button>
@@ -474,8 +479,14 @@ export default function HomePage() {
 
                     {/* Content */}
                     <div className="relative z-10">
-                      <div className="mx-auto w-24 sm:w-28 h-24 sm:h-28 rounded-full overflow-hidden bg-blue-500/10 flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 border-2 border-blue-500/30 group-hover:border-blue-400/80">
-                        <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                      <div className="relative mx-auto w-24 sm:w-28 h-24 sm:h-28 rounded-full overflow-hidden bg-blue-500/10 flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 border-2 border-blue-500/30 group-hover:border-blue-400/80">
+                        <Image 
+                          src={member.image} 
+                          alt={member.name} 
+                          fill 
+                          sizes="(max-width: 640px) 96px, 112px"
+                          className="object-cover" 
+                        />
                       </div>
 
                       <h3 className="mt-3 sm:mt-4 text-base sm:text-lg font-semibold text-white transition-colors duration-300 group-hover:text-blue-300">{member.name}</h3>

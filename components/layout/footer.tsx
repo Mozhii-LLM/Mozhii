@@ -27,6 +27,7 @@ export function Footer() {
                     src="/icon.png"
                     alt="Mozhii AI Logo"
                     fill
+                    sizes="(max-width: 768px) 80px, 64px"
                     className="object-contain"
                   />
                 </div>
@@ -38,6 +39,7 @@ export function Footer() {
                   href="https://www.linkedin.com/company/mozhii-ai/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3Bkzajbj5dSYeZfNQu6TUArw%3D%3D"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="LinkedIn"
                   className="p-2 bg-blue-500/10 backdrop-blur-sm border border-blue-500/30 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/60 transition-all duration-300"
                 >
                   <Linkedin className="h-5 w-5" />
@@ -46,6 +48,7 @@ export function Footer() {
                   href="https://www.instagram.com/mozhii.ai?igsh=NW55ajVoc3gwOHdt"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Instagram"
                   className="p-2 bg-blue-500/10 backdrop-blur-sm border border-blue-500/30 rounded-lg text-gray-400 hover:text-pink-500 hover:bg-pink-500/20 hover:border-pink-500/60 transition-all duration-300"
                 >
                   <Instagram className="h-5 w-5" />
@@ -54,6 +57,7 @@ export function Footer() {
                   href="https://www.youtube.com/@Mozhiiai"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="YouTube"
                   className="p-2 bg-blue-500/10 backdrop-blur-sm border border-blue-500/30 rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-500/20 hover:border-red-500/60 transition-all duration-300"
                 >
                   <Youtube className="h-5 w-5" />
@@ -62,6 +66,7 @@ export function Footer() {
                   href="https://www.google.com/search?sca_esv=90ecd7b778e2c380&sxsrf=AE3TifPZJXfnFERBX9OpTj_3hGuY0IkVJw%3A1767096845929&q=Mozhii&stick=H4sIAAAAAAAAAONgU1I1qLAwNTUwTrQwS0o1NzA0S02xMqgwM0g1sDQ1Nk0yMjczN0w1WsTK5ptflZGZCQAM9qpHMgAAAA&mat=CRm6Me8_iIMk&ved=2ahUKEwip_aPepOWRAxXiRmwGHRpLF0gQrMcEegQIHRAC"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Google Business Profile"
                   className="p-2 bg-blue-500/10 backdrop-blur-sm border border-blue-500/30 rounded-lg text-gray-400 hover:text-white hover:bg-white/20 hover:border-white/60 transition-all duration-300"
                 >
                   <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">

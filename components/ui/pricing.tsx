@@ -7,8 +7,7 @@ import { useMediaQuery } from "@/hooks/use-media-query"
 import { cn } from "@/lib/utils"
 import { Check } from "lucide-react"
 import Link from "next/link"
-import { useState, useRef } from "react"
-import confetti from "canvas-confetti"
+import { useState, useRef, useEffect } from "react"
 
 interface PricingPlan {
   name: string
@@ -41,13 +40,14 @@ export function Pricing({
   const isDesktop = useMediaQuery("(min-width: 768px)")
   const switchRef = useRef<HTMLButtonElement>(null)
 
-  const handleToggle = (checked: boolean) => {
+  const handleToggle = async (checked: boolean) => {
     setIsMonthly(!checked)
     if (checked && switchRef.current) {
       const rect = switchRef.current.getBoundingClientRect()
       const x = rect.left + rect.width / 2
       const y = rect.top + rect.height / 2
 
+      const confetti = (await import("canvas-confetti")).default
       confetti({
         particleCount: 50,
         spread: 60,

@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Trigger rebuild
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  // Ensure source maps are disabled in production to prevent code exposure
+  productionBrowserSourceMaps: false,
+  // Enable image optimization for better performance
   images: {
-    unoptimized: true,
+    unoptimized: false,
   },
 }
 
