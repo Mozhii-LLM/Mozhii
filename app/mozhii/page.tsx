@@ -3,7 +3,7 @@
 import { Navbar } from "@/components/layout/navbar"
 import { FadeIn } from "@/components/ui/fade-in"
 import { Card, CardContent } from "@/components/ui/card"
-import { BrainCircuit, Database, Globe, MessageSquareWarning, Search, ShieldCheck, Smartphone, WifiOff, Languages, HeartHandshake, Accessibility } from "lucide-react"
+import { Globe, MessageSquareWarning, Smartphone, WifiOff, Languages, HeartHandshake, Accessibility } from "lucide-react"
 import Image from "next/image"
 import { useLanguage } from "@/lib/language-context"
 

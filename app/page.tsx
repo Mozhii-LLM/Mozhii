@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Spotlight } from "@/components/ui/spotlight"
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid"
@@ -410,8 +409,6 @@ export default function HomePage() {
                 <Pricing
                   title={t.pricing.title}
                   description={t.pricing.description}
-                  annualBillingText={t.pricing.annualBilling}
-                  saveText={t.pricing.save20}
                   plans={[
                     {
                       name: t.pricing.p1.name,

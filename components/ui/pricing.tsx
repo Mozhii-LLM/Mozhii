@@ -1,13 +1,11 @@
 "use client"
 
 import { buttonVariants } from "@/components/ui/button"
-import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import { cn } from "@/lib/utils"
 import { Check } from "lucide-react"
 import Link from "next/link"
-import { useState, useRef } from "react"
+import { useState } from "react"
 
 interface PricingPlan {
   name: string
@@ -25,45 +23,15 @@ interface PricingProps {
   plans: PricingPlan[]
   title?: string
   description?: string
-  annualBillingText?: string
-  saveText?: string
 }
 
 export function Pricing({
   plans,
   title = "Simple, Transparent Pricing",
   description = "Choose the plan that works for you\nAll plans include access to our platform, lead generation tools, and dedicated support.",
-  annualBillingText = "Annual billing",
-  saveText = "(Save 20%)",
 }: PricingProps) {
-  const [isMonthly, setIsMonthly] = useState(true)
+  const [isMonthly] = useState(true)
   const isDesktop = useMediaQuery("(min-width: 768px)")
-  const switchRef = useRef<HTMLButtonElement>(null)
-
-  const handleToggle = async (checked: boolean) => {
-    setIsMonthly(!checked)
-    if (checked && switchRef.current) {
-      const rect = switchRef.current.getBoundingClientRect()
-      const x = rect.left + rect.width / 2
-      const y = rect.top + rect.height / 2
-
-      const confetti = (await import("canvas-confetti")).default
-      confetti({
-        particleCount: 50,
-        spread: 60,
-        origin: {
-          x: x / window.innerWidth,
-          y: y / window.innerHeight,
-        },
-        colors: ["hsl(var(--primary))", "hsl(var(--accent))", "hsl(var(--secondary))", "hsl(var(--muted))"],
-        ticks: 200,
-        gravity: 1.2,
-        decay: 0.94,
-        startVelocity: 30,
-        shapes: ["circle"],
-      })
-    }
-  }
 
   return (
     <div className="container py-20">
