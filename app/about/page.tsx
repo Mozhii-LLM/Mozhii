@@ -53,7 +53,7 @@ export default function AboutPage() {
 
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
               <Accordion type="single" collapsible className="w-full space-y-4">
-                {aboutPage.faqs.map((faq: { question: string; answer: string }, index: number) => (
+                {aboutPage.faqs.map((faq: { question: string; answer: string; list?: string[] }, index: number) => (
                   <AccordionItem key={index} value={`item-${index}`} className="border-white/10 px-2">
                     <CustomAccordionTrigger className="text-white hover:no-underline">
                       {faq.question}

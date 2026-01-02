@@ -78,8 +78,8 @@ export function Footer() {
               <div className="mt-6 space-y-2">
                 <p className="text-sm text-gray-400">{t.hero.comingSoon}</p>
                 <div className="flex space-x-2">
-                  <img src="/app-store.png" alt="Download on the App Store" className="h-10 w-auto object-contain" />
-                  <img src="/google-play.png" alt="Get it on Google Play" className="h-10 w-auto object-contain" />
+                  <Image src="/app-store.png" alt="Download on the App Store" width={120} height={40} className="h-10 w-auto object-contain" />
+                  <Image src="/google-play.png" alt="Get it on Google Play" width={135} height={40} className="h-10 w-auto object-contain" />
                 </div>
               </div>
             </div>

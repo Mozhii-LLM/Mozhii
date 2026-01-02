@@ -11,6 +11,7 @@ import { FooterWrapper } from '@/components/layout/footer-wrapper'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://mozhii.online'),
   title: {
     default: 'Mozhii.AI - Sri Lanka\'s Tamil Large Language Model',
     template: '%s | Mozhii.AI',
