@@ -9,7 +9,7 @@ export function Footer() {
   const { t } = useLanguage()
 
   return (
-    <footer id="contact" className="relative py-20 bg-black overflow-hidden">
+    <footer id="contact" className="relative py-10 bg-black overflow-hidden">
         {/* Top Glow Line */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-900/50 to-transparent" />
         <div className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent shadow-[0_-4px_25px_rgba(96,165,250,0.6)]" />

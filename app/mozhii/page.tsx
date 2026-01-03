@@ -58,8 +58,8 @@ export default function MozhiiPage() {
 
             {/* Our Solution */}
             <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-blue-500">{mozhiiPage.solution.title}</h2>
-              <p className="text-gray-300 text-lg max-w-3xl text-justify">{mozhiiPage.solution.description}</p>
+              <h2 className="text-3xl font-bold text-blue-500 text-right">{mozhiiPage.solution.title}</h2>
+              <p className="text-gray-300 text-lg max-w-3xl text-right ml-auto">{mozhiiPage.solution.description}</p>
               <div className="grid md:grid-cols-3 gap-6">
                 {mozhiiPage.solution.cards.map((card, index) => (
                   <div key={index} className="group relative rounded-2xl overflow-hidden">
@@ -89,13 +89,17 @@ export default function MozhiiPage() {
 
             {/* Our Vision */}
             <section className="space-y-6 text-center">
-              <h2 className="text-3xl font-bold text-blue-500">{mozhiiPage.vision.title}</h2>
-              <p className="text-gray-300 text-lg max-w-3xl mx-auto text-justify">{mozhiiPage.vision.description}</p>
+              <h2 className="text-4xl font-bold">
+                <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">Our</span> <span className="text-blue-500">Vision</span>
+              </h2>
+              <p className="text-gray-300 text-lg max-w-3xl mx-auto text-center">{mozhiiPage.vision.description}</p>
             </section>
 
             {/* Our Mission */}
             <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-blue-500 text-center">{mozhiiPage.mission.title}</h2>
+              <h2 className="text-4xl font-bold text-center">
+                <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">Our</span> <span className="text-blue-500">Mission</span>
+              </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {mozhiiPage.mission.list.map((item: string, index: number) => (
                   <div key={index} className="group relative rounded-2xl overflow-hidden">
@@ -117,7 +121,9 @@ export default function MozhiiPage() {
             <section className="space-y-20 font-sans">
               {/* Core Platform */}
               <section className="space-y-6">
-                <h2 className="text-3xl font-bold text-blue-500">Core Platform</h2>
+                <h2 className="text-4xl font-bold">
+                  <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">Core</span> <span className="text-blue-500">Platform</span>
+                </h2>
                 <div className="grid md:grid-cols-2 gap-10 items-center">
                   <div className="space-y-4">
                     <div className="group relative rounded-2xl overflow-hidden">

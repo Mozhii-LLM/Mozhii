@@ -87,7 +87,7 @@ export function Navbar() {
     { label: t.nav.about, href: "/mozhii" },
     { label: t.nav.features, href: "/features" },
     { label: t.nav.plans, href: "/#plans" },
-    { label: "Benchmarks", href: "#" },
+    { label: "Benchmarks", href: "/benchmarks" },
     { label: t.nav.waitlist, href: "/#waitlist" },
     { label: t.nav.team, href: "/team" },
     { label: "FAQ", href: "/about" },

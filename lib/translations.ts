@@ -52,7 +52,7 @@ export const translations = {
       comingSoon: "Coming Soon...",
       cards: [
         { title: "Expected Release", value: "Q1 2026" },
-        { title: "Potential Version", value: "Mozhii - Lite" },
+        { title: "Mozhii -lite", value: "Beta Version" },
         { title: "Key Advantage", value: "Natural Tamil Response" },
         { title: "Status", value: "In Development", active: "Active" },
       ],
@@ -64,8 +64,8 @@ export const translations = {
       p3: "Designed for web and mobile platforms, Mozhii AI aims to democratize access to intelligent Tamil language assistance for education, daily information needs, and digital empowerment across communities.",
       quickFacts: {
         title: "Quick Facts",
-        f1: { label: "Model Name", value: "Mozhii Lite" },
-        f2: { label: "Focus Area", value: "Tamil Only Response" },
+        f1: { label: "Model Name", value: "Mozhii-Lite v01" },
+        f2: { label: "Focus Area", value: "Natural Tamil Response" },
         f3: { label: "Est. Release", value: "Early 2026" },
         f4: { label: "Status", value: "In Development" },
       },
@@ -246,7 +246,7 @@ export const translations = {
         learnMore: "Learn More",
       },
       problem: {
-        title: "The Problem",
+        title: "Problem",
         description: "Language is the key to understanding, but Tamil—spoken by over 80 million people worldwide—remains underrepresented in AI technology. Current AI models struggle with Tamil nuances, context, and regional dialects, leaving speakers with limited access to accurate, intelligent, and culturally-aware AI assistance.",
         cards: [
           {
@@ -264,7 +264,7 @@ export const translations = {
         ],
       },
       solution: {
-        title: "The Solution",
+        title: "Solution",
         description: "Mozhii AI bridges this gap. Using cutting-edge LLMs, RAG systems, and a dedicated Tamil data platform, we deliver a highly accurate, efficient, and context-aware AI that understands Tamil like a native. From mobile apps to web platforms, Mozhii AI empowers users with tools, insights, and automation in their own language.",
         cards: [
           {
@@ -421,7 +421,7 @@ export const translations = {
       comingSoon: "விரைவில் வருகிறது...",
       cards: [
         { title: "எதிர்பார்க்கப்படும் வெளியீடு", value: "Q1 2026" },
-        { title: "சாத்தியமான பதிப்பு", value: "Mozhii - Lite" },
+        { title: "Mozhii -lite", value: "Beta Version" },
         { title: "முக்கிய நன்மை", value: "இயற்கையான தமிழ் பதில்" },
         { title: "நிலை", value: "உருவாக்கத்தில் உள்ளது", active: "செயலில்" },
       ],
@@ -433,8 +433,8 @@ export const translations = {
       p3: "வலை மற்றும் மொபைல் தளங்களுக்காக வடிவமைக்கப்பட்ட Mozhii AI, கல்வி, அன்றாடத் தகவல் தேவைகள் மற்றும் சமூகங்கள் முழுவதும் டிஜிட்டல் அதிகாரமளித்தல் ஆகியவற்றிற்கான அறிவார்ந்த தமிழ் மொழி உதவிக்கான அணுகலை ஜனநாயகப்படுத்துவதை நோக்கமாகக் கொண்டுள்ளது.",
       quickFacts: {
         title: "விரைவு உண்மைகள்",
-        f1: { label: "மாதிரி பெயர்", value: "Mozhii Lite" },
-        f2: { label: "கவனம் செலுத்தும் பகுதி", value: "தமிழ் பதில் மட்டும்" },
+        f1: { label: "மாதிரி பெயர்", value: "Mozhii-Lite v01" },
+        f2: { label: "கவனம் செலுத்தும் பகுதி", value: "Natural Tamil Response" },
         f3: { label: "எதிர்பார்க்கப்படும் வெளியீடு", value: "2026 ஆரம்பத்தில்" },
         f4: { label: "நிலை", value: "உருவாக்கத்தில் உள்ளது" },
       },
@@ -803,7 +803,7 @@ export const translations = {
       comingSoon: "ළඟදීම...",
       cards: [
         { title: "අපේක්ෂිත නිකුතුව", value: "Q1 2026" },
-        { title: "විභව අනුවාදය", value: "Mozhii - Lite" },
+        { title: "Mozhii -lite", value: "Beta Version" },
         { title: "ප්‍රධාන වාසිය", value: "ස්වභාවික දෙමළ ප්‍රතිචාරය" },
         { title: "තත්ත්වය", value: "සංවර්ධනය වෙමින් පවතී", active: "සක්‍රීය" },
       ],
@@ -815,8 +815,8 @@ export const translations = {
       p3: "වෙබ් සහ ජංගම වේදිකා සඳහා නිර්මාණය කර ඇති Mozhii AI, අධ්‍යාපනය, දෛනික තොරතුරු අවශ්‍යතා සහ ප්‍රජාවන් හරහා ඩිජිටල් සවිබල ගැන්වීම සඳහා බුද්ධිමත් දෙමළ භාෂා සහාය සඳහා ප්‍රවේශය ප්‍රජාතන්ත්‍රවාදී කිරීම අරමුණු කරයි.",
       quickFacts: {
         title: "කෙටි කරුණු",
-        f1: { label: "ආකෘතියේ නම", value: "Mozhii Lite" },
-        f2: { label: "අවධානය යොමු කරන ප්‍රදේශය", value: "දෙමළ ප්‍රතිචාරය පමණි" },
+        f1: { label: "ආකෘතියේ නම", value: "Mozhii-Lite v01" },
+        f2: { label: "අවධානය යොමු කරන ප්‍රදේශය", value: "Natural Tamil Response" },
         f3: { label: "නිකුත් කිරීමට අපේක්ෂිත", value: "2026 මුල" },
         f4: { label: "තත්ත්වය", value: "සංවර්ධනය වෙමින් පවතී" },
       },

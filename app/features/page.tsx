@@ -12,7 +12,13 @@ import {
   Download, 
   Mic, 
   Shield,
-  Sparkles
+  Sparkles,
+  Database,
+  CheckCircle,
+  UploadCloud,
+  Building2,
+  Sliders,
+  Code
 } from "lucide-react"
 import { motion } from "framer-motion"
 
@@ -91,6 +97,60 @@ const features = [
   },
 ]
 
+const additionalFeatures = [
+  {
+    title: "Knowledge-Augmented Responses (RAG)",
+    description: "Mozhii AI retrieves answers from trusted knowledge sources to provide accurate, grounded, and up-to-date Tamil responses.",
+    icon: Database,
+    color: "text-indigo-400",
+    gradient: "from-indigo-500/20 to-indigo-600/5",
+    delay: 0.1
+  },
+  {
+    title: "Low Hallucination Design",
+    description: "Optimized to reduce incorrect or made-up answers, ensuring reliable and trustworthy information for Tamil users.",
+    icon: CheckCircle,
+    color: "text-teal-400",
+    gradient: "from-teal-500/20 to-teal-600/5",
+    delay: 0.2
+  },
+  {
+    title: "Custom Knowledge Upload",
+    description: "Upload documents, PDFs, or notes in Tamil or English and ask Mozhii AI questions based on your own data.",
+    icon: UploadCloud,
+    color: "text-sky-400",
+    gradient: "from-sky-500/20 to-sky-600/5",
+    delay: 0.3
+  },
+  {
+    
+
+
+    title: "AI Image Generation",
+    description: "Generate high-quality images from text prompts for design, education, marketing, and creative use cases.",
+    icon: Building2,
+    color: "text-slate-400",
+    gradient: "from-slate-500/20 to-slate-600/5",
+    delay: 0.4
+  },
+  {
+    title: "Personalized Response Tone",
+    description: "Choose how Mozhii AI responds — formal, friendly, educational, or professional — in Tamil.",
+    icon: Sliders,
+    color: "text-rose-400",
+    gradient: "from-rose-500/20 to-rose-600/5",
+    delay: 0.5
+  },
+  {
+    title: "Developer-Friendly APIs",
+    description: "Integrate Mozhii AI into websites, mobile apps, and internal systems using secure and scalable APIs.",
+    icon: Code,
+    color: "text-violet-400",
+    gradient: "from-violet-500/20 to-violet-600/5",
+    delay: 0.6
+  },
+]
+
 export default function FeaturesPage() {
   return (
     <div className="min-h-screen bg-black text-white selection:bg-blue-500/30">
@@ -121,6 +181,47 @@ export default function FeaturesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: feature.delay }}
+                whileHover={{ y: -5 }}
+                className="group relative rounded-3xl border border-blue-500/30 bg-white/5 p-8 backdrop-blur-sm overflow-hidden hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transition-all duration-300"
+              >
+                {/* Hover Gradient Background */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                
+                <div className="relative z-10">
+                  <div className={`h-14 w-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ${feature.color}`}>
+                    <feature.icon className="h-7 w-7" />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors">
+                    {feature.title}
+                  </h3>
+                  
+                  <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                    {feature.description}
+                  </p>
+                </div>
+
+                {/* Decorative corner glow */}
+                <div className={`absolute -bottom-10 -right-10 w-32 h-32 bg-gradient-to-br ${feature.gradient} blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-500`} />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Additional Features Section */}
+          <div className="mt-32 text-center space-y-6 mb-20">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+              <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">Additional</span> <span className="text-blue-500">Features</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {additionalFeatures.map((feature) => (
               <motion.div
                 key={feature.title}
                 initial={{ opacity: 0, y: 20 }}
